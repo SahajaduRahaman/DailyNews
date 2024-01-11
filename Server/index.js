@@ -10,7 +10,7 @@ connectToDatabase()
 
 env.config()
 
-const PORT = process.env.PORT || 4040
+const PORT = process.env.PORT || 4090
 
 
 app.use(cors())
