@@ -37,7 +37,7 @@ router.put("/:id", FetchUser, async (req, res) => {
         }
 
         if (updatedNews.reporter.toString() !== req.reporter.id) {
-            return res.status(404).send("User not allowed to update.")
+            return res.status(401).send("User not allowed to update.")
         }
 
         updatedNews = await News.findByIdAndUpdate(req.params.id, currentNews)

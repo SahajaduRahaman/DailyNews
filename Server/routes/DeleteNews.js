@@ -15,7 +15,7 @@ router.delete("/:id", FetchUser, async (req, res) => {
         }
 
         if (news.reporter.toString() !== reporterID) {
-            return res.status(404).send("User not allowed.")
+            return res.status(401).send("User not allowed.")
         }
 
         news = await News.findByIdAndDelete(req.params.id)
