@@ -37,6 +37,7 @@ const Dashboard = () => {
         </div>
         <div className="dash-right">
           <h3>{authToken}</h3>
+          <p>login successfull.</p>
           <Outlet />
         </div>
       </div>
