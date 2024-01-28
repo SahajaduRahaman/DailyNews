@@ -1,0 +1,80 @@
+.dashboard-container {
+    display: flex;
+    justify-content: center;
+    height: 75vh;
+}
+
+.dash-left {
+    padding: 15px 15px 15px 15px;
+    width: 15%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    gap: 10px;
+    background-color: rgb(75, 75, 75);
+}
+
+.dashboard-link {
+    padding: 5px;
+    text-decoration: none;
+    border-radius: 8px;
+    text-align: center;
+    font-size: larger;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+}
+
+.dashboard-link:hover {
+    background-color: rgb(45, 155, 95);
+    box-shadow: rgb(20, 19, 19) 0px 15px 30px -10px;
+    border-radius: 8px;
+    color: rgb(2, 2, 2);
+}
+
+
+.dash-left button {
+    padding: 5px;
+    border-radius: 8px;
+    text-align: center;
+    font-size: medium;
+    border: none;
+    color: white;
+    background-color: #2e4db1;
+    box-shadow: rgba(0, 0, 0, 0.07) 0px 1px 2px, rgba(0, 0, 0, 0.07) 0px 2px 4px, rgba(0, 0, 0, 0.07) 0px 4px 8px, rgba(0, 0, 0, 0.07) 0px 8px 16px, rgba(0, 0, 0, 0.07) 0px 16px 32px, rgba(0, 0, 0, 0.07) 0px 32px 64px;
+}
+
+.dash-left button:hover {
+    background-color: #af2727;
+    color: black;
+}
+
+.dash-right {
+    width: 82%;
+    padding: 15px 15px 15px 15px;
+    border: 1px solid black;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    gap: 20px;
+}
+
+.dashboard-profile {
+    height: 80vh;
+    border: 1px solid rgb(4, 121, 136);
+}
+
+.dashboard-addnews {
+    height: 80vh;
+    border: 1px solid rgb(136, 204, 9);
+}
+
+
+
+.dashboard-admin-news {
+    height: 80vh;
+    border: 1px solid rgb(247, 0, 255);
+}

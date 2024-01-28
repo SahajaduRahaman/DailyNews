@@ -1,0 +1,67 @@
+.newsCard-box {
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    margin: 15px 15px 15px 0;
+}
+
+.newsCard-images {
+    position: relative;
+}
+
+.newsCard-box img {
+    width: 100%;
+    max-height: 150px;
+    object-fit: fill;
+}
+
+.newsCard-text {
+    padding: 10px;
+}
+
+.newsCard-text a {
+    color: black;
+}
+
+.newsCard-text .newsCard-title{
+    font-size: 16px;
+    font-weight: 900;
+}
+
+.newsCard-date {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.newsCard-category {
+    color: #fff;
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 2px;
+    padding: 5px 10px;
+    text-transform: uppercase;
+    background: linear-gradient(90deg,#045f22 50%,#e00909 0);
+    background-position: 100% 100%;
+    background-size: 200% 100%;
+    border-left: 1px solid #045f22;
+    cursor: pointer;
+    display: block;
+    left: 0;
+    position: absolute;
+    top: 0;
+    transition: all .5s ease-out;
+    width: auto;
+}
+
+.newsCard-category:hover {
+    background-position: 0 100%;
+}
+
+.newsCard-category span {
+    color: #fff;
+    letter-spacing: 0;
+    text-transform: capitalize;
+}
+
+.newsCard-right .heading h6 {
+    background-color: #1b7591;
+}

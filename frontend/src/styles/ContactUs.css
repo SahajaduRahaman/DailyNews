@@ -1,0 +1,25 @@
+.contact-us {
+    border: 1px solid black;
+    padding: 20px;
+    text-align: center;
+}
+  
+.contact-us form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.contact-us input {
+    padding: 10px;
+}
+
+.contact-us button {
+    width: 100%;
+    padding: 10px;
+    margin-top: 20px;
+    background-color: #ff0000;
+    color: #fff;
+    font-weight: 600;
+    border: none;
+}

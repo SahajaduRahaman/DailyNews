@@ -1,0 +1,86 @@
+.cardBtm .cardBtm-box {
+  margin: 0 5px 30px 5px;
+}
+.cardBtm .cardBtm-text {
+  padding: 0 10px;
+}
+.cardBtm .cardBtm-images {
+  width: 320px;
+  height: 220px;
+}
+.cardBtm img {
+  width: 320px;
+  height: 220px;
+  object-fit: fill;
+}
+.cardBtm h1 {
+  font-size: 22px;
+}
+
+.cardBtm-images {
+  position: relative;
+}
+.cardBtm-desc {
+  font-size: 18px;
+  margin: 10px 0;
+}
+
+.cardBtm-shadow {
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+.flex, .cardBtm-flexSB {
+  display: flex;
+}
+
+.cardBtm-flexSB {
+  align-items: center;
+  justify-content: space-between;
+}
+
+.cardBtm-catagory .cardBtm-catagory1 {
+  position: relative;
+  margin-bottom: 20px;
+}
+
+.cardBtm-catagory {
+  color: #fff;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 2px;
+  padding: 5px 10px;
+  text-transform: uppercase;
+}
+
+.cardBtm-catagory1 {
+  background: linear-gradient(90deg,#1aaaaa 50%,#035c30 0);
+  background-position: 100% 100%;
+  background-size: 200% 100%;
+  border-left: 1px solid #1aaaaa;
+  cursor: pointer;
+  display: block;
+  left: 0;
+  position: absolute;
+  top: 0;
+  transition: all .5s ease-out;
+  width: auto;
+}
+
+.cardBtm-catagory1:hover {
+  background-position: 0 100%;
+}
+
+.cardBtm-catagory1 span {
+  color: #fff;
+  letter-spacing: 0;
+  text-transform: capitalize;
+}
+
+
+@media screen and (max-width: 768px) {
+  .cardBtm img,
+  .cardBtm .cardBtm-images {
+    height: 350px;
+  }
+}
+  

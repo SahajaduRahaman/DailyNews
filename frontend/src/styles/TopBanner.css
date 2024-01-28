@@ -1,0 +1,15 @@
+.top-banner_container {
+    width: 100%;
+    display: flex;
+}
+
+.banner-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    margin: 20px;
+}
+
+.top-banner_container .banner-container img {
+    width: 100%;
+    height: 100px;
+}

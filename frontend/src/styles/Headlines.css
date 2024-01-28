@@ -1,0 +1,22 @@
+.headlines-container {
+    display: flex;
+    flex-direction: column;
+    gap: 11px;
+}
+
+.headlines {
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    padding: 10px 20px;
+}
+
+.headlines h6 {
+    font-size: 14px;
+    font-style: italic;
+    color: black;
+}
+
+.date {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}

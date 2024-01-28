@@ -1,0 +1,18 @@
+.newsCard-container {
+    display: flex;
+    justify-content: space-between;
+    margin: 20px;
+}
+
+.newsCard-left {
+    width: 75%;
+}
+
+.newsCard-right {
+    width: 23%;
+}
+
+.card-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+}

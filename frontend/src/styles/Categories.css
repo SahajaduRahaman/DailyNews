@@ -1,0 +1,19 @@
+main .container {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+}
+
+.mainContent {
+    width: 75%;
+}
+
+.sideContent {
+    width: 23%;
+}
+
+.sideContent .heading h6 {
+    background-color: #1b7591;
+}
+
+  
