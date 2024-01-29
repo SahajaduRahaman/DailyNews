@@ -6,7 +6,6 @@ import "../../styles/Dashboard.css"
 
 const Dashboard = () => {
   const Token = useContext(AuthContext);
-  const authToken = Token.state.authToken;
   const dispatch = Token.dispatch;
 
   const Navigate = useNavigate();
@@ -34,13 +33,11 @@ const Dashboard = () => {
             <span className="hide">My News</span>
           </NavLink>
           <button onClick={HandleClick}>
-            <i class="fa-solid fa-arrow-right-from-bracket"></i>
+            <i className="fa-solid fa-arrow-right-from-bracket"></i>
             <span className="hide">Log Out</span>
           </button>
         </div>
         <div className="dash-right">
-          <h3>{authToken}</h3>
-          <p>login successfull.</p>
           <Outlet />
         </div>
       </div>
