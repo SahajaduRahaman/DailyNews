@@ -5,13 +5,17 @@
 }
 
 .dash-left {
-    padding: 15px 15px 15px 15px;
-    width: 15%;
+    padding: 15px;
+    width: 16%;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
     gap: 10px;
-    background-color: rgb(75, 75, 75);
+    background-color: rgb(48, 46, 46);
+}
+
+.dash-left .active {
+    background-color: rgb(95, 86, 86);
 }
 
 .dashboard-link {
@@ -25,13 +29,18 @@
     justify-content: center;
     align-items: center;
     gap: 5px;
+    transition-property: scale();
+    transition-timing-function: ease-in-out;
+    transition-duration: 0.3s;
 }
 
 .dashboard-link:hover {
-    background-color: rgb(45, 155, 95);
+    background-color: rgb(95, 86, 86);
     box-shadow: rgb(20, 19, 19) 0px 15px 30px -10px;
     border-radius: 8px;
     color: rgb(2, 2, 2);
+    transform: scale(1.1);
+    z-index: 999;
 }
 
 
@@ -42,13 +51,25 @@
     font-size: medium;
     border: none;
     color: white;
-    background-color: #2e4db1;
-    box-shadow: rgba(0, 0, 0, 0.07) 0px 1px 2px, rgba(0, 0, 0, 0.07) 0px 2px 4px, rgba(0, 0, 0, 0.07) 0px 4px 8px, rgba(0, 0, 0, 0.07) 0px 8px 16px, rgba(0, 0, 0, 0.07) 0px 16px 32px, rgba(0, 0, 0, 0.07) 0px 32px 64px;
+    background-color: transparent;
+    transition-property: scale();
+    transition-timing-function: ease-in-out;
+    transition-duration: 0.5s;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: large;
+    font-size: 16px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    gap: 5px;
 }
 
 .dash-left button:hover {
-    background-color: #af2727;
+    background-color: rgb(95, 86, 86);
+    transform: scale(1.1);
+    z-index: 999;
     color: black;
+    box-shadow: rgba(0, 0, 0, 0.07) 0px 1px 2px, rgba(0, 0, 0, 0.07) 0px 2px 4px, rgba(0, 0, 0, 0.07) 0px 4px 8px, rgba(0, 0, 0, 0.07) 0px 8px 16px, rgba(0, 0, 0, 0.07) 0px 16px 32px, rgba(0, 0, 0, 0.07) 0px 32px 64px;
 }
 
 .dash-right {
@@ -77,4 +98,10 @@
 .dashboard-admin-news {
     height: 80vh;
     border: 1px solid rgb(247, 0, 255);
+}
+
+@media screen and (max-width: 1000px) {
+    .hide {
+        display: none;
+    }
 }

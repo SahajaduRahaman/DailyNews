@@ -23,17 +23,20 @@ const Dashboard = () => {
         <div className="dash-left">
           <NavLink to="profile" className="dashboard-link">
             <i className="fa-solid fa-user"></i>
-            <span>Profile</span>
+            <span className="hide">Profile</span>
           </NavLink>
           <NavLink to="addnews" className="dashboard-link">
             <i className="fa-solid fa-plus"></i>
-            <span>Add News</span>
+            <span className="hide">Add News</span>
           </NavLink>
           <NavLink to="adminnews" className="dashboard-link">
             <i className="fa-solid fa-newspaper"></i>
-            <span>My News</span>
+            <span className="hide">My News</span>
           </NavLink>
-          <button onClick={HandleClick}>Log Out</button>
+          <button onClick={HandleClick}>
+            <i class="fa-solid fa-arrow-right-from-bracket"></i>
+            <span className="hide">Log Out</span>
+          </button>
         </div>
         <div className="dash-right">
           <h3>{authToken}</h3>
