@@ -20,7 +20,7 @@ const FetchUser = (req, res, next) => {
     } 
     catch (error) {
         return res.status(401).json({
-            message : "Please provide valid authToken.",
+            message : "Internal auth error.",
             error : error
         })
     }

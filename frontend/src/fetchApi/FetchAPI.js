@@ -74,5 +74,22 @@ const GetNewsByIDApi = async (id) => {
     }
 }
 
+const GetAdminApi = async () => {
+    const options = {
+        headers: {
+            'Content-Type': 'application/json',
+            'authToken': localStorage.getItem("authToken")
+        }
+    };
 
-export { LogInApi, RegisterApi, AddNewsApi, GetAdminNewsApi, GetNewsByIDApi };
+    try {
+        const data = await axios.post(`${BASE_URL}/api/get-admin`, options)
+        return data;
+    } 
+    catch (error) {
+        return error.response;
+    }
+}
+
+
+export { LogInApi, RegisterApi, AddNewsApi, GetAdminNewsApi, GetNewsByIDApi, GetAdminApi };
