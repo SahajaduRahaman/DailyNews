@@ -2,12 +2,6 @@ import axios from 'axios'
 
 const BASE_URL=process.env.REACT_APP_BASE_URL
 
-const options = {
-    headers: {
-      'Content-Type': 'application/json',
-      'authToken': localStorage.getItem("authToken")
-    }
-};
 
 const LogInApi = async (loginDetails) => {
     try {
@@ -21,6 +15,12 @@ const LogInApi = async (loginDetails) => {
 
 
 const RegisterApi = async (registerDetails) => {
+    const options = {
+        headers: {
+          'Content-Type': 'application/json',
+        }
+    };
+
     try {
         const data = await axios.post(`${BASE_URL}/api/register`, registerDetails, options)
         return data;
@@ -31,6 +31,13 @@ const RegisterApi = async (registerDetails) => {
 }
 
 const AddNewsApi = async (news) => {
+    const options = {
+        headers: {
+          'Content-Type': 'application/json',
+          'authToken': localStorage.getItem("authToken")
+        }
+    };
+
     try {
         const data = await axios.post(`${BASE_URL}/api/post-news`, news, options)
         return data;
@@ -41,6 +48,13 @@ const AddNewsApi = async (news) => {
 }
 
 const GetAdminNewsApi = async () => {
+    const options = {
+        headers: {
+          'Content-Type': 'application/json',
+          'authToken': localStorage.getItem("authToken")
+        }
+    };
+
     try {
         const data = await axios.get(`${BASE_URL}/api/get-admin-news`, options)
         return data;
