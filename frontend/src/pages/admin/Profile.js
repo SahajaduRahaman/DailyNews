@@ -1,13 +1,17 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { GetAdminApi } from '../../fetchApi/FetchAPI'
 
+
 const Profile = () => {
+  const [user, setUser] = useState({})
+
   useEffect(() => {
     GetAdminApi().then((data) => {
       if (data.status === 200) {
-        console.log(data.data)
+        setUser(data.data.reporter)
       }
       else {
+        alert("failed")
         console.log(data.data.message)
       }
     });
@@ -15,7 +19,15 @@ const Profile = () => {
   },[])
 
   return (
-    <div>Profile</div>
+    <>
+      {!user ? <div>Loading...</div> :
+        <div className="profile-container">
+          <h2>{user.name}</h2>
+          <h6>{user.email}</h6>
+          <h6>{user.mobile}</h6>
+        </div>
+      }
+    </>
   )
 }
 

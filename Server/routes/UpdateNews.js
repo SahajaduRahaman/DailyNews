@@ -40,18 +40,17 @@ router.put("/:id", FetchUser, async (req, res) => {
             return res.status(401).send("User not allowed to update.")
         }
 
-        updatedNews = await News.findByIdAndUpdate(req.params.id, currentNews)
+        let ModifiedNews = await News.findByIdAndUpdate(req.params.id, currentNews)
 
         res.status(200).json({
             status : "success",
             message : "News updated successfully.",
-            news : updatedNews
+            news : ModifiedNews
         })
     }
     catch (error) {
         res.status(500).send("Internal server error.")
     }
-
 
 })
 

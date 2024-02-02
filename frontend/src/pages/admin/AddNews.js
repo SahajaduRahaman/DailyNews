@@ -19,11 +19,11 @@ const AddNews = () => {
     AddNewsApi(news).then((data) => {
       if (data.status === 200) {
         alert("news added successfully.")
-        console.log(data.data.currentNews)
+        // console.log(data.data.currentNews)
       }
       else {
         alert("news added failed.")
-        console.log(data.data.message)
+        // console.log(data.data.message)
       }
     });
   }

@@ -10,9 +10,8 @@ const AdminNews = () => {
     GetAdminNewsApi().then((data) => {
       if (data.status === 200) {
         setCurrentNews(data.data.news);
-        console.log(data.data.news);
       } else {
-        alert("news added failed.");
+        alert("failed to fetch news.");
         console.log(data.data.message);
       }
     });

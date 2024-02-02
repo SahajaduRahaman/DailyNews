@@ -13,7 +13,6 @@ const LogInApi = async (loginDetails) => {
     }
 }
 
-
 const RegisterApi = async (registerDetails) => {
     const options = {
         headers: {
@@ -47,11 +46,28 @@ const AddNewsApi = async (news) => {
     }
 }
 
+const GetAdminApi = async () => {
+    const options = {
+        headers: {
+            'Content-Type': 'application/json',
+            'authToken': localStorage.getItem("authToken")
+        }
+    };
+
+    try {
+        const data = await axios.post(`${BASE_URL}/api/get-admin`, {}, options)
+        return data;
+    }
+    catch (error) {
+        return error.response;
+    }
+}
+
 const GetAdminNewsApi = async () => {
     const options = {
         headers: {
-          'Content-Type': 'application/json',
-          'authToken': localStorage.getItem("authToken")
+            'Content-Type': 'application/json',
+            'authToken': localStorage.getItem("authToken")
         }
     };
 
@@ -74,7 +90,7 @@ const GetNewsByIDApi = async (id) => {
     }
 }
 
-const GetAdminApi = async () => {
+const UpdateNewsApi = async (id, updatedNews) => {
     const options = {
         headers: {
             'Content-Type': 'application/json',
@@ -83,7 +99,24 @@ const GetAdminApi = async () => {
     };
 
     try {
-        const data = await axios.post(`${BASE_URL}/api/get-admin`, options)
+        const data = await axios.put(`${BASE_URL}/api/update-news/${id}`, updatedNews, options)
+        return data;
+    } 
+    catch (error) {
+        return error.response;
+    }
+}
+
+const DeleteNewsApi = async (id) => {
+    const options = {
+        headers: {
+            'Content-Type': 'application/json',
+            'authToken': localStorage.getItem("authToken")
+        }
+    };
+
+    try {
+        const data = await axios.delete(`${BASE_URL}/api/delete-news/${id}`, options)
         return data;
     } 
     catch (error) {
@@ -92,4 +125,4 @@ const GetAdminApi = async () => {
 }
 
 
-export { LogInApi, RegisterApi, AddNewsApi, GetAdminNewsApi, GetNewsByIDApi, GetAdminApi };
+export { LogInApi, RegisterApi, AddNewsApi, GetAdminNewsApi, GetNewsByIDApi, GetAdminApi, DeleteNewsApi, UpdateNewsApi };
