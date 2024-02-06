@@ -16,8 +16,7 @@ const DateAndTime = ({dot}) => {
 
     return (
       <>
-        <span>{day} {Month[month]} {year} </span>
-        <span>{hour12}:{minute} {meridiem}</span>
+        <span>{day} {Month[month]} {year} {hour12}:{minute} {meridiem}</span>
       </>
     )
 }

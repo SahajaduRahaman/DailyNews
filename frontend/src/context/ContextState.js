@@ -5,71 +5,51 @@ const initialState = {
     authToken : localStorage.getItem("authToken"),
 }
 
-const settingState = {
-    oneSettings : {
-        className: "center",
-        centerMode: true,
-        centerPadding: "0",
-        slidesToShow: 1,
-        infinite: true,
-        speed: 2000,
-        autoplay: true,
-        autoplaySpeed: 2000,
-        rows: 1,
-        slidesPerRow: 1,
-    },
-    threeSettings : {
-        dots: false,
-        infinite: true,
-        speed: 2000,
-        autoplay: true,
-        autoplaySpeed: 2000,
-        slidesToShow: 3,
-        slidesToScroll: 1,
-        responsive: [
-            {
-                breakpoint: 800,
-                settings: {
-                slidesToShow: 2,
-                slidesToScroll: 1,
-                },
-            },
-        ],
-    },
-    fourSettings : {
-        dots: false,
-        infinite: true,
-        speed: 2000,
-        autoplay: true,
-        autoplaySpeed: 2000,
-        slidesToShow: 4,
-        slidesToScroll: 1,
-    }
-}
-
 const ReducerFunction = (state, action) => {
     switch (action.type) {
         case "register" :
             return { authToken : localStorage.getItem("authToken") }
-
         case "login" :
             return { authToken : localStorage.getItem("authToken") }
-
         case "logout" :
             return { authToken : "" }
-
         default : {
             return state;
         }
     }
 }
 
-const ContextState = (props) => {
+const news = {
+    allNews : [],
+}
 
+const NewsReducer = (myNews, action) => {
+    switch (action.type) {
+        case "allNews" :
+            return  {...myNews, allNews : action.payload }
+        case "addNews" :
+            return {...myNews, allNews : [ ...myNews.allNews, action.payload ]}
+        case "editNews" :
+            return {...myNews, allNews : [...myNews.allNews.filter((item) => 
+                item._id !== action.payload._id
+            ), action.payload ]}
+        case "deleteNews" :
+            return {...myNews, allNews : [...myNews.allNews.filter((item) =>
+                item._id !== action.payload
+            )]}
+        default : {
+            return myNews;
+        }
+    }
+}
+
+
+const ContextState = (props) => {
     const [state, dispatch] = useReducer(ReducerFunction, initialState)
+    const [myNews, setMyNews] = useReducer(NewsReducer, news)
 
     return (
-        <AuthContext.Provider value={{state, dispatch, settingState}}>
+        <AuthContext.Provider value={{state, dispatch, myNews, setMyNews}}>
             {props.children}
         </AuthContext.Provider>
     )

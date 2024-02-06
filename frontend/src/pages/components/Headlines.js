@@ -2,26 +2,31 @@ import React from 'react'
 import Heading from './Heading'
 import "../../styles/Headlines.css"
 import { Link } from 'react-router-dom'
+import DateAndTime from './DateAndTime'
 
-const Headlines = () => {
-
-    const headLines = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]
+const Headlines = (props) => {
+    const allNews = props.news
 
     return (
         <>
             <Heading title='Letest Headlines' />
             <section className='headlines-container'>
-                {headLines.map((idx) => { return (
-                    <Link to={`/newsdetails/${idx}`} key={idx}>
-                        <div className="headlines">
-                            <h6>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid, ipsam!</h6>
-                            <div className="date">
-                                <i className='fas fa-calendar-days'></i>
-                                <label>12 jan 2024</label>
+                {allNews.map((item, idx) => {
+                    if(idx >= 11) {
+                        return "-";
+                    }
+                    return (
+                        <Link to={`/newsdetails/${item._id}`} key={item._id}>
+                            <div className="headlines">
+                                <h6>{item.title.slice(0, 80)}</h6>
+                                <div className="date">
+                                    <i className='fas fa-calendar-days'></i>
+                                    <DateAndTime dot={item.date} />
+                                </div>
                             </div>
-                        </div>
-                    </Link>
-                )})}
+                        </Link>
+                    )
+                })}
             </section>
         </>
     )

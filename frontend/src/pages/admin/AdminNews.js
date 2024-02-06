@@ -2,20 +2,27 @@ import React, { useEffect, useState } from "react";
 import { GetAdminNewsApi } from "../../fetchApi/FetchAPI";
 import { Link } from "react-router-dom";
 import DateAndTime from "../components/DateAndTime";
+import FilterAllNewsByDateTime from "../../rules/FilterAllNewsByDateTime";
 
 const AdminNews = () => {
+  const [news, setNews] = useState([])
   const [currentNews, setCurrentNews] = useState([]);
 
   useEffect(() => {
     GetAdminNewsApi().then((data) => {
       if (data.status === 200) {
-        setCurrentNews(data.data.news);
+        setNews(data.data.news);
       } else {
         alert("failed to fetch news.");
         console.log(data.data.message);
       }
     });
-  }, []);
+  },[]);
+
+  useEffect(() => {
+    setCurrentNews(FilterAllNewsByDateTime(news))
+  },[news])
+
 
   return (
     <>
@@ -25,8 +32,8 @@ const AdminNews = () => {
             return (
               <div className="adminNews" key={idx}>
                 <div className="news-title">
-                  <Link to={`/newsdetails/${item._id}`}>
-                    <h3>{item.title}</h3>
+                  <Link to={`/adminnewsdetails/${item._id}`}>
+                    <h3>{item.title.slice(0, 80)}</h3>
                   </Link>
                 </div>
 
@@ -37,7 +44,7 @@ const AdminNews = () => {
                 <div className="news-category">
                   <span>{item.category}</span>
                 </div>
-                <p>{item.description}</p>
+                <p>{item.description.slice(0, 300)}</p>
 
                 <div className="links">
                   {item.youtubeLink && (

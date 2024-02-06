@@ -46,6 +46,16 @@ const AddNewsApi = async (news) => {
     }
 }
 
+const GetAllNewsApi = async () => {
+    try {
+        const data = await axios.get(`${BASE_URL}/api/get-all-news`)
+        return data;
+    } 
+    catch (error) {
+        return error.response;
+    }
+}
+
 const GetAdminApi = async () => {
     const options = {
         headers: {
@@ -125,4 +135,4 @@ const DeleteNewsApi = async (id) => {
 }
 
 
-export { LogInApi, RegisterApi, AddNewsApi, GetAdminNewsApi, GetNewsByIDApi, GetAdminApi, DeleteNewsApi, UpdateNewsApi };
+export { LogInApi, RegisterApi, AddNewsApi, GetAdminNewsApi, GetNewsByIDApi, GetAdminApi, DeleteNewsApi, UpdateNewsApi, GetAllNewsApi };

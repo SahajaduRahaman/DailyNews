@@ -1,17 +1,15 @@
 import React from "react"
 import Slider from "react-slick"
-// import { ppost } from "../../../../dummyData"
 import Heading from "../components/Heading"
 import "../../styles/CategoryCardTop.css"
 import Sport from "../../assets/sports.jpeg"
 import "slick-carousel/slick/slick.css"; 
 import "slick-carousel/slick/slick-theme.css";
 import { Link } from "react-router-dom"
+import DateAndTime from "../components/DateAndTime"
 
-// copy same code of popular
 const CategoryCardTop = (props) => {
-
-  const pop = [1,2,3,4,5,6]
+  const news = props.news
   const settings = props.settings;
 
   return (
@@ -20,24 +18,24 @@ const CategoryCardTop = (props) => {
         <Heading title={props.title} />
         <div className='cardTop-container'>
           <Slider {...settings}>
-            {pop.map((idx) => { return (
-              <div className='cardTop-items' key={idx}>
+            {news.map((item) => { return (
+              <div className='cardTop-items' key={item._id}>
                 <div className='cardTop-box cardTop-shadow'>
                   <div className='cardTop-images'>
                     <div className='img'>
                       <img src={Sport} alt='' />
                     </div>
                     <div className='cardTop-category cardTop-category1'>
-                      <span>Sport</span>
+                      <span>{item.category}</span>
                     </div>
                   </div>
                   <div className='text'>
-                    <Link to={`/newsdetails/${idx}`}>
-                      <h1 className='title'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa, omnis!</h1>
+                    <Link to={`/newsdetails/${item._id}`}>
+                      <h1 className='title'>{item.title.slice(0, 80)}</h1>
                     </Link>
                     <div className='date'>
                       <i className='fas fa-calendar-days'></i>
-                      <label> 22 jan 2024</label>
+                      <DateAndTime dot={item.date} />
                     </div>
                   </div>
                 </div>

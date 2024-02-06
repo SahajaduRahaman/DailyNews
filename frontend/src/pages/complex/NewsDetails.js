@@ -1,14 +1,12 @@
 import React, { useEffect, useState } from 'react'
-import { DeleteNewsApi, GetNewsByIDApi } from '../../fetchApi/FetchAPI'
-import { useNavigate, useParams } from 'react-router-dom'
-import Editnews from '../admin/Editnews'
+import { GetNewsByIDApi } from '../../fetchApi/FetchAPI'
+import { useParams } from 'react-router-dom'
+import DateAndTime from '../components/DateAndTime'
+import "../../styles/NewsDetails.css"
 
 const NewsDetails = () => {
   const path = useParams()
-  const Navigate = useNavigate()
-
   const [currentNews, setCurrentNews] = useState({})
-  const [visible, setVisible] = useState(false)
 
   useEffect(() => {
     GetNewsByIDApi(path.id).then((data) => {
@@ -16,60 +14,41 @@ const NewsDetails = () => {
         setCurrentNews(data.data.news)
       }
       else {
-        alert("news added failed.")
-        console.log(data.data.message)
-      }
-    });
-
-  },[path, visible])
-
-  const DeleteNews = () => {
-    DeleteNewsApi(path.id).then((data) => {
-      if (data.status === 200) {
         alert(data.data.message)
-        Navigate(-1)
-      }
-      else {
-        alert("news deleted failed.")
       }
     });
-  }
 
-  const HandleEditNews = () => {
-    setVisible(true)
-  }
-
+  },[path])
 
 
   return (
     <>
-      <div className="news-container">
-        <div className="newsTitle">
-          <h3>{currentNews.title}</h3>
-        </div>
-        <div className="news-description">
-          <p>{currentNews.description}</p>
-        </div>
-        <div className="newl-links">
-          <a href={currentNews.youtubeLink} target='_blank' rel="noreferrer">
-            <i className="fa-brands fa-youtube"></i>
-            <span>Watch on Youtube</span>
-          </a>
-          <a href={currentNews.facebookLink} target='_blank' rel="noreferrer">
-            <i className="fa-brands fa-facebook"></i>
-            <span>Watch on Facebook</span>
-          </a>
-        </div>
-        <div className="edit-delete">
-          <div className="edit" onClick={HandleEditNews}>
-            <i className="fa-solid fa-pen-to-square"></i>
+      { currentNews ?
+        <div className="news-container">
+          <div className="newsTitle">
+            <h3>{currentNews.title}</h3>
           </div>
-          <div className="delete" onClick={DeleteNews}>
-            <i className="fa-solid fa-trash"></i>
+          <div className="news-description">
+            <div className='ca_da_ti'>
+              <span>{currentNews.category}</span>
+              <DateAndTime dot={currentNews.date}/>
+            </div>
+            <p>{currentNews.description}</p>
+          </div>
+          <div className="newl-links">
+            <a href={currentNews.youtubeLink} target='_blank' rel="noreferrer">
+              <i className="fa-brands fa-youtube"></i>
+              <span>Watch on Youtube</span>
+            </a>
+            <a href={currentNews.facebookLink} target='_blank' rel="noreferrer">
+              <i className="fa-brands fa-facebook"></i>
+              <span>Watch on Facebook</span>
+            </a>
           </div>
         </div>
-      </div>
-      {visible && <Editnews news = {currentNews} id={path.id} setVisible={setVisible}/>}
+        :
+        <div>Loading...</div>
+      }
     </>
   )
 }

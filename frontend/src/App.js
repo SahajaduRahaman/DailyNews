@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import "./App.css"
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import Home from "./pages/complex/Home"
@@ -20,15 +20,10 @@ import Register from './pages/page/Register';
 import Profile from "./pages/admin/Profile"
 import AddNews from "./pages/admin/AddNews"
 import AdminNews from "./pages/admin/AdminNews"
-
+import AdminNewsDetails from './pages/admin/AdminNewsDetails';
 
 
 function App() {
-
-  useEffect(() => {
-
-  }, [])
-
   return (
     <>
       <BrowserRouter>
@@ -53,6 +48,7 @@ function App() {
             <Route path='adminnews' element={<AdminNews />}/>
           </Route>
           <Route path='/newsdetails/:id' element={<NewsDetails />}/>
+          <Route path='/adminnewsdetails/:id' element={<AdminNewsDetails />}/>
           <Route path='/*' element={<h1>Page Not Found</h1>}/>
         </Routes>
         <Footer />

@@ -1,9 +1,12 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { UpdateNewsApi } from "../../fetchApi/FetchAPI";
+import AuthContext from "../../context/ContextApi";
 
 const Editnews = ({ news, id, setVisible }) => {
-    const [updateNews, setUpdateNews] = useState({ ...news });
+    const NewsContext = useContext(AuthContext)
+    const setMyNews = NewsContext.setMyNews
 
+    const [updateNews, setUpdateNews] = useState({ ...news });
 
     const OnChangeNews = (e) => {
         setUpdateNews({ ...updateNews, [e.target.name]: e.target.value });
@@ -14,14 +17,16 @@ const Editnews = ({ news, id, setVisible }) => {
         UpdateNewsApi(id, updateNews).then((data) => {
             if (data.status === 200) {
                 alert("News updated successfully.")
+                setMyNews({type: "editNews", payload: updateNews})
                 setVisible(false)
-                console.log(data.data.news);
-            } else {
-              alert("failed to fetch news.");
+            } 
+            else {
+                alert("failed to fetch news.");
                 console.log(data.data.message);
             }
         });
     };
+
     return (
         <>
             <div className="edit-news-container">
@@ -50,6 +55,7 @@ const Editnews = ({ news, id, setVisible }) => {
                             <option value="career">Career</option>
                             <option value="entertainment">Entertainment</option>
                             <option value="sports">Sports</option>
+                            <option value="others" >Others</option>
                         </select>
                         <br />
                         <br />

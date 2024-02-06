@@ -7,10 +7,8 @@ import SocialMedia from "../components/SocialMedia"
 import ContactUs from "../components/ContactUs"
 import Headlines from "../components/Headlines"
 
-//const allCat = [...new Set(popular.map((curEle) => curEle.catgeory))]
-//console.log(allCat)
-
-const Side = () => {
+const Side = (props) => {
+  const allNews = props.news
   const settings = {
     dots: false,
     infinite: true,
@@ -22,7 +20,7 @@ const Side = () => {
   const catgeory = ["Politics", "Technology", "Country", "World", "Business", "Education", "Career", "Entertainment", "Sports"]
   return (
     <>
-      <Headlines />
+      <Headlines news={allNews}/>
 
       <Heading title='Advertisement' />
       <section className='banner'>
@@ -31,7 +29,6 @@ const Side = () => {
 
       <section className='category'>
         <Heading title='Category' />
-        {/*<div className='items'>{allCat}</div>*/}
         {catgeory.map((val, idx) => {
           return (
             <div className='category category1' key={idx}>
@@ -44,13 +41,13 @@ const Side = () => {
       <section className='gallery'>
         <Heading title='News Gallery' />
         <Slider {...settings}>
-          {/* {gallery.map((val) => {
-            return ( */}
-              <div className='img'>
-                <img src={Sport} alt='' />
+          {allNews.map((item) => {
+            return (
+              <div className='img' key={item._id}>
+                <img src={Sport} alt={item.title} />
               </div>
-            {/* )
-          })} */}
+            )
+          })}
         </Slider>
       </section>
 

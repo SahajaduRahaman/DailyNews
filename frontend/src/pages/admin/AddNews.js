@@ -1,7 +1,11 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { AddNewsApi } from "../../fetchApi/FetchAPI";
+import AuthContext from "../../context/ContextApi";
 
 const AddNews = () => {
+  const NewsContext = useContext(AuthContext)
+  const setMyNews = NewsContext.setMyNews
+
   const [news, setNews] = useState({
     title: "",
     description: "",
@@ -19,11 +23,17 @@ const AddNews = () => {
     AddNewsApi(news).then((data) => {
       if (data.status === 200) {
         alert("news added successfully.")
-        // console.log(data.data.currentNews)
+        setMyNews({type: "addNews", payload: news})
+        setNews({
+          title: "",
+          description: "",
+          category: "",
+          youtubeLink: "",
+          facebookLink: "",
+        })
       }
       else {
-        alert("news added failed.")
-        // console.log(data.data.message)
+        alert(data.data.message)
       }
     });
   }
@@ -33,7 +43,7 @@ const AddNews = () => {
       <div className="addnews-box">
         <form action="" onSubmit={(e) => handleSubmit(e)}>
           <label htmlFor="title">Title:</label>
-          <input type="text" id="title" value={news.name} onChange={(e) => handleFormChange(e)} name="title"/>
+          <input type="text" id="title" value={news.title} onChange={(e) => handleFormChange(e)} name="title"/>
 
           <label htmlFor="description">Description:</label>
           <input type="text" id="description" value={news.description} onChange={(e) => handleFormChange(e)} name="description"/>
@@ -49,6 +59,7 @@ const AddNews = () => {
             <option value="career" >Career</option>
             <option value="entertainment" >Entertainment</option>
             <option value="sports" >Sports</option>
+            <option value="others" >Others</option>
           </select>
 
           <label htmlFor="youtubelink">YoutubeLink:</label>

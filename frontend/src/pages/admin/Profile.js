@@ -20,12 +20,14 @@ const Profile = () => {
 
   return (
     <>
-      {!user ? <div>Loading...</div> :
+      {user ?
         <div className="profile-container">
           <h2>{user.name}</h2>
           <h6>{user.email}</h6>
           <h6>{user.mobile}</h6>
         </div>
+        :
+        <div>Loading...</div>
       }
     </>
   )
