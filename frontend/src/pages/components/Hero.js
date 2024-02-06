@@ -22,7 +22,7 @@ const Hero = ({ sports, world, country, entertainment }) => {
                                     <h1 className='titleBg'>{sports.title.slice(0, 80)}</h1>
                                 </Link>
                                 <div className='author flex'>
-                                    <span>by Raja Rahaman</span>
+                                    <span>by {sports.reporterName}</span>
                                     <DateAndTime dot={sports.date} />
                                 </div>
                             </div>

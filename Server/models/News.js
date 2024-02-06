@@ -3,7 +3,11 @@ const mongoose = require("mongoose")
 const NewsSchema = new mongoose.Schema({
     reporter : {
         type : mongoose.Schema.Types.ObjectId,
-        ref : "Reporter"
+        ref : "Reporter",
+        required : true
+    },
+    reporterName: {
+        type: String,
     },
     title : {
         type : String,
@@ -29,5 +33,16 @@ const NewsSchema = new mongoose.Schema({
     }
 
 })
+
+NewsSchema.pre('save', async function (next) {
+    try {
+        const reporter = await mongoose.model('Reporter').findById(this.reporter);
+        this.reporterName = reporter.name;
+        next();
+    } 
+    catch (error) {
+        next(error);
+    }
+});
 
 module.exports = mongoose.model("News", NewsSchema);
