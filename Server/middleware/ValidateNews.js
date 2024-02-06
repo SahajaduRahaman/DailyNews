@@ -7,9 +7,9 @@ const ValidateNews = (req, res, next) => {
         })
     }
 
-    if (title.length < 10 || title.length > 100) {
+    if (title.length < 10) {
         return res.status(400).json({
-            message : "title must be greater than 10 or less than 50 character."
+            message : "title must be greater than 10 character."
         })
     }
 

@@ -44,7 +44,7 @@ const Education = () => {
 
   return (
     <>
-      <Hero sports={education[0]} world={education[1]} country={education[2]} entertainment={education[3]}/>
+      <Hero politics={education[0]} country={education[1]} world={education[2]} sports={education[3]}/>
       <div className="newsCard-container">
         <div className="newsCard-left">
           <Heading title="Education"/>

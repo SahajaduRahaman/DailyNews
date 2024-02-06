@@ -33,14 +33,14 @@ const Home = () => {
   },[allNews, setMyNews])
 
 
-  const sports = FilterCat(allNews, "sports");
-  const world = FilterCat(allNews, "world");
+  const politics = FilterCat(allNews, "politics");
   const country = FilterCat(allNews, "country");
-  const entertainment = FilterCat(allNews, "entertainment");
+  const world = FilterCat(allNews, "world");
+  const sports = FilterCat(allNews, "sports");
 
   return (
     <>
-      <Hero sports={sports[0]} world={world[0]} country={country[0]} entertainment={entertainment[0]}/>
+      <Hero politics={politics[0]} country={country[0]} world={world[0]} sports={sports[0]}/>
       <Categories />
     </>
   )

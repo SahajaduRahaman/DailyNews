@@ -45,7 +45,7 @@ const Business = () => {
 
   return (
     <>
-      <Hero  sports={business[0]} world={business[1]} country={business[2]} entertainment={business[3]}/>
+      <Hero politics={business[0]} country={business[1]} world={business[2]} sports={business[3]}/>
       <div className="newsCard-container">
         <div className="newsCard-left">
           <Heading title="Business"/>

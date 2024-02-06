@@ -44,7 +44,7 @@ const Technology = () => {
 
   return (
     <>
-      <Hero sports={technology[0]} world={technology[1]} country={technology[2]} entertainment={technology[3]}/>
+      <Hero politics={technology[0]} country={technology[1]} world={technology[2]} sports={technology[3]}/>
       <div className="newsCard-container">
         <div className="newsCard-left">
           <Heading title="Technology"/>

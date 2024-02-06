@@ -5,44 +5,25 @@ import "../../styles/Hero.css"
 import DateAndTime from './DateAndTime'
 
 
-const Hero = ({ sports, world, country, entertainment }) => {
+const Hero = ({ politics, country, world, sports }) => {
     return (
         <>
             <section className='hero'>
                 <div className='container'>
-                    {sports &&
+                    {politics &&
                         <div className='box'>
                             <div className='img'>
                                 <img src={NewsPhoto} alt='' />
                             </div>
 
                             <div className='text'>
-                                <span className='category'>{sports.category}</span>
-                                <Link to={`/newsdetails/${sports._id}`}>
-                                    <h1 className='titleBg'>{sports.title.slice(0, 80)}</h1>
+                                <span className='category'>{politics.category}</span>
+                                <Link to={`/newsdetails/${politics._id}`}>
+                                    <h1 className='titleBg'>{politics.title.slice(0, 80)}</h1>
                                 </Link>
                                 <div className='author flex'>
-                                    <span>by {sports.reporterName}</span>
-                                    <DateAndTime dot={sports.date} />
-                                </div>
-                            </div>
-                        </div>
-                    }
-
-                    {world &&
-                        <div className='box'>
-                            <div className='img'>
-                                <img src={NewsPhoto} alt='' />
-                            </div>
-
-                            <div className='text'>
-                                <span className='category'>{world.category}</span>
-                                <Link to={`/newsdetails/${world._id}`}>
-                                    <h1 className='titleBg'>{world.title.slice(0, 80)}</h1>
-                                </Link>
-                                <div className='author flex'>
-                                    <span>by {world.reporterName}</span>
-                                    <DateAndTime dot={world.date} />
+                                    <span>by {politics.reporterName}</span>
+                                    <DateAndTime dot={politics.date} />
                                 </div>
                             </div>
                         </div>
@@ -67,20 +48,39 @@ const Hero = ({ sports, world, country, entertainment }) => {
                         </div>
                     }
 
-                    {entertainment &&
+                    {world &&
                         <div className='box'>
                             <div className='img'>
                                 <img src={NewsPhoto} alt='' />
                             </div>
 
                             <div className='text'>
-                                <span className='category'>{entertainment.category}</span>
-                                <Link to={`/newsdetails/${entertainment._id}`}>
-                                    <h1 className='titleBg'>{entertainment.title.slice(0, 80)}</h1>
+                                <span className='category'>{world.category}</span>
+                                <Link to={`/newsdetails/${world._id}`}>
+                                    <h1 className='titleBg'>{world.title.slice(0, 80)}</h1>
                                 </Link>
                                 <div className='author flex'>
-                                    <span>by {entertainment.reporterName}</span>
-                                    <DateAndTime dot={entertainment.date} />
+                                    <span>by {world.reporterName}</span>
+                                    <DateAndTime dot={world.date} />
+                                </div>
+                            </div>
+                        </div>
+                    }
+
+                    {sports &&
+                        <div className='box'>
+                            <div className='img'>
+                                <img src={NewsPhoto} alt='' />
+                            </div>
+
+                            <div className='text'>
+                                <span className='category'>{sports.category}</span>
+                                <Link to={`/newsdetails/${sports._id}`}>
+                                    <h1 className='titleBg'>{sports.title.slice(0, 80)}</h1>
+                                </Link>
+                                <div className='author flex'>
+                                    <span>by {sports.reporterName}</span>
+                                    <DateAndTime dot={sports.date} />
                                 </div>
                             </div>
                         </div>

@@ -44,7 +44,7 @@ const Country = () => {
 
   return (
     <>
-      <Hero sports={country[0]} world={country[1]} country={country[2]} entertainment={country[3]}/>
+      <Hero politics={country[0]} country={country[1]} world={country[2]} sports={country[3]}/>
       <div className="newsCard-container">
         <div className="newsCard-left">
           <Heading title="Country"/>

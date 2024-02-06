@@ -44,7 +44,7 @@ const World = () => {
 
   return (
     <>
-      <Hero sports={world[0]} world={world[1]} country={world[2]} entertainment={world[3]}/>
+      <Hero politics={world[0]} country={world[1]} world={world[2]} sports={world[3]}/>
       <div className="newsCard-container">
         <div className="newsCard-left">
           <Heading title="World"/>
