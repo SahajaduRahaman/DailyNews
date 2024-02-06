@@ -41,7 +41,7 @@ const Hero = ({ sports, world, country, entertainment }) => {
                                     <h1 className='titleBg'>{world.title.slice(0, 80)}</h1>
                                 </Link>
                                 <div className='author flex'>
-                                    <span>by Raja Rahaman</span>
+                                    <span>by {world.reporterName}</span>
                                     <DateAndTime dot={world.date} />
                                 </div>
                             </div>
@@ -60,7 +60,7 @@ const Hero = ({ sports, world, country, entertainment }) => {
                                     <h1 className='titleBg'>{country.title.slice(0, 80)}</h1>
                                 </Link>
                                 <div className='author flex'>
-                                    <span>by Raja Rahaman</span>
+                                    <span>by {country.reporterName}</span>
                                     <DateAndTime dot={country.date} />
                                 </div>
                             </div>
@@ -79,7 +79,7 @@ const Hero = ({ sports, world, country, entertainment }) => {
                                     <h1 className='titleBg'>{entertainment.title.slice(0, 80)}</h1>
                                 </Link>
                                 <div className='author flex'>
-                                    <span>by Raja Rahaman</span>
+                                    <span>by {entertainment.reporterName}</span>
                                     <DateAndTime dot={entertainment.date} />
                                 </div>
                             </div>

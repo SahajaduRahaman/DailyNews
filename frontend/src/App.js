@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import "./App.css"
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import Home from "./pages/complex/Home"
@@ -21,9 +21,38 @@ import Profile from "./pages/admin/Profile"
 import AddNews from "./pages/admin/AddNews"
 import AdminNews from "./pages/admin/AdminNews"
 import AdminNewsDetails from './pages/admin/AdminNewsDetails';
+import AuthContext from './context/ContextApi';
+import { GetAllNewsApi } from './fetchApi/FetchAPI';
+import FilterAllNewsByDateTime from './rules/FilterAllNewsByDateTime';
 
 
 function App() {
+  const NewsContext = useContext(AuthContext)
+  const setMyNews = NewsContext.setMyNews
+
+  const [News, setNews] = useState([])
+  const [allNews, setAllNews] = useState([])
+
+  useEffect(() => {
+    GetAllNewsApi().then((data) => {
+      if (data.status === 200) {
+        setNews(data.data.news)
+      }
+      else {
+        console.log(data.data.message);
+      }
+    })
+  },[])
+
+  useEffect(() => {
+    setAllNews(FilterAllNewsByDateTime(News))
+  },[News])
+
+  useEffect(() => {
+    setMyNews({type: "allNews", payload: allNews})
+  },[allNews, setMyNews])
+
+
   return (
     <>
       <BrowserRouter>

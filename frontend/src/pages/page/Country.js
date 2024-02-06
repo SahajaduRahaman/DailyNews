@@ -1,4 +1,4 @@
-import React, { useContext } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import Hero from '../components/Hero'
 import NewsCard from '../components/NewsCard'
 import Heading from '../components/Heading'
@@ -8,11 +8,35 @@ import "../../styles/Politics.css"
 import SettingsObj from '../../rules/SettingsObj'
 import AuthContext from '../../context/ContextApi'
 import FilterCat from '../../rules/FilterCat'
+import { GetAllNewsApi } from '../../fetchApi/FetchAPI'
+import FilterAllNewsByDateTime from '../../rules/FilterAllNewsByDateTime'
 
 
 const Country = () => {
-  const News = useContext(AuthContext)
-  const allNews = News.myNews.allNews
+  const NewsContext = useContext(AuthContext)
+  const setMyNews = NewsContext.setMyNews
+
+  const [News, setNews] = useState([])
+  const [allNews, setAllNews] = useState([])
+
+  useEffect(() => {
+    GetAllNewsApi().then((data) => {
+      if (data.status === 200) {
+        setNews(data.data.news)
+      }
+      else {
+        console.log(data.data.message);
+      }
+    })
+  },[])
+
+  useEffect(() => {
+    setAllNews(FilterAllNewsByDateTime(News))
+  },[News])
+
+  useEffect(() => {
+    setMyNews({type: "allNews", payload: allNews})
+  },[allNews, setMyNews])
 
   const country = FilterCat(allNews, "country");
   const others = FilterCat(allNews, "others");
