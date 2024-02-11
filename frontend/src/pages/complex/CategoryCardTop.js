@@ -23,7 +23,7 @@ const CategoryCardTop = (props) => {
                 <div className='cardTop-box cardTop-shadow'>
                   <div className='cardTop-images'>
                     <div className='img'>
-                      <img src={Sport} alt='' />
+                      {item.image ? <img src={item.image} alt={item.title}/> : <img src={Sport} alt={item.title}/>}
                     </div>
                     <div className='cardTop-category cardTop-category1'>
                       <span>{item.category}</span>

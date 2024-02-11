@@ -29,16 +29,16 @@ const RegisterApi = async (registerDetails) => {
     }
 }
 
-const AddNewsApi = async (news) => {
+const AddNewsApi = async (formData) => {
     const options = {
         headers: {
-          'Content-Type': 'application/json',
+          'Content-Type': 'multipart/form-data',
           'authToken': localStorage.getItem("authToken")
         }
     };
 
     try {
-        const data = await axios.post(`${BASE_URL}/api/post-news`, news, options)
+        const data = await axios.post(`${BASE_URL}/api/post-news`, formData, options)
         return data;
     } 
     catch (error) {
@@ -59,7 +59,6 @@ const GetAllNewsApi = async () => {
 const GetAdminApi = async () => {
     const options = {
         headers: {
-            'Content-Type': 'application/json',
             'authToken': localStorage.getItem("authToken")
         }
     };
@@ -76,7 +75,6 @@ const GetAdminApi = async () => {
 const GetAdminNewsApi = async () => {
     const options = {
         headers: {
-            'Content-Type': 'application/json',
             'authToken': localStorage.getItem("authToken")
         }
     };
@@ -100,10 +98,27 @@ const GetNewsByIDApi = async (id) => {
     }
 }
 
+const UpdateAdminApi = async (updatedNews) => {
+    const options = {
+        headers: {
+            'Content-Type': 'multipart/form-data',
+            'authToken': localStorage.getItem("authToken")
+        }
+    };
+
+    try {
+        const data = await axios.put(`${BASE_URL}/api/update-admin`, updatedNews, options)
+        return data;
+    } 
+    catch (error) {
+        return error.response;
+    }
+}
+
 const UpdateNewsApi = async (id, updatedNews) => {
     const options = {
         headers: {
-            'Content-Type': 'application/json',
+            'Content-Type': 'multipart/form-data',
             'authToken': localStorage.getItem("authToken")
         }
     };
@@ -120,7 +135,6 @@ const UpdateNewsApi = async (id, updatedNews) => {
 const DeleteNewsApi = async (id) => {
     const options = {
         headers: {
-            'Content-Type': 'application/json',
             'authToken': localStorage.getItem("authToken")
         }
     };
@@ -135,4 +149,4 @@ const DeleteNewsApi = async (id) => {
 }
 
 
-export { LogInApi, RegisterApi, AddNewsApi, GetAdminNewsApi, GetNewsByIDApi, GetAdminApi, DeleteNewsApi, UpdateNewsApi, GetAllNewsApi };
+export { LogInApi, RegisterApi, AddNewsApi, GetAdminNewsApi, GetNewsByIDApi, GetAdminApi, DeleteNewsApi, UpdateAdminApi, UpdateNewsApi, GetAllNewsApi };

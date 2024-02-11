@@ -7,6 +7,7 @@ const AddNews = () => {
   const setMyNews = NewsContext.setMyNews
 
   const [news, setNews] = useState({
+    image: null,
     title: "",
     description: "",
     category: "",
@@ -20,11 +21,21 @@ const AddNews = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    AddNewsApi(news).then((data) => {
+    const formData = new FormData()
+    formData.append("file", news.file);
+    formData.append("title", news.title);
+    formData.append("description", news.description);
+    formData.append("category", news.category);
+    formData.append("youtubeLink", news.youtubeLink);
+    formData.append("facebookLink", news.facebookLink);
+
+
+    AddNewsApi(formData).then((data) => {
       if (data.status === 200) {
         alert("news added successfully.")
         setMyNews({type: "addNews", payload: news})
         setNews({
+          image: null,
           title: "",
           description: "",
           category: "",
@@ -42,6 +53,9 @@ const AddNews = () => {
     <div className="addnews-container">
       <div className="addnews-box">
         <form action="" onSubmit={(e) => handleSubmit(e)}>
+          <label htmlFor="file">File:</label>
+          <input type="file" name='file' id="file" onChange={(e) => setNews({...news, [e.target.name] : e.target.files[0]})}/>
+
           <label htmlFor="title">Title:</label>
           <input type="text" id="title" value={news.title} onChange={(e) => handleFormChange(e)} name="title"/>
 

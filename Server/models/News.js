@@ -9,6 +9,10 @@ const NewsSchema = new mongoose.Schema({
     reporterName: {
         type: String,
     },
+    image : {
+        type : String,
+        required : true
+    },
     title : {
         type : String,
         required : true

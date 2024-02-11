@@ -13,7 +13,7 @@ const Hero = ({ politics, country, world, sports }) => {
                     {politics &&
                         <div className='box'>
                             <div className='img'>
-                                <img src={NewsPhoto} alt='' />
+                            {politics.image ? <img src={politics.image} alt={politics.title}/> : <img src={NewsPhoto} alt={politics.title}/>}
                             </div>
 
                             <div className='text'>
@@ -32,7 +32,7 @@ const Hero = ({ politics, country, world, sports }) => {
                     {country &&
                         <div className='box'>
                             <div className='img'>
-                                <img src={NewsPhoto} alt='' />
+                            {country.image ? <img src={country.image} alt={country.title}/> : <img src={NewsPhoto} alt={country.title}/>}
                             </div>
 
                             <div className='text'>
@@ -51,7 +51,7 @@ const Hero = ({ politics, country, world, sports }) => {
                     {world &&
                         <div className='box'>
                             <div className='img'>
-                                <img src={NewsPhoto} alt='' />
+                                {world.image ? <img src={world.image} alt={world.title}/> : <img src={NewsPhoto} alt={world.title}/>}
                             </div>
 
                             <div className='text'>
@@ -70,7 +70,7 @@ const Hero = ({ politics, country, world, sports }) => {
                     {sports &&
                         <div className='box'>
                             <div className='img'>
-                                <img src={NewsPhoto} alt='' />
+                            {sports.image ? <img src={sports.image} alt={sports.title}/> : <img src={NewsPhoto} alt={sports.title}/>}
                             </div>
 
                             <div className='text'>
