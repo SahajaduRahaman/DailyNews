@@ -3,7 +3,8 @@ const ValidateNews = (req, res, next) => {
 
     if (!title || !description || !category) {
         return res.status(400).json({
-            message : "Please provide all fields."
+            message : "Please provide all fields.",
+            data: req.body
         })
     }
 

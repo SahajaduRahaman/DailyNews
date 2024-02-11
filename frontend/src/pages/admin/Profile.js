@@ -35,7 +35,7 @@ const Profile = () => {
 
   return (
     <>
-      {eser &&
+      {user &&
         <div className='admin-profile'>
           {user.image &&
             <div>

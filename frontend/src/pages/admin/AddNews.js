@@ -7,7 +7,7 @@ const AddNews = () => {
   const setMyNews = NewsContext.setMyNews
 
   const [news, setNews] = useState({
-    image: null,
+    file: null,
     title: "",
     description: "",
     category: "",
@@ -21,6 +21,7 @@ const AddNews = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault()
+    console.log(news)
     const formData = new FormData()
     formData.append("file", news.file);
     formData.append("title", news.title);
@@ -35,7 +36,7 @@ const AddNews = () => {
         alert("news added successfully.")
         setMyNews({type: "addNews", payload: news})
         setNews({
-          image: null,
+          file: null,
           title: "",
           description: "",
           category: "",
