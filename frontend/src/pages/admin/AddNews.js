@@ -21,17 +21,15 @@ const AddNews = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    console.log(news)
-    const formData = new FormData()
-    formData.append("file", news.file);
-    formData.append("title", news.title);
-    formData.append("description", news.description);
-    formData.append("category", news.category);
-    formData.append("youtubeLink", news.youtubeLink);
-    formData.append("facebookLink", news.facebookLink);
+    // const formData = new FormData()
+    // formData.append("file", news.file);
+    // formData.append("title", news.title);
+    // formData.append("description", news.description);
+    // formData.append("category", news.category);
+    // formData.append("youtubeLink", news.youtubeLink);
+    // formData.append("facebookLink", news.facebookLink);
 
-
-    AddNewsApi(formData).then((data) => {
+    AddNewsApi(news).then((data) => {
       if (data.status === 200) {
         alert("news added successfully.")
         setMyNews({type: "addNews", payload: news})
@@ -46,6 +44,7 @@ const AddNews = () => {
       }
       else {
         alert(data.data.message)
+        console.log(data.data.data)
       }
     });
   }

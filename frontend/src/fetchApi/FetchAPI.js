@@ -40,7 +40,7 @@ const AddNewsApi = async (formData) => {
     try {
         const data = await axios.post(`${BASE_URL}/api/post-news`, formData, options)
         return data;
-    } 
+    }
     catch (error) {
         return error.response;
     }
