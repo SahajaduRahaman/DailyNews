@@ -21,15 +21,15 @@ const AddNews = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    // const formData = new FormData()
-    // formData.append("file", news.file);
-    // formData.append("title", news.title);
-    // formData.append("description", news.description);
-    // formData.append("category", news.category);
-    // formData.append("youtubeLink", news.youtubeLink);
-    // formData.append("facebookLink", news.facebookLink);
+    const formData = new FormData()
+    formData.append("file", news.file);
+    formData.append("title", news.title);
+    formData.append("description", news.description);
+    formData.append("category", news.category);
+    formData.append("youtubeLink", news.youtubeLink);
+    formData.append("facebookLink", news.facebookLink);
 
-    AddNewsApi(news).then((data) => {
+    AddNewsApi(formData).then((data) => {
       if (data.status === 200) {
         alert("news added successfully.")
         setMyNews({type: "addNews", payload: news})

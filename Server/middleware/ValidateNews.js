@@ -1,10 +1,3 @@
-const express = require("express")
-const cors = require("cors")
-const app = express()
-
-app.use(cors())
-app.use(express.json())
-
 const ValidateNews = (req, res, next) => {
     const {title, description, category} = req.body
 
