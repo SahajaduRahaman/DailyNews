@@ -13,7 +13,7 @@ router.put("/:id", FetchUser, upload.single("file"), async (req, res) => {
     const updatedNews = {}
 
     if ( req.file ) {
-        updatedNews.image = `${process.env.ImageUrl}/Images/${req.file.filename}`
+        updatedNews.file = `${process.env.ImageUrl}/Images/${req.file.filename}`
     }
 
     if ( title ) {
@@ -47,7 +47,7 @@ router.put("/:id", FetchUser, upload.single("file"), async (req, res) => {
             return res.status(401).send("User not allowed to update.")
         }
 
-        const imagePath = path.basename(currentNews.image);
+        const imagePath = path.basename(currentNews.file);
 
         fs.unlink(`public/Images/${imagePath}`, (err) => {
             if (err) {

@@ -5,13 +5,13 @@ const ValidateNews = require("../middleware/ValidateNews")
 const upload = require("../Storage")
 const router = express.Router();
 
-router.post("/", FetchUser, ValidateNews, upload.single("file"), async (req, res) => {
 
+router.post("/", FetchUser, upload.single("file"), ValidateNews, async (req, res) => {
     const { title, description, category, youtubeLink, facebookLink, date } = req.body;
     try {
         let currentNews = await News({
             reporter : req.reporter.id,
-            image : `${process.env.ImageUrl}/Images/${req.file.filename}`,
+            file : `${process.env.ImageUrl}/Images/${req.file.filename}`,
             title : title,
             description : description,
             category : category,

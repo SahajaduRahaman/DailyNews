@@ -21,13 +21,14 @@ const AddNews = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault()
+
     const formData = new FormData()
-    formData.append("file", news.file);
     formData.append("title", news.title);
     formData.append("description", news.description);
     formData.append("category", news.category);
     formData.append("youtubeLink", news.youtubeLink);
     formData.append("facebookLink", news.facebookLink);
+    formData.append("file", news.file);
 
     AddNewsApi(formData).then((data) => {
       if (data.status === 200) {
@@ -44,7 +45,6 @@ const AddNews = () => {
       }
       else {
         alert(data.data.message)
-        console.log(data.data.data)
       }
     });
   }

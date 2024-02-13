@@ -32,8 +32,8 @@ const RegisterApi = async (registerDetails) => {
 const AddNewsApi = async (formData) => {
     const options = {
         headers: {
-          'Content-Type': 'multipart/form-data',
-          'authToken': localStorage.getItem("authToken")
+            'Content-Type': 'multipart/form-data',
+            'authToken': localStorage.getItem("authToken")
         }
     };
 
