@@ -14,9 +14,9 @@ const SettingsObj = {
     threeSettings : {
         dots: false,
         infinite: true,
-        speed: 2000,
+        speed: 3000,
         autoplay: true,
-        autoplaySpeed: 2000,
+        autoplaySpeed: 3000,
         slidesToShow: 3,
         slidesToScroll: 1,
         responsive: [

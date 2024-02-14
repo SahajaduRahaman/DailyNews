@@ -15,7 +15,7 @@ const PORT = process.env.PORT || 4090
 
 app.use(cors())
 app.use(express.json())
-app.use(express.static("public"))
+app.use(express.static("public/Images"))
 
 
 app.use("/api/register", require("./routes/Register"))

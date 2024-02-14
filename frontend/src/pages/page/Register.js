@@ -32,7 +32,7 @@ const Register = () => {
         Navigate("/dashboard")
       }
       else {
-        alert("Register unsuccessfull.")
+        alert(data.data.message)
         console.log(data)
       }
     });
