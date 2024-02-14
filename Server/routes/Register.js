@@ -41,7 +41,8 @@ router.post("/", ValidateUser, async (req, res) => {
 
         const data = {
             reporter : {
-                id : reporter.id
+                id : reporter.id,
+                name : reporter.name
             }
         }
 

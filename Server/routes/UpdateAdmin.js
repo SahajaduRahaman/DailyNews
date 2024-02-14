@@ -39,13 +39,15 @@ router.put("/", FetchUser, upload.single("file"), async (req, res) => {
             return res.status(404).send("Item not found.")
         }
 
-        const imagePath = path.basename(currentAdmin.file);
+        if (req.file) {
+            const imagePath = path.basename(currentAdmin.file);
 
-        fs.unlink(`public/Images/${imagePath}`, (err) => {
-            if (err) {
-              console.error(err);
-            }
-        });
+            fs.unlink(`public/Images/${imagePath}`, (err) => {
+                if (err) {
+                console.error(err);
+                }
+            });
+        }
 
         currentAdmin = await Reporter.findByIdAndUpdate(req.reporter.id, currentNews)
 

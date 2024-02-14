@@ -1,14 +1,13 @@
 const mongoose = require("mongoose")
 
 const NewsSchema = new mongoose.Schema({
-    reporter : {
-        type : mongoose.Schema.Types.ObjectId,
-        ref : "Reporter",
+    reporterId : {
+        type : String,
         required : true
     },
-    // reporterName: {
-    //     type: String,
-    // },
+    reporterName: {
+        type: String,
+    },
     file : {
         type : String,
         required : true
@@ -35,18 +34,6 @@ const NewsSchema = new mongoose.Schema({
     facebookLink : {
         type : String,
     }
-
 })
-
-// NewsSchema.pre('save', async function (next) {
-//     try {
-//         const reporter = await mongoose.model('Reporter').findById(this.reporter);
-//         this.reporterName = reporter.name;
-//         next();
-//     } 
-//     catch (error) {
-//         next(error);
-//     }
-// });
 
 module.exports = mongoose.model("News", NewsSchema);

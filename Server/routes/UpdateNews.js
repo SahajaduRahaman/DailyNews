@@ -47,13 +47,15 @@ router.put("/:id", FetchUser, upload.single("file"), async (req, res) => {
             return res.status(401).send("User not allowed to update.")
         }
 
-        const imagePath = path.basename(currentNews.file);
+        if (req.file) {
+            const imagePath = path.basename(currentNews.file);
 
-        fs.unlink(`public/Images/${imagePath}`, (err) => {
-            if (err) {
-              console.error(err);
-            }
-        });
+            fs.unlink(`public/Images/${imagePath}`, (err) => {
+                if (err) {
+                console.error(err);
+                }
+            });
+        }
 
         currentNews = await News.findByIdAndUpdate(req.params.id, updatedNews)
 

@@ -10,7 +10,8 @@ router.post("/", FetchUser, upload.single("file"), ValidateNews, async (req, res
     const { title, description, category, youtubeLink, facebookLink, date } = req.body;
     try {
         let currentNews = await News({
-            reporter : req.reporter.id,
+            reporterId : req.reporter.id,
+            reporterName : req.reporter.name,
             file : `${process.env.ImageUrl}/Images/${req.file.filename}`,
             title : title,
             description : description,
