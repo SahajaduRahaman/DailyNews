@@ -43,7 +43,7 @@ router.put("/:id", FetchUser, upload.single("file"), async (req, res) => {
             return res.status(404).send("Item not found.")
         }
 
-        if (currentNews.reporter.toString() !== req.reporter.id) {
+        if (currentNews.reporterId.toString() !== req.reporter.id) {
             return res.status(401).send("User not allowed to update.")
         }
 
