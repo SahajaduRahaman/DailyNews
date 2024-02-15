@@ -7,9 +7,9 @@ const router = express.Router()
 router.get("/", FetchUser, async (req, res) => {
 
     try {
-        const reporterId = req.reporter.id
+        const Id = req.reporter.id
 
-        const data = await News.find({reporter : reporterId})
+        const data = await News.find({reporterId : Id})
 
         res.status(200).json({
             status : "success",
