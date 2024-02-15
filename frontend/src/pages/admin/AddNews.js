@@ -10,7 +10,7 @@ const AddNews = () => {
     file: null,
     title: "",
     description: "",
-    category: "",
+    category: "politics",
     youtubeLink: "",
     facebookLink: "",
   });
@@ -44,7 +44,7 @@ const AddNews = () => {
         })
       }
       else {
-        alert(data.data)
+        alert(data.data.message)
       }
     });
   }
