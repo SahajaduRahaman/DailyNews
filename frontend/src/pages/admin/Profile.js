@@ -5,7 +5,7 @@ import "../../styles/Profile.css"
 
 const Profile = () => {
   const [user, setUser] = useState({})
-  const [profile, setProfile] = useState()
+  // const [profile, setProfile] = useState()
   // const [visible, setVisible] = useState({
   //   file: "Invincible",
   //   name: "Invincible",
@@ -26,6 +26,7 @@ const Profile = () => {
     GetAdminApi().then((data) => {
       if (data.status === 200) {
         setUser(data.data.reporter)
+        console.log(data.data.reporter);
       }
       else {
         alert("failed")
@@ -35,13 +36,13 @@ const Profile = () => {
 
   },[])
 
-  useEffect(() => {
-    setProfile({...user})
-  },[user])
+  // useEffect(() => {
+  //   setProfile({...user})
+  // },[user])
 
-  const HandleSubmit = (e) => {
+  // const HandleSubmit = (e) => {
 
-  }
+  // }
 
   return (
     <>

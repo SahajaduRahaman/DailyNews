@@ -11,6 +11,7 @@ const Side = (props) => {
   const allNews = props.news
   const settings = {
     dots: false,
+    autoplay: true,
     infinite: true,
     speed: 500,
     slidesToShow: 1,
@@ -44,7 +45,7 @@ const Side = (props) => {
           {allNews.map((item) => {
             return (
               <div className='img' key={item._id}>
-                <img src={Sport} alt={item.title} />
+                {item.file ? <img src={item.file} alt={item.title}/> : <img src={Sport} alt={item.title}/>}
               </div>
             )
           })}
