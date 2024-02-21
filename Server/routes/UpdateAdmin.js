@@ -2,59 +2,70 @@ const express = require("express")
 const FetchUser = require("../middleware/FetchUser")
 const Reporter = require("../models/Reporter")
 const upload = require("../Storage")
-const path = require("path")
 const fs = require('fs');
+const cloudinary = require("../cloudinary")
 
 const router = express.Router()
 
 router.put("/", FetchUser, upload.single("file"), async (req, res) => {
     const { name, email, mobile, about } = req.body
-
-    const updateAdmin = {}
-
-    if ( req.file ) {
-        updateAdmin.file = `${process.env.ImageUrl}/Images/${req.file.filename}`
-    }
-
-    if ( name ) {
-        updateAdmin.name = name
-    }
-
-    if ( email ) {
-        updateAdmin.email = email
-    }
-
-    if ( mobile ) {
-        updateAdmin.mobile = mobile
-    }
-
-    if ( about ) {
-        updateAdmin.about = about
-    }
+    const file = req.file
 
     try {
         let currentAdmin = await Reporter.findById(req.reporter.id)
 
         if (!currentAdmin) {
-            return res.status(404).send("Item not found.")
+            return res.status(404).send("User not found.")
         }
 
-        if (req.file) {
-            const imagePath = path.basename(currentAdmin.file);
+        const updateAdmin = {}
 
-            fs.unlink(`public/Images/${imagePath}`, (err) => {
+        if ( file ) {
+            if (currentAdmin.file.public_id) {
+                const cloudinaryFilePath = currentAdmin.file.public_id
+
+                if (cloudinaryFilePath) {
+                    await cloudinary.uploader.destroy(cloudinaryFilePath)
+                }
+            }
+
+            let result = await cloudinary.uploader.upload(file.path, {
+                upload_preset: "daily-news"
+            })
+
+            updateAdmin.file = result
+
+            const filePath = `${result.file.original_filename}.${result.file.format}`
+
+            fs.unlink(`public/Files/${filePath}`, (err) => {
                 if (err) {
-                console.error(err);
+                  console.error(err);
                 }
             });
         }
 
-        currentAdmin = await Reporter.findByIdAndUpdate(req.reporter.id, currentNews)
+        if ( name ) {
+            updateAdmin.name = name
+        }
+
+        if ( email ) {
+            updateAdmin.email = email
+        }
+
+        if ( mobile ) {
+            updateAdmin.mobile = mobile
+        }
+
+        if ( about ) {
+            updateAdmin.about = about
+        }
+
+        let data = await Reporter.findByIdAndUpdate(req.reporter.id, updateAdmin)
 
         res.status(200).json({
             status : "success",
             message : "News updated successfully.",
-            news : currentAdmin
+            news : data
         })
     }
     catch (error) {

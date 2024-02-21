@@ -2,39 +2,14 @@ const express = require("express")
 const FetchUser = require("../middleware/FetchUser")
 const News = require("../models/News")
 const upload = require("../Storage")
-const path = require("path")
 const fs = require('fs');
+const cloudinary = require("../cloudinary")
 
 const router = express.Router()
 
 router.put("/:id", FetchUser, upload.single("file"), async (req, res) => {
     const { title, description, category, youtubeLink, facebookLink } = req.body
-
-    const updatedNews = {}
-
-    if ( req.file ) {
-        updatedNews.file = `${process.env.ImageUrl}/Images/${req.file.filename}`
-    }
-
-    if ( title ) {
-        updatedNews.title = title
-    }
-
-    if ( description ) {
-        updatedNews.description = description
-    }
-
-    if ( category ) {
-        updatedNews.category = category
-    }
-
-    if ( youtubeLink ) {
-        updatedNews.youtubeLink = youtubeLink
-    }
-
-    if ( facebookLink ) {
-        updatedNews.facebookLink = facebookLink
-    }
+    const file = req.file
 
     try {
         let currentNews = await News.findById(req.params.id)
@@ -47,14 +22,48 @@ router.put("/:id", FetchUser, upload.single("file"), async (req, res) => {
             return res.status(401).send("User not allowed to update.")
         }
 
-        if (req.file) {
-            const imagePath = path.basename(currentNews.file);
+        const updatedNews = {}
 
-            fs.unlink(`public/Images/${imagePath}`, (err) => {
+        if ( file ) {
+            const cloudinaryFilePath = currentNews.file.public_id
+
+            if (cloudinaryFilePath) {
+                await cloudinary.uploader.destroy(cloudinaryFilePath)
+            }
+
+            let result = await cloudinary.uploader.upload(file.path, {
+                upload_preset: "daily-news"
+            })
+
+            updatedNews.file = result
+
+            const filePath = `${result.file.original_filename}.${result.file.format}`
+
+            fs.unlink(`public/Files/${filePath}`, (err) => {
                 if (err) {
-                console.error(err);
+                  console.error(err);
                 }
             });
+        }
+
+        if ( title ) {
+            updatedNews.title = title
+        }
+
+        if ( description ) {
+            updatedNews.description = description
+        }
+
+        if ( category ) {
+            updatedNews.category = category
+        }
+
+        if ( youtubeLink ) {
+            updatedNews.youtubeLink = youtubeLink
+        }
+
+        if ( facebookLink ) {
+            updatedNews.facebookLink = facebookLink
         }
 
         currentNews = await News.findByIdAndUpdate(req.params.id, updatedNews)

@@ -34,7 +34,9 @@ router.post("/", ValidateUser, async (req, res) => {
             name : name,
             email : email,
             mobile : mobile,
-            password : secPassword
+            password : secPassword,
+            file : {},
+            about : ""
         })
 
         reporter.save();

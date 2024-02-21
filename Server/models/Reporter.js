@@ -18,7 +18,7 @@ const ReporterSchema = new mongoose.Schema({
         required : true
     },
     file : {
-        type : String
+        type : Object
     },
     about : {
         type : String

@@ -14,7 +14,7 @@ const Register = () => {
     name : "",
     email : "",
     mobile : "",
-    password : ""
+    password : "",
   })
 
   const HandleInputChange = (e) => {

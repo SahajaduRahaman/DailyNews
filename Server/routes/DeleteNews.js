@@ -1,6 +1,7 @@
 const express = require("express")
 const FetchUser = require("../middleware/FetchUser")
 const News = require("../models/News")
+const cloudinary = require("../cloudinary")
 
 const router = express.Router();
 
@@ -16,6 +17,12 @@ router.delete("/:id", FetchUser, async (req, res) => {
 
         if (news.reporterId.toString() !== reporterID) {
             return res.status(401).send("User not allowed.")
+        }
+
+        const cloudinaryFilePath = news.file.public_id
+
+        if (cloudinaryFilePath) {
+            await cloudinary.uploader.destroy(cloudinaryFilePath)
         }
 
         news = await News.findByIdAndDelete(req.params.id)
