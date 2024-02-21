@@ -24,7 +24,7 @@ const CategoryCardBtm = (props) => {
                 <div className='cardBtm-box cardBtm-shadow cardBtm-flexSB'>
                   <div className='cardBtm-images'>
                     <div className='cardBtm-img'>
-                    {item.file ? <img src={item.file} alt={item.title}/> : <img src={Sport} alt={item.title}/>}
+                    {item.file ? <img src={item.file.secure_url} alt={item.title}/> : <img src={Sport} alt={item.title}/>}
                     </div>
                     <div className='cardBtm-catagory cardBtm-catagory1'>
                       <span>{item.category}</span>

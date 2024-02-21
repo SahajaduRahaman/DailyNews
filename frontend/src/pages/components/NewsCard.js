@@ -15,7 +15,7 @@ const NewsCard = (props) => {
                     <div className='newsCard-box' key={item._id}>
                         <div className='newsCard-images'>
                             <div className='img'>
-                                {item.file ? <img src={item.file} alt={item.title}/> : <img src={Sport} alt={item.title}/>}
+                                {item.file ? <img src={item.file.secure_url} alt={item.title}/> : <img src={Sport} alt={item.title}/>}
                             </div>
                             <div className='newsCard-category'>
                                 <span>{item.category}</span>

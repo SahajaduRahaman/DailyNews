@@ -13,7 +13,7 @@ const Hero = ({ politics, country, world, sports }) => {
                     {politics &&
                         <div className='box'>
                             <div className='img'>
-                            {politics.file ? <img src={politics.file} alt={politics.title}/> : <img src={NewsPhoto} alt={politics.title}/>}
+                            {politics.file ? <img src={politics.file.secure_url} alt={politics.title}/> : <img src={NewsPhoto} alt={politics.title}/>}
                             </div>
 
                             <div className='text'>
@@ -32,7 +32,7 @@ const Hero = ({ politics, country, world, sports }) => {
                     {country &&
                         <div className='box'>
                             <div className='img'>
-                            {country.file ? <img src={country.file} alt={country.title}/> : <img src={NewsPhoto} alt={country.title}/>}
+                            {country.file ? <img src={country.file.secure_url} alt={country.title}/> : <img src={NewsPhoto} alt={country.title}/>}
                             </div>
 
                             <div className='text'>
@@ -51,7 +51,7 @@ const Hero = ({ politics, country, world, sports }) => {
                     {world &&
                         <div className='box'>
                             <div className='img'>
-                                {world.file ? <img src={world.file} alt={world.title}/> : <img src={NewsPhoto} alt={world.title}/>}
+                                {world.file ? <img src={world.file.secure_url} alt={world.title}/> : <img src={NewsPhoto} alt={world.title}/>}
                             </div>
 
                             <div className='text'>
@@ -70,7 +70,7 @@ const Hero = ({ politics, country, world, sports }) => {
                     {sports &&
                         <div className='box'>
                             <div className='img'>
-                            {sports.file ? <img src={sports.file} alt={sports.title}/> : <img src={NewsPhoto} alt={sports.title}/>}
+                            {sports.file ? <img src={sports.file.secure_url} alt={sports.title}/> : <img src={NewsPhoto} alt={sports.title}/>}
                             </div>
 
                             <div className='text'>

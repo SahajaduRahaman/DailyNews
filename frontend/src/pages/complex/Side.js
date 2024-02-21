@@ -45,7 +45,7 @@ const Side = (props) => {
           {allNews.map((item) => {
             return (
               <div className='img' key={item._id}>
-                {item.file ? <img src={item.file} alt={item.title}/> : <img src={Sport} alt={item.title}/>}
+                {item.file ? <img src={item.file.secure_url} alt={item.title}/> : <img src={Sport} alt={item.title}/>}
               </div>
             )
           })}

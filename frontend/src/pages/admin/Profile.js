@@ -26,6 +26,7 @@ const Profile = () => {
     GetAdminApi().then((data) => {
       if (data.status === 200) {
         setUser(data.data.reporter)
+        console.log(data.data.reporter);
       }
       else {
         alert("failed")

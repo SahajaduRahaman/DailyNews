@@ -66,12 +66,12 @@ router.put("/:id", FetchUser, upload.single("file"), async (req, res) => {
             updatedNews.facebookLink = facebookLink
         }
 
-        currentNews = await News.findByIdAndUpdate(req.params.id, updatedNews)
+        let data = await News.findByIdAndUpdate(req.params.id, updatedNews)
 
         res.status(200).json({
             status : "success",
             message : "News updated successfully.",
-            news : currentNews
+            news : data
         })
     }
     catch (error) {
