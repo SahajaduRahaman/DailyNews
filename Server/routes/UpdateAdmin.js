@@ -21,7 +21,7 @@ router.put("/", FetchUser, upload.single("file"), async (req, res) => {
         const updateAdmin = {}
 
         if ( file ) {
-            if (currentAdmin.file.public_id) {
+            if (currentAdmin.file) {
                 const cloudinaryFilePath = currentAdmin.file.public_id
 
                 if (cloudinaryFilePath) {
@@ -35,7 +35,7 @@ router.put("/", FetchUser, upload.single("file"), async (req, res) => {
 
             updateAdmin.file = result
 
-            const filePath = `${result.file.original_filename}.${result.file.format}`
+            const filePath = `${updateAdmin.file.original_filename}.${updateAdmin.file.format}`
 
             fs.unlink(`public/Files/${filePath}`, (err) => {
                 if (err) {

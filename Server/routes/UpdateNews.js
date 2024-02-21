@@ -28,7 +28,7 @@ router.put("/:id", FetchUser, upload.single("file"), async (req, res) => {
             const cloudinaryFilePath = currentNews.file.public_id
 
             if (cloudinaryFilePath) {
-                await cloudinary.uploader.destroy(cloudinaryFilePath)
+                cloudinary.uploader.destroy(cloudinaryFilePath)
             }
 
             let result = await cloudinary.uploader.upload(file.path, {
@@ -37,7 +37,7 @@ router.put("/:id", FetchUser, upload.single("file"), async (req, res) => {
 
             updatedNews.file = result
 
-            const filePath = `${result.file.original_filename}.${result.file.format}`
+            const filePath = `${updatedNews.file.original_filename}.${updatedNews.file.format}`
 
             fs.unlink(`public/Files/${filePath}`, (err) => {
                 if (err) {
