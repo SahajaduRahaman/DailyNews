@@ -10,10 +10,10 @@ const cloudinary = require("../cloudinary")
 
 router.post("/", FetchUser, upload.single("file"), ValidateNews, async (req, res) => {
     const { title, description, category, youtubeLink, facebookLink, date } = req.body;
-    const file = req.file
+    const reqFile = req.file
     
     try {
-        let result = await cloudinary.uploader.upload(file.path, {
+        let result = await cloudinary.uploader.upload(reqFile.path, {
             upload_preset: "daily-news"
         })
         if (result) {
