@@ -7,7 +7,6 @@ const AddNews = () => {
   const setMyNews = NewsContext.setMyNews
 
   const [news, setNews] = useState({
-    file: null,
     title: "",
     description: "",
     category: "politics",
@@ -35,10 +34,9 @@ const AddNews = () => {
         alert("news added successfully.")
         setMyNews({type: "addNews", payload: news})
         setNews({
-          file: null,
           title: "",
           description: "",
-          category: "",
+          category: "politics",
           youtubeLink: "",
           facebookLink: "",
         })

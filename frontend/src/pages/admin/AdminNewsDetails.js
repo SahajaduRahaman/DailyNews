@@ -26,14 +26,14 @@ const AdminNewsDetails = () => {
         }
       });
   
-    },[path, visible])
+    },[path.id, visible])
   
     const DeleteNews = () => {
       DeleteNewsApi(path.id).then((data) => {
         if (data.status === 200) {
           alert(data.data.message)
-          setMyNews({type: "deleteNews", payload: path.id})
           Navigate(-1)
+          setMyNews({type: "deleteNews", payload: path.id})
         }
         else {
           alert("news deleted failed.")
