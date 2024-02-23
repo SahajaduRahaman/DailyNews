@@ -13,7 +13,7 @@ router.post("/", FetchUser, upload.single("file"), ValidateNews, async (req, res
     const reqFile = req.file
     
     try {
-        let result = await cloudinary.uploader.upload(reqFile.path, {
+        const result = await cloudinary.uploader.upload(reqFile.path, {
             upload_preset: "daily-news"
         })
         if (result) {
@@ -29,15 +29,15 @@ router.post("/", FetchUser, upload.single("file"), ValidateNews, async (req, res
                 date : date
             })
 
-            let data = await currentNews.save();
-
-            const filePath = `${data.file.original_filename}.${data.file.format}`;
+            const filePath = `${currentNews.file.original_filename}.${currentNews.file.format}`;
 
             fs.unlink(`public/Files/${filePath}`, (err) => {
                 if (err) {
                 console.error(err);
                 }
             });
+
+            let data = await currentNews.save();
 
             res.status(200).json({
                 status : "success",
