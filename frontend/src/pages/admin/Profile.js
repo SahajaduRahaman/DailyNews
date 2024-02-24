@@ -26,7 +26,6 @@ const Profile = () => {
 
   const HandleSubmit = (e) => {
     e.preventDefault()
-
     const formData = new FormData()
     formData.append("file", profile.file);
     formData.append("name", profile.name);
@@ -37,8 +36,7 @@ const Profile = () => {
     UpdateAdminApi(formData).then((data) => {
       if (data.status === 200) {
         alert("admin updated successfully.")
-        // setProfile(data.data.reporter)
-        console.log(data.data.reporter);
+        setProfile(data.data.reporter)
       }
       else {
         alert(data.data.message)

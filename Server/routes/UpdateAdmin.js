@@ -30,7 +30,12 @@ router.put("/", FetchUser, upload.single("file"), async (req, res) => {
             }
 
             let result = await cloudinary.uploader.upload(file.path, {
-                upload_preset: "daily-news-admin"
+                upload_preset: "daily-news-admin",
+                transformation: [
+                    {gravity: "face", height: 300, width: 300, crop: "fill"},
+                    {fetch_format: "png"},
+                    {radius: "max"}
+                ]
             })
 
             updateAdmin.file = result
