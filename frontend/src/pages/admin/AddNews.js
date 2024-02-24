@@ -42,7 +42,8 @@ const AddNews = () => {
         })
       }
       else {
-        alert(data.data.message)
+        alert(data)
+        console.log(data);
       }
     });
   }

@@ -16,8 +16,9 @@ router.post("/", FetchUser, upload.single("file"), ValidateNews, async (req, res
         upload_preset: "daily-news"
     })
     
-    try {
-        if (result) {
+  
+    if (result) {
+        try {
             let currentNews = await News({
                 reporterId : req.reporter.id,
                 reporterName : req.reporter.name,
@@ -44,15 +45,15 @@ router.post("/", FetchUser, upload.single("file"), ValidateNews, async (req, res
                 status : "success",
                 message : "News uploaded successfully.",
             })
+
+        }
+        catch (error) {
+            res.status(500).send({
+                status: "Internal server error.",
+                message: "Internal server error."
+            })
         }
     }
-    catch (error) {
-        res.status(500).send({
-            status: "Internal server error.",
-            message: "Internal server error."
-        })
-    }
-
 })
 
 module.exports = router;
