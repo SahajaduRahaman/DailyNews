@@ -48,7 +48,8 @@ router.post("/", FetchUser, upload.single("file"), ValidateNews, async (req, res
     catch (error) {
         res.status(500).send({
             status: "Internal server error.",
-            message: "Internal server error."
+            message: "Internal server error.",
+            error : error
         })
     }
 
