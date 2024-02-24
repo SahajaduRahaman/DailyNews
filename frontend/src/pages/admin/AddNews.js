@@ -42,8 +42,8 @@ const AddNews = () => {
         })
       }
       else {
-        alert(data.data.message)
-        console.log(data.data.message);
+        alert(data.data)
+        console.log(data);
       }
     });
   }

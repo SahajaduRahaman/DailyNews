@@ -29,6 +29,8 @@ router.post("/", FetchUser, upload.single("file"), ValidateNews, async (req, res
                 date : date
             })
 
+            currentNews.save();
+
             const filePath = `${currentNews.file.original_filename}.${currentNews.file.format}`;
 
             fs.unlink(`public/Files/${filePath}`, (err) => {
@@ -36,8 +38,6 @@ router.post("/", FetchUser, upload.single("file"), ValidateNews, async (req, res
                     console.error(err);
                 }
             });
-
-            currentNews.save();
 
             res.status(200).json({
                 status : "success",
