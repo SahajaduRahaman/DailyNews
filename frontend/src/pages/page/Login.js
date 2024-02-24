@@ -43,8 +43,8 @@ const Login = () => {
     <div>
       <div>
         <form action="" onSubmit={(e) => HandleSubmit(e)}>
-          <input value={loginDetails.email} type="email" name='email' onChange={(e) => HandleChange(e)} required autoComplete='true'/>
-          <input value={loginDetails.password} type="password" name='password' onChange={(e) => HandleChange(e)} required autoComplete='true'/>
+          <input defaultValue={loginDetails.email} type="email" name='email' onChange={(e) => HandleChange(e)} required autoComplete='true'/>
+          <input defaultValue={loginDetails.password} type="password" name='password' onChange={(e) => HandleChange(e)} required autoComplete='true'/>
           <button>Log In</button>
         </form>
       </div>

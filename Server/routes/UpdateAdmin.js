@@ -21,11 +21,11 @@ router.put("/", FetchUser, upload.single("file"), async (req, res) => {
         const updateAdmin = {}
 
         if ( file ) {
-            if (currentAdmin.file) {
+            if (currentAdmin.file !== "") {
                 const cloudinaryFilePath = currentAdmin.file.public_id
 
                 if (cloudinaryFilePath) {
-                    await cloudinary.uploader.destroy(cloudinaryFilePath)
+                    cloudinary.uploader.destroy(cloudinaryFilePath)
                 }
             }
 
