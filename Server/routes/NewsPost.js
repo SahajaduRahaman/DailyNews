@@ -31,13 +31,13 @@ router.post("/", FetchUser, upload.single("file"), ValidateNews, async (req, res
 
             currentNews.save();
 
-            // const filePath = `${currentNews.file.original_filename}.${currentNews.file.format}`;
+            const filePath = `${currentNews.file.original_filename}.${currentNews.file.format}`;
 
-            // fs.unlink(`public/Files/${filePath}`, (err) => {
-            //     if (err) {
-            //         console.error(err);
-            //     }
-            // });
+            fs.unlink(`public/Files/${filePath}`, (err) => {
+                if (err) {
+                    console.error(err);
+                }
+            });
 
             res.status(200).json({
                 status : "success",
