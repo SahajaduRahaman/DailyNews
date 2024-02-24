@@ -60,12 +60,12 @@ router.put("/", FetchUser, upload.single("file"), async (req, res) => {
             updateAdmin.about = about
         }
 
-        Reporter.findByIdAndUpdate(req.reporter.id, updateAdmin)
+        let data = await Reporter.findByIdAndUpdate(req.reporter.id, updateAdmin)
 
         res.status(200).json({
             status : "success",
             message : "News updated successfully.",
-            reporter : updateAdmin
+            reporter : data
         })
     }
     catch (error) {

@@ -37,7 +37,7 @@ const Profile = () => {
     UpdateAdminApi(formData).then((data) => {
       if (data.status === 200) {
         alert("admin updated successfully.")
-        setProfile(data.data.reporter)
+        // setProfile(data.data.reporter)
         console.log(data.data.reporter);
       }
       else {
