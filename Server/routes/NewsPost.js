@@ -11,14 +11,12 @@ const cloudinary = require("../cloudinary")
 router.post("/", FetchUser, upload.single("file"), ValidateNews, async (req, res) => {
     const { title, description, category, youtubeLink, facebookLink, date } = req.body;
     const reqFile = req.file
-
-    let result = await cloudinary.uploader.upload(reqFile.path, {
-        upload_preset: "daily-news"
-    })
     
-  
-    if (result) {
-        try {
+    try {
+        let result = await cloudinary.uploader.upload(reqFile.path, {
+            upload_preset: "daily-news"
+        })
+        if (result) {
             let currentNews = await News({
                 reporterId : req.reporter.id,
                 reporterName : req.reporter.name,
@@ -45,15 +43,15 @@ router.post("/", FetchUser, upload.single("file"), ValidateNews, async (req, res
                 status : "success",
                 message : "News uploaded successfully.",
             })
-
-        }
-        catch (error) {
-            res.status(500).send({
-                status: "Internal server error.",
-                message: "Internal server error."
-            })
         }
     }
+    catch (error) {
+        res.status(500).send({
+            status: "Internal server error.",
+            message: "Internal server error."
+        })
+    }
+
 })
 
 module.exports = router;
