@@ -65,7 +65,7 @@ router.put("/", FetchUser, upload.single("file"), async (req, res) => {
         res.status(200).json({
             status : "success",
             message : "News updated successfully.",
-            news : data
+            reporter : data
         })
     }
     catch (error) {
