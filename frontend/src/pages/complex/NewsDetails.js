@@ -18,9 +18,7 @@ const NewsDetails = () => {
         alert(data.data.message)
       }
     });
-
   },[path])
-
 
   return (
     <>
