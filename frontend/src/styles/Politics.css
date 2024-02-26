@@ -10,6 +10,7 @@
 
 .newsCard-right {
     width: 23%;
+    position: relative;
 }
 
 .card-container {

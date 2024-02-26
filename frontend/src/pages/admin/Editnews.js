@@ -45,40 +45,40 @@ const Editnews = ({ news, id, setVisible }) => {
                         <input type="file" name='file' id="file" onChange={(e) => setUpdateNews({...updateNews, [e.target.name] : e.target.files[0]})}/>
 
                         <label htmlFor="title">Title</label>
-                        <input type="text" id="title" name="title" defaultValue={updateNews.title} onChange={(e) => OnChangeNews(e)} />
+                        <input type="text" id="title" name="title" value={updateNews.title} onChange={(e) => OnChangeNews(e)} />
                         <br />
                         <br />
 
                         <label htmlFor="description">Description</label>
-                        <textarea name="description" id="description" cols="30" rows="10" defaultValue={updateNews.description} onChange={(e) => OnChangeNews(e)} />
+                        <textarea name="description" id="description" cols="30" rows="10" value={updateNews.description} onChange={(e) => OnChangeNews(e)} />
                         <br />
                         <br />
 
                         <label htmlFor="category">Category:</label>
-                        <select name="category" id="category" defaultValue={updateNews.category} onChange={(e) => OnChangeNews(e)} >
-                            <option defaultValue="politics">Politics</option>
-                            <option defaultValue="technology">Technology</option>
-                            <option defaultValue="country">Country</option>
-                            <option defaultValue="world">World</option>
-                            <option defaultValue="business">Business</option>
-                            <option defaultValue="education">Education</option>
-                            <option defaultValue="career">Career</option>
-                            <option defaultValue="entertainment">Entertainment</option>
-                            <option defaultValue="sports">Sports</option>
-                            <option defaultValue="others" >Others</option>
+                        <select name="category" id="category" value={updateNews.category} onChange={(e) => OnChangeNews(e)} >
+                            <option value="politics">Politics</option>
+                            <option value="technology">Technology</option>
+                            <option value="country">Country</option>
+                            <option value="world">World</option>
+                            <option value="business">Business</option>
+                            <option value="education">Education</option>
+                            <option value="career">Career</option>
+                            <option value="entertainment">Entertainment</option>
+                            <option value="sports">Sports</option>
+                            <option value="others" >Others</option>
                         </select>
                         <br />
                         <br />
 
                         <label htmlFor="youtubeLink">YoutubeLink</label>
-                        <input type="text" id="youtubeLink" name="youtubeLink" defaultValue={updateNews.youtubeLink} onChange={(e) => OnChangeNews(e)} />
+                        <input type="text" id="youtubeLink" name="youtubeLink" value={updateNews.youtubeLink} onChange={(e) => OnChangeNews(e)} />
                         <br />
                         <br />
 
                         <label htmlFor="facebookLink">FacebookLink</label>
-                        <input type="text" id="facebookLink" name="facebookLink" defaultValue={updateNews.facebookLink} onChange={(e) => OnChangeNews(e)} />
+                        <input type="text" id="facebookLink" name="facebookLink" value={updateNews.facebookLink} onChange={(e) => OnChangeNews(e)} />
 
-                        <input type="submit" defaultValue="Submit" />
+                        <input type="submit" value="Submit" />
                     </fieldset>
                 </form>
             </div>

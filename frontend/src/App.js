@@ -52,7 +52,6 @@ function App() {
     setMyNews({type: "allNews", payload: allNews})
   },[allNews, setMyNews])
 
-
   return (
     <>
       <BrowserRouter>

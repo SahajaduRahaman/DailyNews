@@ -1,11 +1,10 @@
 import React from 'react'
-import Sport from "../../assets/sports.jpeg"
+import Sport from "../../assets/sports.jpg"
 import "../../styles/NewsCard.css"
 import { Link } from 'react-router-dom'
 import DateAndTime from './DateAndTime'
 
 const NewsCard = (props) => {
-
     const news = props.news
 
     return (
@@ -15,7 +14,7 @@ const NewsCard = (props) => {
                     <div className='newsCard-box' key={item._id}>
                         <div className='newsCard-images'>
                             <div className='img'>
-                                {item.file ? <img src={item.file.secure_url} alt={item.title}/> : <img src={Sport} alt={item.title}/>}
+                                <img src={item.file ? item.file.secure_url : Sport} alt={item.title}/>
                             </div>
                             <div className='newsCard-category'>
                                 <span>{item.category}</span>

@@ -44,18 +44,18 @@ const Register = () => {
         <h1>Register here...</h1>
         <form action="" onSubmit={(e) => HandleSubmit(e)}>
           <label htmlFor="name">Name</label>
-          <input defaultValue={registerDetails.name} type="text" name='name' id='name' required placeholder='Enter your name' onChange={(e) => HandleInputChange(e)}/>
+          <input value={registerDetails.name} type="text" name='name' id='name' required placeholder='Enter your name' onChange={(e) => HandleInputChange(e)}/>
 
           <label htmlFor="email">Email</label>
-          <input defaultValue={registerDetails.email} type="email" name='email' id='email' required placeholder='Enter your email' onChange={(e) => HandleInputChange(e)}/>
+          <input value={registerDetails.email} type="email" name='email' id='email' required placeholder='Enter your email' onChange={(e) => HandleInputChange(e)}/>
 
           <label htmlFor="mobile">Mobile</label>
-          <input defaultValue={registerDetails.mobile} type="tel" name='mobile' id='mobile' required placeholder='Enter your mobile' onChange={(e) => HandleInputChange(e)}/>
+          <input value={registerDetails.mobile} type="tel" name='mobile' id='mobile' required placeholder='Enter your mobile' onChange={(e) => HandleInputChange(e)}/>
 
           <label htmlFor="password">Password</label>
-          <input defaultValue={registerDetails.password} type="password" name='password' id='password' required placeholder='Enter your password' onChange={(e) => HandleInputChange(e)}/>
+          <input value={registerDetails.password} type="password" name='password' id='password' required placeholder='Enter your password' onChange={(e) => HandleInputChange(e)}/>
 
-          <input type="submit" defaultValue="Submit"/>
+          <input type="submit" value="Submit"/>
         </form>
       </div>
     </>

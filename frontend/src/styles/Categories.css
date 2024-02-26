@@ -9,6 +9,7 @@ main .container {
 }
 
 .sideContent {
+    position: relative;
     width: 23%;
 }
 

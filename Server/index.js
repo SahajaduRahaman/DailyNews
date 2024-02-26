@@ -20,6 +20,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use("/api/register", require("./routes/Register"))
 app.use("/api/login", require("./routes/Login"))
 app.use("/api/get-admin", require("./routes/GetAdmin"))
+app.use("/api/get-admin-secure_url", require("./routes/GetAdminFile"))
 app.use("/api/post-news", require("./routes/NewsPost"))
 app.use("/api/get-news-by-id", require("./routes/GetNewsById"))
 app.use("/api/get-all-news", require("./routes/GetAllNews"))

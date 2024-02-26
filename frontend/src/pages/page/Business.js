@@ -20,10 +20,19 @@ const Business = () => {
   const [News, setNews] = useState([])
   const [allNews, setAllNews] = useState([])
 
+  const HandleClick = () => {
+    window.scrollTo({
+      top: 0,
+      left: 0,
+      behavior: "smooth",
+    });
+  }
+
   useEffect(() => {
     GetAllNewsApi().then((data) => {
       if (data.status === 200) {
         setNews(data.data.news)
+        HandleClick()
       }
       else {
         console.log(data.data.message);

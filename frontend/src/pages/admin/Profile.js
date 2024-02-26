@@ -10,11 +10,9 @@ const Profile = () => {
     GetAdminApi().then((data) => {
       if (data.status === 200) {
         setProfile(data.data.reporter)
-        console.log(data.data.reporter);
       }
       else {
-        alert("failed")
-        console.log(data.data.message)
+        alert(data.data.message)
       }
     });
 
@@ -36,13 +34,21 @@ const Profile = () => {
     UpdateAdminApi(formData).then((data) => {
       if (data.status === 200) {
         alert("admin updated successfully.")
-        setProfile(data.data.reporter)
+        GetAdminApi().then((data) => {
+          if (data.status === 200) {
+            setProfile(data.data.reporter)
+          }
+          else {
+            alert(data.data.message)
+          }
+        });
       }
       else {
         alert(data.data.message)
       }
     });
   }
+
 
   return (
     <>
@@ -54,23 +60,23 @@ const Profile = () => {
 
               <label htmlFor="file">Picture</label>
               {profile.file &&
-                <img src={profile.file.secure_url} alt="" style={{ width : "50px", height: "50px"}}/>
+                <img src={profile.file.secure_url ? profile.file.secure_url : URL.createObjectURL(profile.file)} alt="" style={{ width : "50px", height: "50px"}}/>
               }
               <input type="file" id='file' name='file' onChange={(e) => setProfile({...profile, [e.target.name] : e.target.files[0]})}/>
 
               <label htmlFor="name">Name</label>
-              <input type="text" id='name' name='name' defaultValue={profile.name} onChange={(e) => HandleFormChange(e)}/>
+              <input type="text" id='name' name='name' value={profile.name} onChange={(e) => HandleFormChange(e)}/>
 
               <label htmlFor="email">Email</label>
-              <input type="email" id='email' name='email' defaultValue={profile.email} onChange={(e) => HandleFormChange(e)}/>
+              <input type="email" id='email' name='email' value={profile.email} onChange={(e) => HandleFormChange(e)}/>
 
               <label htmlFor="mobile">Mobile</label>
-              <input type="tel" id='mobile' name='mobile' defaultValue={profile.mobile} onChange={(e) => HandleFormChange(e)}/>
+              <input type="tel" id='mobile' name='mobile' value={profile.mobile} onChange={(e) => HandleFormChange(e)}/>
 
               <label htmlFor="about">About</label>
-              <input type="text" id='about' name='about' defaultValue={profile.about} onChange={(e) => HandleFormChange(e)}/>
+              <input type="text" id='about' name='about' value={profile.about} onChange={(e) => HandleFormChange(e)}/>
 
-              <input type="submit" defaultValue="Submit"/>
+              <input type="submit" value="Submit"/>
             </fieldset>
           </form>
         </div>

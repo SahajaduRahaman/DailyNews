@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { GetNewsByIDApi } from '../../fetchApi/FetchAPI'
 import { useParams } from 'react-router-dom'
 import DateAndTime from '../components/DateAndTime'
+import SportImg from "../../assets/sports.jpg"
 import "../../styles/NewsDetails.css"
 
 const NewsDetails = () => {
@@ -27,6 +28,9 @@ const NewsDetails = () => {
         <div className="news-container">
           <div className="newsTitle">
             <h3>{currentNews.title}</h3>
+          </div>
+          <div>
+            <img src={currentNews.file ? currentNews.file.secure_url : SportImg} alt={currentNews.title} />
           </div>
           <div className="news-description">
             <div className='ca_da_ti'>

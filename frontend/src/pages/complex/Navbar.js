@@ -6,7 +6,6 @@ import ProfileLogo from "../../assets/profile-logo.png"
 import AuthContext from '../../context/ContextApi';
 import { useContext } from 'react';
 
-
 const Navbar = () => {
 
   const Token = useContext(AuthContext)
@@ -41,7 +40,7 @@ const Navbar = () => {
     return () => {
       window.removeEventListener("scroll", changeNavBackground);
     };
-  }, [])
+  },[])
 
 
   return (

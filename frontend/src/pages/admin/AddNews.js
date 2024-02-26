@@ -55,32 +55,32 @@ const AddNews = () => {
           <input type="file" name='file' id="file" onChange={(e) => setNews({...news, [e.target.name] : e.target.files[0]})}/>
 
           <label htmlFor="title">Title:</label>
-          <input type="text" id="title" defaultValue={news.title} onChange={(e) => handleFormChange(e)} name="title"/>
+          <input type="text" id="title" value={news.title} onChange={(e) => handleFormChange(e)} name="title"/>
 
           <label htmlFor="description">Description:</label>
-          <input type="text" id="description" defaultValue={news.description} onChange={(e) => handleFormChange(e)} name="description"/>
+          <input type="text" id="description" value={news.description} onChange={(e) => handleFormChange(e)} name="description"/>
 
           <label htmlFor="category">Category:</label>
-          <select name="category" id="category" defaultValue={news.category} onChange={(e) => handleFormChange(e)}>
-            <option defaultValue="politics" >Politics</option>
-            <option defaultValue="technology" >Technology</option>
-            <option defaultValue="country" >Country</option>
-            <option defaultValue="world" >World</option>
-            <option defaultValue="business" >Business</option>
-            <option defaultValue="education" >Education</option>
-            <option defaultValue="career" >Career</option>
-            <option defaultValue="entertainment" >Entertainment</option>
-            <option defaultValue="sports" >Sports</option>
-            <option defaultValue="others" >Others</option>
+          <select name="category" id="category" value={news.category} onChange={(e) => handleFormChange(e)}>
+            <option value="politics" >Politics</option>
+            <option value="technology" >Technology</option>
+            <option value="country" >Country</option>
+            <option value="world" >World</option>
+            <option value="business" >Business</option>
+            <option value="education" >Education</option>
+            <option value="career" >Career</option>
+            <option value="entertainment" >Entertainment</option>
+            <option value="sports" >Sports</option>
+            <option value="others" >Others</option>
           </select>
 
           <label htmlFor="youtubelink">YoutubeLink:</label>
-          <input type="text" id="youtubelink" defaultValue={news.youtubeLink} onChange={(e) => handleFormChange(e)} name="youtubeLink"/>
+          <input type="text" id="youtubelink" value={news.youtubeLink} onChange={(e) => handleFormChange(e)} name="youtubeLink"/>
 
           <label htmlFor="facebooklink">FacebookLink:</label>
-          <input type="text" id="facebooklink" defaultValue={news.facebookLink} onChange={(e) => handleFormChange(e)} name="facebookLink"/>
+          <input type="text" id="facebooklink" value={news.facebookLink} onChange={(e) => handleFormChange(e)} name="facebookLink"/>
 
-          <input type="submit" defaultValue="Submit"/>
+          <input type="submit" value="Submit"/>
         </form>
       </div>
     </div>

@@ -2,7 +2,7 @@ import React from "react"
 import "../../styles/CategoryCardBtm.css"
 import Slider from "react-slick"
 import Heading from "../components/Heading"
-import Sport from "../../assets/sports.jpeg"
+import Sport from "../../assets/sports.jpg"
 import "slick-carousel/slick/slick.css"; 
 import "slick-carousel/slick/slick-theme.css";
 import { Link } from "react-router-dom"
@@ -11,7 +11,6 @@ import DateAndTime from "../components/DateAndTime"
 const CategoryCardBtm = (props) => {
   const others = props.news
   const settings = props.settings;
-
 
   return (
     <>

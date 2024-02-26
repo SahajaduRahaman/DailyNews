@@ -2,7 +2,7 @@ import React from "react"
 import Slider from "react-slick"
 import Heading from "../components/Heading"
 import "../../styles/CategoryCardTop.css"
-import Sport from "../../assets/sports.jpeg"
+import Sport from "../../assets/sports.jpg"
 import "slick-carousel/slick/slick.css"; 
 import "slick-carousel/slick/slick-theme.css";
 import { Link } from "react-router-dom"
@@ -31,7 +31,7 @@ const CategoryCardTop = (props) => {
                   </div>
                   <div className='text'>
                     <Link to={`/newsdetails/${item._id}`}>
-                      <h1 className='title'>{item.title.slice(0, 80)}</h1>
+                      <h1 className='title'>{item.title.slice(0, 60)}...</h1>
                     </Link>
                     <div className='date'>
                       <i className='fas fa-calendar-days'></i>

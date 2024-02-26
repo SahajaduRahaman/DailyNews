@@ -2,6 +2,7 @@
     border: 1px solid black;
     padding: 20px;
     text-align: center;
+    position: relative;
 }
   
 .contact-us form {
@@ -22,4 +23,12 @@
     color: #fff;
     font-weight: 600;
     border: none;
+}
+
+.successfull {
+    position: absolute;
+    transform: scale(0.6);
+    width: fit-content;
+    bottom: 5%;
+    left: 2%;
 }

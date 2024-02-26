@@ -1,12 +1,38 @@
-import React from 'react'
-import Sports from "../../assets/sports.jpeg"
+import React, { useContext } from 'react'
+import Sports from "../../assets/sports.jpg"
 import DnNews from "../../assets/DN Logo.png"
 import Email from "../../assets/email.png"
 import Phone from "../../assets/phone.png"
 import "../../styles/Footer.css"
+import AuthContext from "../../context/ContextApi"
+import FilterCat from "../../rules/FilterCat"
+import { Link } from 'react-router-dom'
 
 
 const Footer = () => {
+  const News = useContext(AuthContext)
+  const allNews = News.myNews.allNews
+
+  const world = FilterCat(allNews, "world");
+  const sports = FilterCat(allNews, "sports");
+  const politics = FilterCat(allNews, "politics");
+  const technology = FilterCat(allNews, "technology");
+  const country = FilterCat(allNews, "country");
+  const entertainment = FilterCat(allNews, "entertainment");
+
+  const HandleClick = () => {
+    window.scrollTo({
+      top: 0,
+      left: 0,
+      behavior: "smooth",
+    });
+  }
+
+  const sportsOne = sports[0]
+  const sportsTwo = sports[1]
+  const worldOne = world[0]
+  const worldTwo = world[1]
+
   return (
     <>
       <div className="footer-container">
@@ -17,7 +43,7 @@ const Footer = () => {
               <h3>DailyNews</h3>
             </div>
             <div className="footer-info-details">
-              <p>Bushan is an amazing magazine Blogger theme that is easy to customize for your needs.</p>
+              <p>DailyNews is an amazing magazine Blogger theme that is easy to customize for your needs.</p>
             </div>
             <div className="footer-contact">
               <img src={Email} alt="Email"  style={{width : 25, height : 25}}/>
@@ -31,42 +57,66 @@ const Footer = () => {
 
           <div className="footer-top-boxes">
             <h3>WORLD</h3>
-            <div className='item'>
-              <img src={Sports} alt='Sports' style={{width : 70, height : 70}}/>
-              <p>Google To Boost Android Security In Few Days</p>
-            </div>
-            <div className='item'>
-              <img src={Sports} alt='Sports' style={{width : 70, height : 70}}/>
-              <p>Cespedes play the winning Baseball Game</p>
-            </div>
+            {worldOne &&
+              <Link to={`/newsdetails/${worldOne._id}`} onClick={HandleClick}>
+                <div className='item'>
+                  <img src={worldOne.file ? worldOne.file.secure_url : Sports} alt={worldOne.title} style={{width : 70, height : 50}}/>
+                  <p>{worldOne.title.slice(0, 60)}...</p>
+                </div>
+              </Link>
+            }
+            {worldTwo &&
+              <Link to={`/newsdetails/${worldTwo._id}`} onClick={HandleClick}>
+                <div className='item'>
+                  <img src={worldTwo.file ? worldTwo.file.secure_url : Sports} alt={worldTwo.title} style={{width : 70, height : 50}}/>
+                  <p>{worldTwo.title.slice(0, 60)}...</p>
+                </div>
+              </Link>
+            }
           </div>
 
           <div className="footer-top-boxes">
             <h3>SPORTS</h3>
-            <div className='item'>
-              <img src={Sports} alt='' style={{width : 70, height : 70}}/>
-              <p>Google To Boost Android Security In Few Days</p>
-            </div>
-            <div className='item'>
-              <img src={Sports} alt='' style={{width : 70, height : 70}}/>
-              <p>Cespedes play the winning Baseball Game</p>
-            </div>
+            {sportsOne &&
+              <Link to={`/newsdetails/${sportsOne._id}`} onClick={HandleClick}>
+                <div className='item'>
+                  <img src={sportsOne.file ? sportsOne.file.secure_url : Sports} alt={sportsOne.title} style={{width : 70, height : 50}}/>
+                  <p>{sportsOne.title.slice(0, 60)}...</p>
+                </div>
+              </Link>
+            }
+            {sportsTwo &&
+              <Link to={`/newsdetails/${sportsTwo._id}`} onClick={HandleClick}>
+                <div className='item'>
+                  <img src={sportsTwo.file ? sportsTwo.file.secure_url : Sports} alt={sportsTwo.title} style={{width : 70, height : 50}}/>
+                  <p>{sportsTwo.title.slice(0, 60)}...</p>
+                </div>
+              </Link>
+            }
           </div>
           
           <div className="footer-top-boxes">
             <h3>NEWS</h3>
             <ul>
               <li>
-                <span>Politics</span> <label>(5)</label>
+                <Link to="/politics" onClick={HandleClick}>
+                  <span>Politics</span> <label>({politics.length})</label>
+                </Link>
               </li>
               <li>
-                <span>Technology</span> <label>(6)</label>
+                <Link to="/technology" onClick={HandleClick}>
+                  <span>Technology</span> <label>({technology.length})</label>
+                </Link>
               </li>
               <li>
-                <span>Country</span> <label>(7)</label>
+                <Link to="/country" onClick={HandleClick}>
+                  <span>Country</span> <label>({country.length})</label>
+                </Link>
               </li>
               <li>
-                <span>Entertainment</span> <label>(9)</label>
+                <Link to="/entertainment" onClick={HandleClick}>
+                  <span>Entertainment</span> <label>({entertainment.length})</label>
+                </Link>
               </li>
             </ul>
           </div>
@@ -79,7 +129,7 @@ const Footer = () => {
             <p>@ all righrs reserved</p>
           </div>
           <div className="footer-buttom-boxes">
-            <p>made ❤️ by sahajadu rahaman</p>
+            <p>created ❤️ by sahajadu rahaman</p>
           </div>
         </div>
       </div>
