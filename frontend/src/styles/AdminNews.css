@@ -1,0 +1,25 @@
+.adminNews-container {
+    position: relative;
+}
+
+.filternews {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-right: 15px;
+    position: sticky;
+    left: 0;
+    top: 85px;
+    z-index: 999;
+    background-color: rgb(26, 93, 95);
+    padding: 10px 20px;
+    border-radius: 0 0 10px 10px;
+}
+
+.filter-option select {
+    padding: 5px;
+    outline: none;
+    border-radius: 10px;
+    font-size: 15px;
+}
+

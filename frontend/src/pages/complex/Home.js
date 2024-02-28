@@ -5,6 +5,7 @@ import AuthContext from "../../context/ContextApi"
 import FilterAllNewsByDateTime from '../../rules/FilterAllNewsByDateTime'
 import { GetAllNewsApi } from '../../fetchApi/FetchAPI'
 import FilterCat from '../../rules/FilterCat'
+import WindowScroll from '../../rules/WindowScroll'
 
 const Home = () => {
   const NewsContext = useContext(AuthContext)
@@ -22,6 +23,7 @@ const Home = () => {
         console.log(data.data.message);
       }
     })
+    WindowScroll()
   },[])
 
   useEffect(() => {

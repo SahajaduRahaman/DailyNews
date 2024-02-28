@@ -1,5 +1,13 @@
+.cardTop-container {
+  margin-top: 10px;
+}
+
 .cardTop .cardTop-box {
   margin: 15px 15px 15px 0;
+}
+
+.cardTop-box {
+  border-radius: 10px;
 }
 
 .cardTop-images {
@@ -8,6 +16,7 @@
 
 .cardTop img {
   width: 100%;
+  border-radius: 10px;
   max-height: 150px;
   min-height: 150px;
   object-fit: fill;
@@ -28,6 +37,7 @@ a {
 
 .cardTop-category {
   color: #fff;
+  border-radius: 10px 10px 10px 0;
   font-size: 12px;
   font-weight: 500;
   letter-spacing: 2px;

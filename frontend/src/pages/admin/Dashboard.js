@@ -3,6 +3,7 @@ import AuthContext from "../../context/ContextApi";
 import { useContext } from "react";
 import { NavLink, Outlet, useNavigate } from "react-router-dom";
 import "../../styles/Dashboard.css"
+import WindowScroll from "../../rules/WindowScroll";
 
 const Dashboard = () => {
   const Token = useContext(AuthContext);
@@ -20,15 +21,15 @@ const Dashboard = () => {
     <>
       <div className="dashboard-container">
         <div className="dash-left">
-          <NavLink to="profile" className="dashboard-link">
+          <NavLink to="profile" className="dashboard-link" onClick={WindowScroll()}>
             <i className="fa-solid fa-user"></i>
             <span className="hide">Profile</span>
           </NavLink>
-          <NavLink to="addnews" className="dashboard-link">
+          <NavLink to="addnews" className="dashboard-link" onClick={WindowScroll()}>
             <i className="fa-solid fa-plus"></i>
             <span className="hide">Add News</span>
           </NavLink>
-          <NavLink to="adminnews" className="dashboard-link">
+          <NavLink to="adminnews" className="dashboard-link" onClick={WindowScroll()}>
             <i className="fa-solid fa-newspaper"></i>
             <span className="hide">My News</span>
           </NavLink>

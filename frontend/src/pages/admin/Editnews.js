@@ -40,17 +40,8 @@ const Editnews = ({ news, id, setVisible }) => {
             <div className="edit-news-container">
                 <form name="editnewsform" id="editnewsform" action="" onSubmit={(e) => UpdateNewsSubmit(e)}>
                     <fieldset>
-                        <legend>Edit News</legend>
-                        <label htmlFor="file">File:</label>
-                        <input type="file" name='file' id="file" onChange={(e) => setUpdateNews({...updateNews, [e.target.name] : e.target.files[0]})}/>
-
                         <label htmlFor="title">Title</label>
                         <input type="text" id="title" name="title" value={updateNews.title} onChange={(e) => OnChangeNews(e)} />
-                        <br />
-                        <br />
-
-                        <label htmlFor="description">Description</label>
-                        <textarea name="description" id="description" cols="30" rows="10" value={updateNews.description} onChange={(e) => OnChangeNews(e)} />
                         <br />
                         <br />
 
@@ -70,6 +61,12 @@ const Editnews = ({ news, id, setVisible }) => {
                         <br />
                         <br />
 
+                        <legend>Edit News</legend>
+                        <label htmlFor="file">File:</label>
+                        <input type="file" name='file' id="file" onChange={(e) => setUpdateNews({...updateNews, [e.target.name] : e.target.files[0]})}/>
+                        <br />
+                        <br />
+
                         <label htmlFor="youtubeLink">YoutubeLink</label>
                         <input type="text" id="youtubeLink" name="youtubeLink" value={updateNews.youtubeLink} onChange={(e) => OnChangeNews(e)} />
                         <br />
@@ -77,6 +74,13 @@ const Editnews = ({ news, id, setVisible }) => {
 
                         <label htmlFor="facebookLink">FacebookLink</label>
                         <input type="text" id="facebookLink" name="facebookLink" value={updateNews.facebookLink} onChange={(e) => OnChangeNews(e)} />
+                        <br />
+                        <br />
+
+                        <label htmlFor="description">Description</label>
+                        <textarea name="description" id="description" cols="30" rows="10" value={updateNews.description} onChange={(e) => OnChangeNews(e)} />
+                        <br />
+                        <br />
 
                         <input type="submit" value="Submit" />
                     </fieldset>

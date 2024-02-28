@@ -1,9 +1,12 @@
 .social {
-  margin-top: 10px;
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 }
 
 .sideContent .heading {
-  margin-bottom: 17px;
+  margin-bottom: 35px;
 }
 
 .newsCard-right .heading {

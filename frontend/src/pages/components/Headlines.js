@@ -6,17 +6,18 @@ import DateAndTime from './DateAndTime'
 
 const Headlines = (props) => {
     const allNews = props.news
-    const sideNews = allNews.slice(0, 11)
+    const len = props.len
+    const sideNews = allNews.slice(0, len)
 
     return (
         <>
-            <Heading title='Letest Headlines' />
+            <Heading title={props.title ? props.title : 'Letest Headlines'}/>
             <section className='headlines-container'>
                 {sideNews.map((item) => {
                     return (
-                        <Link to={`/newsdetails/${item._id}`} key={item._id}>
+                        <Link to={`/newsdetails/${item._id}`} key={item._id} >
                             <div className="headlines">
-                                <h6>{item.title.slice(0, 80)}</h6>
+                                <p>{item.title.slice(0, 100)}...</p>
                                 <div className="date">
                                     <i className='fas fa-calendar-days'></i>
                                     <DateAndTime dot={item.date} />

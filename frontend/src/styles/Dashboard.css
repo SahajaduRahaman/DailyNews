@@ -2,6 +2,7 @@
     display: flex;
     justify-content: center;
     height: 100%;
+    position: relative;
 }
 
 .dash-left {
@@ -10,8 +11,12 @@
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
+    position: sticky;
+    height: 100vh;
+    left: 0;
+    top: 70px;
     gap: 10px;
-    background-color: rgb(48, 46, 46);
+    background-color: rgb(55, 74, 82);
 }
 
 .dash-left .active {
@@ -19,7 +24,7 @@
 }
 
 .dashboard-link {
-    padding: 5px;
+    padding: 8px;
     text-decoration: none;
     border-radius: 8px;
     text-align: center;
@@ -39,13 +44,13 @@
     box-shadow: rgb(20, 19, 19) 0px 15px 30px -10px;
     border-radius: 8px;
     color: rgb(2, 2, 2);
-    transform: scale(1.1);
+    transform: scale(1.05);
     z-index: 999;
 }
 
 
 .dash-left button {
-    padding: 5px;
+    padding: 8px;
     border-radius: 8px;
     text-align: center;
     font-size: medium;
@@ -74,8 +79,7 @@
 
 .dash-right {
     width: 82%;
-    padding: 15px 15px 15px 15px;
-    border: 1px solid black;
+    padding: 15px;
     position: relative;
     display: flex;
     flex-direction: column;

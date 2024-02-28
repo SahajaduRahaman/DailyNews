@@ -3,13 +3,16 @@ import Hero from '../components/Hero'
 import NewsCard from '../components/NewsCard'
 import Heading from '../components/Heading'
 import CategoryCardBtm from "../complex/CategoryCardBtm"
-import Side from '../complex/Side'
 import "../../styles/Politics.css"
 import SettingsObj from '../../rules/SettingsObj'
 import AuthContext from '../../context/ContextApi'
 import FilterCat from '../../rules/FilterCat'
 import { GetAllNewsApi } from '../../fetchApi/FetchAPI'
 import FilterAllNewsByDateTime from '../../rules/FilterAllNewsByDateTime'
+import Headlines from '../components/Headlines'
+import SocialMedia from '../components/SocialMedia'
+import ContactUs from '../components/ContactUs'
+import WindowScroll from '../../rules/WindowScroll'
 
 
 const Country = () => {
@@ -19,19 +22,14 @@ const Country = () => {
   const [News, setNews] = useState([])
   const [allNews, setAllNews] = useState([])
 
-  const HandleClick = () => {
-    window.scrollTo({
-      top: 0,
-      left: 0,
-      behavior: "smooth",
-    });
-  }
+  useEffect(() => {
+    WindowScroll()
+  },[])
 
   useEffect(() => {
     GetAllNewsApi().then((data) => {
       if (data.status === 200) {
         setNews(data.data.news)
-        HandleClick()
       }
       else {
         console.log(data.data.message);
@@ -63,7 +61,10 @@ const Country = () => {
           <CategoryCardBtm title="Others" news = {others} settings={oneSettings}/>
         </div>
         <div className="newsCard-right">
-          <Side news = {country}/>
+          <Headlines title="Recent Posts" news={country} len={5}/>
+          <Heading title='Stay Connected' />
+          <SocialMedia />
+          <ContactUs />
         </div>
       </div>
     </>

@@ -6,13 +6,15 @@
 }
 
 .headlines {
-    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    border-radius: 10px;
+    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+    background-color: rgba(213, 226, 224, 0.527);
     padding: 10px 20px;
 }
 
-.headlines h6 {
-    font-size: 14px;
-    font-style: italic;
+.headlines p {
+    font-size: 16px;
+    font-family:'Times New Roman', Times, serif;
     color: black;
 }
 

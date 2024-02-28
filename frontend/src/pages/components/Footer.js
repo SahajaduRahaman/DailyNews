@@ -20,14 +20,6 @@ const Footer = () => {
   const country = FilterCat(allNews, "country");
   const entertainment = FilterCat(allNews, "entertainment");
 
-  const HandleClick = () => {
-    window.scrollTo({
-      top: 0,
-      left: 0,
-      behavior: "smooth",
-    });
-  }
-
   const sportsOne = sports[0]
   const sportsTwo = sports[1]
   const worldOne = world[0]
@@ -58,7 +50,7 @@ const Footer = () => {
           <div className="footer-top-boxes">
             <h3>WORLD</h3>
             {worldOne &&
-              <Link to={`/newsdetails/${worldOne._id}`} onClick={HandleClick}>
+              <Link to={`/newsdetails/${worldOne._id}`}>
                 <div className='item'>
                   <img src={worldOne.file ? worldOne.file.secure_url : Sports} alt={worldOne.title} style={{width : 70, height : 50}}/>
                   <p>{worldOne.title.slice(0, 60)}...</p>
@@ -66,7 +58,7 @@ const Footer = () => {
               </Link>
             }
             {worldTwo &&
-              <Link to={`/newsdetails/${worldTwo._id}`} onClick={HandleClick}>
+              <Link to={`/newsdetails/${worldTwo._id}`}>
                 <div className='item'>
                   <img src={worldTwo.file ? worldTwo.file.secure_url : Sports} alt={worldTwo.title} style={{width : 70, height : 50}}/>
                   <p>{worldTwo.title.slice(0, 60)}...</p>
@@ -78,7 +70,7 @@ const Footer = () => {
           <div className="footer-top-boxes">
             <h3>SPORTS</h3>
             {sportsOne &&
-              <Link to={`/newsdetails/${sportsOne._id}`} onClick={HandleClick}>
+              <Link to={`/newsdetails/${sportsOne._id}`}>
                 <div className='item'>
                   <img src={sportsOne.file ? sportsOne.file.secure_url : Sports} alt={sportsOne.title} style={{width : 70, height : 50}}/>
                   <p>{sportsOne.title.slice(0, 60)}...</p>
@@ -86,7 +78,7 @@ const Footer = () => {
               </Link>
             }
             {sportsTwo &&
-              <Link to={`/newsdetails/${sportsTwo._id}`} onClick={HandleClick}>
+              <Link to={`/newsdetails/${sportsTwo._id}`}>
                 <div className='item'>
                   <img src={sportsTwo.file ? sportsTwo.file.secure_url : Sports} alt={sportsTwo.title} style={{width : 70, height : 50}}/>
                   <p>{sportsTwo.title.slice(0, 60)}...</p>
@@ -99,22 +91,22 @@ const Footer = () => {
             <h3>NEWS</h3>
             <ul>
               <li>
-                <Link to="/politics" onClick={HandleClick}>
+                <Link to="/politics">
                   <span>Politics</span> <label>({politics.length})</label>
                 </Link>
               </li>
               <li>
-                <Link to="/technology" onClick={HandleClick}>
+                <Link to="/technology">
                   <span>Technology</span> <label>({technology.length})</label>
                 </Link>
               </li>
               <li>
-                <Link to="/country" onClick={HandleClick}>
+                <Link to="/country">
                   <span>Country</span> <label>({country.length})</label>
                 </Link>
               </li>
               <li>
-                <Link to="/entertainment" onClick={HandleClick}>
+                <Link to="/entertainment">
                   <span>Entertainment</span> <label>({entertainment.length})</label>
                 </Link>
               </li>

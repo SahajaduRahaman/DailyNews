@@ -22,17 +22,10 @@ const Side = (props) => {
 
   const catgeory = ["Politics", "Technology", "Country", "World", "Business", "Education", "Career", "Entertainment", "Sports"]
 
-  const HandleClick = () => {
-    window.scrollTo({
-      top: 0,
-      left: 0,
-      behavior: "smooth",
-    });
-  }
 
   return (
     <>
-      <Headlines news={allNews}/>
+      <Headlines news={allNews} len={11}/>
 
       <Heading title='Advertisement' />
       <section className='banner'>
@@ -43,7 +36,7 @@ const Side = (props) => {
         <Heading title='Category' />
         {catgeory.map((val, idx) => {
           return (
-            <Link to={`/${val.toLocaleLowerCase()}`} onClick={HandleClick} className="sideCat">
+            <Link to={`/${val.toLocaleLowerCase()}`} className="sideCat">
               <div className='category category1' key={idx}>
                 <span>{val}</span>
               </div>

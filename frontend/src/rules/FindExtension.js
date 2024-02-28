@@ -4,16 +4,16 @@ function getFileExtension(url) {
 }
 
 function getFileTypeByExtension(extension) {
-    const extensionMap = {
-      jpg: 'image',
-      jpeg: 'image',
-      png: 'image',
-      webp: 'image',
-      gif: 'image',
-      mp4: 'video',
-      mov: 'video',
-      avi: 'video'
-    };
-    const lowerCaseExtension = extension.toLowerCase();
-    return extensionMap[lowerCaseExtension] || 'unknown';
+  const extensionMap = {
+    jpg: 'image',
+    jpeg: 'image',
+    png: 'image',
+    webp: 'image',
+    gif: 'image',
+    mp4: 'video',
+    mov: 'video',
+    avi: 'video'
+  };
+  const lowerCaseExtension = extension.toLowerCase();
+  return extensionMap[lowerCaseExtension] || 'unknown';
 }

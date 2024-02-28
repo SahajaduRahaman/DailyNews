@@ -5,6 +5,7 @@ import "../../styles/Navbar.css"
 import ProfileLogo from "../../assets/profile-logo.png"
 import AuthContext from '../../context/ContextApi';
 import { useContext } from 'react';
+import WindowScroll from '../../rules/WindowScroll'
 
 const Navbar = () => {
 
@@ -24,18 +25,12 @@ const Navbar = () => {
     }
   }
 
-  const HandleClick = () => {
-    window.scrollTo({
-      top: 0,
-      left: 0,
-      behavior: "smooth",
-    });
-  }
+  useEffect(() => {
+    WindowScroll()
+  },[])
 
   useEffect(() => {
     window.addEventListener("scroll", changeNavBackground);
-
-    HandleClick()
 
     return () => {
       window.removeEventListener("scroll", changeNavBackground);
@@ -50,43 +45,43 @@ const Navbar = () => {
         <div className="navbar-container">
           <ul className='navbar-ul-li'>
             <li className="navbar-li">
-              <NavLink to="/" onClick={HandleClick}>Home</NavLink>
+              <NavLink to="/">Home</NavLink>
             </li>
             { authToken &&
               <li className="navbar-li">
-                <NavLink to="/dashboard" onClick={HandleClick}>Dashboard</NavLink>
+                <NavLink to="/dashboard">Dashboard</NavLink>
               </li>
             }
             <li className="navbar-li">
-              <NavLink to="/politics" onClick={HandleClick}>Politics</NavLink>
+              <NavLink to="/politics">Politics</NavLink>
             </li>
             <li className="navbar-li">
-              <NavLink to="/technology" onClick={HandleClick}>Technology</NavLink>
+              <NavLink to="/technology">Technology</NavLink>
             </li>
             <li className="navbar-li">
-              <NavLink to="/country" onClick={HandleClick}>Country</NavLink>
+              <NavLink to="/country">Country</NavLink>
             </li>
             <li className="navbar-li">
-              <NavLink to="/world" onClick={HandleClick}>World</NavLink>
+              <NavLink to="/world">World</NavLink>
             </li>
             <li className="navbar-li">
-              <NavLink to="/business" onClick={HandleClick}>Business</NavLink>
+              <NavLink to="/business">Business</NavLink>
             </li>
             <li className="navbar-li">
-              <NavLink to="/education" onClick={HandleClick}>Education</NavLink>
+              <NavLink to="/education">Education</NavLink>
             </li>
             <li className="navbar-li">
-              <NavLink to="/career" onClick={HandleClick}>Career</NavLink>
+              <NavLink to="/career">Career</NavLink>
             </li>
             <li className="navbar-li">
-              <NavLink to="/entertainment" onClick={HandleClick}>Entertainment</NavLink>
+              <NavLink to="/entertainment">Entertainment</NavLink>
             </li>
             <li className="navbar-li">
-              <NavLink to="/sports" onClick={HandleClick}>Sports</NavLink>
+              <NavLink to="/sports">Sports</NavLink>
             </li>
           </ul>
           <div className="profile-logo">
-            <Link to = {authToken ? "/dashboard" : "login"} onClick={HandleClick}>
+            <Link to = {authToken ? "/dashboard" : "login"}>
               <img src={ProfileLogo} alt="profile-logo" style={{width : 40, height : 40}}/>
             </Link>
           </div>

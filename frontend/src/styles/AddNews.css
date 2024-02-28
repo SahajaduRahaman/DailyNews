@@ -1,0 +1,118 @@
+.addnews-container {
+    background-color: rgb(196, 209, 209);
+    border-radius: 10px;
+    padding: 30px;
+    height: 100%;
+    position: relative;
+}
+
+.news-box {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    position: relative;
+}
+
+#file {
+    display: none;
+}
+
+.news-file_title_cat {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 10px;
+}
+
+.file-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 18px;
+}
+
+.file-box label {
+    background-color: rgb(24, 61, 43);
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    color: white;
+    padding: 10px;
+    border-radius: 10px;
+    width: 80%;
+    text-align: center;
+}
+
+.file-box label:hover {
+    background-color: rgb(5, 46, 134);
+}
+
+.news-box label {
+    font-size: 16px;
+    font-weight: bold;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.title_cat {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.title_cat input {
+    display: block;
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 5px;
+    outline: none;
+    border: none;
+}
+
+.title_cat select {
+    display: block;
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 5px;
+    outline: none;
+    border: none;
+}
+
+.desc {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+textarea {
+    width: 100%;
+    padding: 12px 20px;
+    box-sizing: border-box;
+    border: none;
+    outline: none;
+    border-radius: 10px;
+    background-color: #f8f8f8;
+    font-size: 16px;
+    resize: none;
+}
+
+.news-btn {
+    margin-top: 50px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.news-btn input {
+    background-color: rgb(24, 61, 43);
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    font-size: 16px;
+    color: white;
+    padding: 10px;
+    border-radius: 10px;
+    width: 20%;
+    border: none;
+    text-align: center;
+}
+
+.news-btn input:hover {
+    background-color: rgb(5, 46, 134);
+}

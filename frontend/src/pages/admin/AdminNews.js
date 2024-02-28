@@ -1,12 +1,15 @@
 import React, { useEffect, useState } from "react";
 import { GetAdminNewsApi } from "../../fetchApi/FetchAPI";
-import { Link } from "react-router-dom";
-import DateAndTime from "../components/DateAndTime";
 import FilterAllNewsByDateTime from "../../rules/FilterAllNewsByDateTime";
+import NewsCard from "../components/NewsCard";
+import FilterCat from "../../rules/FilterCat";
+import "../../styles/AdminNews.css"
+import WindowScroll from "../../rules/WindowScroll";
 
 const AdminNews = () => {
   const [news, setNews] = useState([])
   const [currentNews, setCurrentNews] = useState([]);
+  const [filter, setFilter] = useState("allNews")
 
   useEffect(() => {
     GetAdminNewsApi().then((data) => {
@@ -23,50 +26,50 @@ const AdminNews = () => {
     setCurrentNews(FilterAllNewsByDateTime(news))
   },[news])
 
+  useEffect(() => {
+    setCurrentNews(FilterCat(news, filter))
+    WindowScroll()
+  },[filter, news])
+
+  useEffect(() => {
+    WindowScroll()
+  },[])
+
+  const handleFilterChange = (e) => {
+    setFilter(e.target.value)
+  }
+
 
   return (
     <>
       <div className="adminNews-container">
-        {currentNews &&
-          currentNews.map((item, idx) => {
-            return (
-              <div className="adminNews" key={idx}>
-                <div className="news-title">
-                  <Link to={`/adminnewsdetails/${item._id}`}>
-                    <h3>{item.title.slice(0, 80)}</h3>
-                  </Link>
-                </div>
-
-                <div className="date-time">
-                  <DateAndTime dot={item.date} />
-                </div>
-
-                <div className="news-category">
-                  <span>{item.category}</span>
-                </div>
-                <p>{item.description.slice(0, 300)}</p>
-
-                <div className="links">
-                  {item.youtubeLink && (
-                    <a href={item.youtubeLink} target="_blank" rel="noreferrer">
-                      <i className="fa-brands fa-youtube"></i>
-                      <span>Watch on Youtube</span>
-                    </a>
-                  )}
-                  {item.facebookLink && (
-                    <a
-                      href={item.facebookLink}
-                      target="_blank"
-                      rel="noreferrer"
-                    >
-                      <i className="fa-brands fa-facebook"></i>
-                      <span>Watch on Facebook</span>
-                    </a>
-                  )}
-                </div>
-              </div>
-            );
-          })}
+        <div className="filternews">
+          <div className="filter-option">
+            <select name="category" id="category" value={filter} onChange={(e) => handleFilterChange(e)}>
+              <option value="allNews" >All News</option>
+              <option value="politics" >Politics</option>
+              <option value="technology" >Technology</option>
+              <option value="country" >Country</option>
+              <option value="world" >World</option>
+              <option value="business" >Business</option>
+              <option value="education" >Education</option>
+              <option value="career" >Career</option>
+              <option value="entertainment" >Entertainment</option>
+              <option value="sports" >Sports</option>
+              <option value="others" >Others</option>
+            </select>
+          </div>
+          <div className="filter-icon">
+            <i className="fa-solid fa-filter"></i>
+          </div>
+        </div>
+        <div className="admin-news-container">
+          {currentNews &&
+            <div className="card-container">
+              <NewsCard news = {currentNews}/>
+            </div>
+          }
+        </div>
       </div>
     </>
   );

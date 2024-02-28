@@ -4,6 +4,10 @@
     margin: 20px;
 }
 
+.card-container {
+    margin-top: 10px;
+}
+
 .newsCard-left {
     width: 75%;
 }

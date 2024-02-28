@@ -1,5 +1,10 @@
+.cardBtm-container {
+  margin-top: 10px;
+}
+
 .cardBtm .cardBtm-box {
   margin: 0 5px 30px 5px;
+  border-radius: 10px;
 }
 .cardBtm .cardBtm-text {
   padding: 0 10px;
@@ -7,6 +12,7 @@
 .cardBtm .cardBtm-images {
   width: 320px;
   height: 220px;
+  margin-left: 10px;
 }
 
 .cardBtm-date {
@@ -18,6 +24,7 @@
   width: 320px;
   height: 220px;
   object-fit: fill;
+  border-radius: 10px;
 }
 .cardBtm h1 {
   font-size: 22px;
@@ -51,6 +58,7 @@
 
 .cardBtm-catagory {
   color: #fff;
+  border-radius: 10px 10px 10px 0;
   font-size: 12px;
   font-weight: 500;
   letter-spacing: 2px;
@@ -59,7 +67,7 @@
 }
 
 .cardBtm-catagory1 {
-  background: linear-gradient(90deg,#1aaaaa 50%,#035c30 0);
+  background: linear-gradient(90deg,#045f22 50%,#e00909 0);
   background-position: 100% 100%;
   background-size: 200% 100%;
   border-left: 1px solid #1aaaaa;

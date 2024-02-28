@@ -5,7 +5,7 @@ const Heading = ({ title }) => {
     return (
         <>
             <div className='heading' key={Date.now()}>
-                <h6>{title}</h6>
+                <h6>{title ? title : "Loading..."}</h6>
             </div>
         </>
     )

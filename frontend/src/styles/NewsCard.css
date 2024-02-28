@@ -1,13 +1,19 @@
 .newsCard-box {
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
     margin: 15px 15px 15px 0;
+    background-color: rgba(208, 217, 224, 0.534);
+    border-radius: 10px;
 }
 
 .newsCard-images {
     position: relative;
+    border-radius: 10px;
+
 }
 
 .newsCard-box img {
+    border-radius: 10px;
+
     width: 100%;
     max-height: 150px;
     min-height: 150px;
@@ -34,6 +40,7 @@
 }
 
 .newsCard-category {
+    border-radius: 10px 10px 10px 0;
     color: #fff;
     font-size: 12px;
     font-weight: 500;

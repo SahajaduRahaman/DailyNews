@@ -16,9 +16,9 @@ const DateAndTime = ({dot}) => {
 
     return (
       <>
-        <span>{day} {Month[month]} {year} {hour12}:{minute} {meridiem}</span>
+        <span className='date_time'>{day ? day : "00"} {Month[month] ? Month[month] : "00"} {year ? year : "0000"} {hour12 ? hour12 : "00"}:{minute ? minute : "00"} {meridiem ? meridiem : "O"}</span>
       </>
     )
 }
 
-export default DateAndTime
+export default DateAndTime 
