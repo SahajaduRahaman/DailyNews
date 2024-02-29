@@ -2,7 +2,7 @@ import React, { useContext, useState } from "react";
 import { AddNewsApi } from "../../fetchApi/FetchAPI";
 import AuthContext from "../../context/ContextApi";
 import "../../styles/AddNews.css"
-import FilePic from "../../assets/profile-logo.png"
+import DailyNewssample from "../../assets/DailyNewsSample.jpg"
 
 const AddNews = () => {
   const NewsContext = useContext(AuthContext)
@@ -56,7 +56,7 @@ const AddNews = () => {
           <div className="news-box">
             <div className="news-file_title_cat">
               <div className="file-box">
-                <img src={news.file ? URL.createObjectURL(news.file) : FilePic} alt="FilePic" style={{width : "250px", height : "250px", borderRadius : "8px"}}/>
+                <img src={news.file ? URL.createObjectURL(news.file) : DailyNewssample} alt="FilePic" style={{width : "250px", height : "250px", borderRadius : "8px"}}/>
                 <label htmlFor="file">Choose File</label>
                 <input type="file" name='file' id="file" onChange={(e) => setNews({...news, [e.target.name] : e.target.files[0]})} required/>
               </div>

@@ -5,6 +5,7 @@ import DateAndTime from "../components/DateAndTime";
 import ProPic from "../../assets/add.png"
 import "../../styles/EditNews.css"
 import WindowScroll from "../../rules/WindowScroll"
+import DailyNewssample from "../../assets/DailyNewsSample.jpg"
 
 const Editnews = ({ news, id, setVisible }) => {
     const NewsContext = useContext(AuthContext)
@@ -69,7 +70,11 @@ const Editnews = ({ news, id, setVisible }) => {
                             <DateAndTime dot={updateNews.date} />
                         </div>
                         <div className='edit-news_picture'>
-                            <img src={updateNews.file.secure_url} alt="editFile" />
+                            {updateNews.file ?
+                                <img src={updateNews.file.secure_url ? updateNews.file.secure_url : URL.createObjectURL(updateNews.file)} alt="editFile" />
+                            :
+                                <img src={DailyNewssample} alt="DailyNewssample" />
+                            }
                             <label htmlFor="file" className="trans">
                                 <img src={ProPic} alt="kkjkj"  style={{width:"300px", height:"300px"}}/>
                             </label>
