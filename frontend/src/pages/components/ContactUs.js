@@ -28,9 +28,9 @@ const ContactUs = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        const serviceId = "service_y78qc7u";
-        const templateId = "template_gfd0ndq";
-        const publicKey = "b-yVoJiS0XoW9Ud5G";
+        const serviceId = process.env.REACT_SERVICE_ID;
+        const templateId = process.env.REACT_TEMPLATE_ID;
+        const publicKey = process.env.REACT_PUBLIC_KEY;
 
         emailjs.send(serviceId, templateId, formData, publicKey)
         .then((response) => {
