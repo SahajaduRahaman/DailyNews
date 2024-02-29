@@ -28,9 +28,9 @@ const ContactUs = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        const serviceId = process.env.REACT_SERVICE_ID;
-        const templateId = process.env.REACT_TEMPLATE_ID;
-        const publicKey = process.env.REACT_PUBLIC_KEY;
+        const serviceId = process.env.REACT_APP_SERVICE_ID;
+        const templateId = process.env.REACT_APP_TEMPLATE_ID;
+        const publicKey = process.env.REACT_APP_PUBLIC_KEY;
 
         emailjs.send(serviceId, templateId, formData, publicKey)
         .then((response) => {
@@ -56,11 +56,11 @@ const ContactUs = () => {
                         <Lottie animationData={SuccessfullLottie} loop={true} />
                     </div>
                 }
-                <form action=''>
+                <form action='' >
                     <input type='text' value={formData.user_name} name="user_name" onChange={(e) => handleChange(e)} placeholder='Enter your name' />
                     <input type='email' value={formData.user_email} name="user_email" onChange={(e) => handleChange(e)} placeholder='Enter email Address...' />
                     <input type='text' value={formData.user_msg} name="user_msg" onChange={(e) => handleChange(e)} placeholder='Type your message' />
-                    <button onClick={handleSubmit}>
+                    <button onClick={(e) => handleSubmit(e)}>
                         <i className='fa fa-paper-plane'></i> SUBMIT
                     </button>
                 </form>
