@@ -21,7 +21,7 @@
     display: flex;
     justify-content: flex-start;
     align-items: center;
-    gap: 10px;
+    gap: 20px;
 }
 
 .file-box {
@@ -79,6 +79,7 @@
 .desc {
     display: flex;
     flex-direction: column;
+    position: relative;
     gap: 10px;
 }
 

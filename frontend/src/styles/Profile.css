@@ -4,3 +4,21 @@
     align-items: center;
     gap: 5px;
 }
+
+.pro-edit-icon {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.pro-edit-icon i {
+    font-size: 20px;
+}
+
+.pro-edit-icon input {
+    width: 100%;
+}
+
+.pro-btn {
+    margin-right: 35px;
+}

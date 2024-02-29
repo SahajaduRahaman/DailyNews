@@ -1,6 +1,10 @@
 import React, { useContext, useState } from "react";
 import { UpdateNewsApi } from "../../fetchApi/FetchAPI";
 import AuthContext from "../../context/ContextApi";
+import DateAndTime from "../components/DateAndTime";
+import ProPic from "../../assets/add.png"
+import "../../styles/EditNews.css"
+import WindowScroll from "../../rules/WindowScroll"
 
 const Editnews = ({ news, id, setVisible }) => {
     const NewsContext = useContext(AuthContext)
@@ -27,6 +31,7 @@ const Editnews = ({ news, id, setVisible }) => {
                 alert("News updated successfully.")
                 setMyNews({type: "editNews", payload: updateNews})
                 setVisible(false)
+                WindowScroll()
             } 
             else {
                 alert("failed to fetch news.");
@@ -38,53 +43,60 @@ const Editnews = ({ news, id, setVisible }) => {
     return (
         <>
             <div className="edit-news-container">
-                <form name="editnewsform" id="editnewsform" action="" onSubmit={(e) => UpdateNewsSubmit(e)}>
-                    <fieldset>
-                        <label htmlFor="title">Title</label>
-                        <input type="text" id="title" name="title" value={updateNews.title} onChange={(e) => OnChangeNews(e)} />
-                        <br />
-                        <br />
+                <div className="edit-news-hide_box">
+                    <form name="editnewsform" id="editnewsform" action="" onSubmit={(e) => UpdateNewsSubmit(e)}>
+                        <div className="edit-news-cat">
+                            <select name="category" id="category" value={updateNews.category} onChange={(e) => OnChangeNews(e)} >
+                                <option value="politics">Politics</option>
+                                <option value="technology">Technology</option>
+                                <option value="country">Country</option>
+                                <option value="world">World</option>
+                                <option value="business">Business</option>
+                                <option value="education">Education</option>
+                                <option value="career">Career</option>
+                                <option value="entertainment">Entertainment</option>
+                                <option value="sports">Sports</option>
+                                <option value="others" >Others</option>
+                            </select>
+                        </div>
 
-                        <label htmlFor="category">Category:</label>
-                        <select name="category" id="category" value={updateNews.category} onChange={(e) => OnChangeNews(e)} >
-                            <option value="politics">Politics</option>
-                            <option value="technology">Technology</option>
-                            <option value="country">Country</option>
-                            <option value="world">World</option>
-                            <option value="business">Business</option>
-                            <option value="education">Education</option>
-                            <option value="career">Career</option>
-                            <option value="entertainment">Entertainment</option>
-                            <option value="sports">Sports</option>
-                            <option value="others" >Others</option>
-                        </select>
-                        <br />
-                        <br />
+                        <div className="edit-news-title">
+                            <textarea type="text" id="title" name="title" value={updateNews.title} onChange={(e) => OnChangeNews(e)} />
+                        </div>
 
-                        <legend>Edit News</legend>
-                        <label htmlFor="file">File:</label>
-                        <input type="file" name='file' id="file" onChange={(e) => setUpdateNews({...updateNews, [e.target.name] : e.target.files[0]})}/>
-                        <br />
-                        <br />
+                        <div className='edit-news-cat-date'>
+                            <span className='newsdetails_category'>{updateNews.reporterName}</span>
+                            <DateAndTime dot={updateNews.date} />
+                        </div>
+                        <div className='edit-news_picture'>
+                            <img src={updateNews.file.secure_url} alt="editFile" />
+                            <label htmlFor="file" className="trans">
+                                <img src={ProPic} alt="kkjkj"  style={{width:"300px", height:"300px"}}/>
+                            </label>
+                            <input type="file" name='file' id="file" onChange={(e) => setUpdateNews({...updateNews, [e.target.name] : e.target.files[0]})}/>
+                        </div>
 
-                        <label htmlFor="youtubeLink">YoutubeLink</label>
-                        <input type="text" id="youtubeLink" name="youtubeLink" value={updateNews.youtubeLink} onChange={(e) => OnChangeNews(e)} />
-                        <br />
-                        <br />
+                        <div className="edit-news-links">
+                            <div className="edit-link_i">
+                                <i className="fa-brands fa-facebook"></i>
+                                <input type="text" id="facebookLink" name="facebookLink" value={updateNews.facebookLink} onChange={(e) => OnChangeNews(e)} />
+                            </div>
+                            
+                            <div className="edit-link_i">
+                                <i className="fa-brands fa-youtube"></i>
+                                <input type="text" id="youtubeLink" name="youtubeLink" value={updateNews.youtubeLink} onChange={(e) => OnChangeNews(e)} />
+                            </div>
+                        </div>
 
-                        <label htmlFor="facebookLink">FacebookLink</label>
-                        <input type="text" id="facebookLink" name="facebookLink" value={updateNews.facebookLink} onChange={(e) => OnChangeNews(e)} />
-                        <br />
-                        <br />
+                        <div className="desc">
+                            <textarea name="description" id="description" cols="30" rows="10" value={updateNews.description} onChange={(e) => OnChangeNews(e)} />
+                        </div>
 
-                        <label htmlFor="description">Description</label>
-                        <textarea name="description" id="description" cols="30" rows="10" value={updateNews.description} onChange={(e) => OnChangeNews(e)} />
-                        <br />
-                        <br />
-
-                        <input type="submit" value="Submit" />
-                    </fieldset>
-                </form>
+                        <div className="news-btn">
+                            <input type="submit" value="Submit" />
+                        </div>
+                    </form>
+                </div>
             </div>
         </>
   );

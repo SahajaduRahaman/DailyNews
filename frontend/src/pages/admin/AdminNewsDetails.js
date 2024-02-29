@@ -69,42 +69,49 @@ const AdminNewsDetails = () => {
         { currentNews ?
           <div className="news-container">
             <div className="newsdetails_box">
-              <div className="newsTitle">
-                <h3>{currentNews.title}</h3>
-              </div>
-              <div className='ca_da_ti'>
-                <div className='news_info'>
-                  <span className='newsdetails_category'>{currentNews.category ? currentNews.category.toUpperCase() : ""}</span>
-                  <DateAndTime dot={currentNews.date}/>
-                </div>
-                <div className='link_icons'>
-                  <div className="edit" onClick={HandleEditNews}>
-                    <i className="fa-solid fa-pen-to-square"></i>
+              {!visible && 
+                <div className="hide_box">
+                  <div className="newsTitle">
+                    <h3>{currentNews.title}</h3>
                   </div>
-                  <div className="edit" onClick={DeleteNews}>
-                    <i className="fa-solid fa-trash"></i>
+                  <div className='ca_da_ti'>
+                    <div className='news_info'>
+                      <span className='newsdetails_category'>{currentNews.category ? currentNews.category.toUpperCase() : ""}</span>
+                      <DateAndTime dot={currentNews.date}/>
+                    </div>
+                    <div className='link_icons'>
+                      <div className="edit" onClick={HandleEditNews}>
+                        <i className="fa-solid fa-pen-to-square"></i>
+                      </div>
+                      <div className="edit" onClick={DeleteNews}>
+                        <i className="fa-solid fa-trash"></i>
+                      </div>
+                    </div>
+                  </div>
+                  <div className='newsdetails_picture'>
+                    {currentNews.file ? 
+                      <img src={currentNews.file.secure_url} alt={currentNews.title} />
+                    :
+                      <div>Loading....</div>
+                    }
+                  </div>
+                  <div className="news-links">
+                    <a href={currentNews.facebookLink} target='_blank' rel="noreferrer">
+                      <i className="fa-brands fa-facebook"></i>
+                      <span>Watch on Facebook</span>
+                    </a>
+                    <a href={currentNews.youtubeLink} target='_blank' rel="noreferrer">
+                      <i className="fa-brands fa-youtube"></i>
+                      <span>Watch on Youtube</span>
+                    </a>
+                  </div>
+                  <div className="news-description">
+                    <p>{currentNews.description}</p>
                   </div>
                 </div>
-              </div>
-              <div className='newsdetails_picture'>
-                {currentNews.file ? 
-                  <img src={currentNews.file.secure_url} alt={currentNews.title} />
-                :
-                  <div>Loading....</div>
-                }
-              </div>
-              <div className="news-links">
-                <a href={currentNews.facebookLink} target='_blank' rel="noreferrer">
-                  <i className="fa-brands fa-facebook"></i>
-                  <span>Watch on Facebook</span>
-                </a>
-                <a href={currentNews.youtubeLink} target='_blank' rel="noreferrer">
-                  <i className="fa-brands fa-youtube"></i>
-                  <span>Watch on Youtube</span>
-                </a>
-              </div>
-              <div className="news-description">
-                <p>{currentNews.description}</p>
+              }
+              <div className="editNews-box">
+                {visible && <Editnews news = {currentNews} id={path.id} setVisible={setVisible}/>}
               </div>
               <div className="extra-news">
                 <CategoryCardBtm title="Similar News" news={categoryNews} settings={oneSettings}/>
@@ -120,7 +127,6 @@ const AdminNewsDetails = () => {
           :
           <div>Loading...</div>
         }
-        {visible && <Editnews news = {currentNews} id={path.id} setVisible={setVisible}/>}
       </>
     )
 }

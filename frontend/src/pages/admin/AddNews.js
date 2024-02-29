@@ -58,15 +58,15 @@ const AddNews = () => {
               <div className="file-box">
                 <img src={news.file ? URL.createObjectURL(news.file) : FilePic} alt="FilePic" style={{width : "250px", height : "250px", borderRadius : "8px"}}/>
                 <label htmlFor="file">Choose File</label>
-                <input type="file" name='file' id="file" onChange={(e) => setNews({...news, [e.target.name] : e.target.files[0]})}/>
+                <input type="file" name='file' id="file" onChange={(e) => setNews({...news, [e.target.name] : e.target.files[0]})} required/>
               </div>
               <div className="title_cat">
                 <label htmlFor="title">News Title :</label>
-                <input type="text" id="title" value={news.title} onChange={(e) => handleFormChange(e)} name="title" placeholder="Enter your news title..."/>
+                <input type="text" id="title" value={news.title} onChange={(e) => handleFormChange(e)} name="title" placeholder="Enter your news title..." required/>
 
 
                 <label htmlFor="category">Select News Category :</label>
-                <select name="category" id="category" value={news.category} onChange={(e) => handleFormChange(e)}>
+                <select name="category" id="category" value={news.category} onChange={(e) => handleFormChange(e)} required>
                   <option value="politics" >Politics</option>
                   <option value="technology" >Technology</option>
                   <option value="country" >Country</option>
@@ -90,7 +90,7 @@ const AddNews = () => {
 
             <div className="desc">
               <label htmlFor="description">Description:</label>
-              <textarea type="text" id="description" value={news.description} onChange={(e) => handleFormChange(e)} name="description" rows="15" placeholder="Enter news description..."/>
+              <textarea type="text" id="description" value={news.description} onChange={(e) => handleFormChange(e)} name="description" rows="15" placeholder="Enter news description..." required/>
             </div>
 
             <div className="news-btn">
