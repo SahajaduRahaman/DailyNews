@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { RegisterApi } from '../../fetchApi/FetchAPI'
-import { useNavigate } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import AuthContext from '../../context/ContextApi';
 import { useContext } from 'react';
 
@@ -40,9 +40,10 @@ const Register = () => {
 
   return (
     <>
-      <div className="register-container">
-        <h1>Register here...</h1>
-        <form action="" onSubmit={(e) => HandleSubmit(e)}>
+      <div className="login-container">
+        <form action="" onSubmit={(e) => HandleSubmit(e)} className='login-form'>
+          <h3>Register Here</h3>
+
           <label htmlFor="name">Name</label>
           <input value={registerDetails.name} type="text" name='name' id='name' required placeholder='Enter your name' onChange={(e) => HandleInputChange(e)}/>
 
@@ -55,7 +56,14 @@ const Register = () => {
           <label htmlFor="password">Password</label>
           <input value={registerDetails.password} type="password" name='password' id='password' required placeholder='Enter your password' onChange={(e) => HandleInputChange(e)}/>
 
-          <input type="submit" value="Submit"/>
+          <button className='login-btn'>Log In</button>
+
+          <div class="social">
+            <div class="go">
+              Already have an account ? 
+              <Link to="/login">Log In</Link>
+            </div>
+          </div>
         </form>
       </div>
     </>
