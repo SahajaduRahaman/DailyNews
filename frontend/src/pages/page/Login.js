@@ -1,11 +1,9 @@
 import React, { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
-
+import "../../styles/Login.css"
 import { LogInApi } from '../../fetchApi/FetchAPI'
 import AuthContext from '../../context/ContextApi';
 import { useContext } from 'react';
-
-
 
 const Login = () => {
   const Reducer = useContext(AuthContext)
@@ -38,19 +36,25 @@ const Login = () => {
     });
   }
 
-
   return (
-    <div>
-      <div>
-        <form action="" onSubmit={(e) => HandleSubmit(e)}>
-          <input value={loginDetails.email} type="email" name='email' onChange={(e) => HandleChange(e)} required autoComplete='true'/>
-          <input value={loginDetails.password} type="password" name='password' onChange={(e) => HandleChange(e)} required autoComplete='true'/>
-          <button>Log In</button>
-        </form>
-      </div>
-      <div>dont have an account? 
-        <Link to="/register">Sign Up</Link>
-      </div>
+    <div className='login-container'>
+      <form action="" onSubmit={(e) => HandleSubmit(e)} className='login-form'>
+        <h3>Login Here</h3>
+
+        <label for="username">User Email</label>
+        <input value={loginDetails.email} type="email" id='username' name='email' onChange={(e) => HandleChange(e)} required autoComplete='true'/>
+
+        <label for="password">Password</label>
+        <input value={loginDetails.password} type="password" id='password' name='password' onChange={(e) => HandleChange(e)} required autoComplete='true'/>
+
+        <button className='login-btn'>Log In</button>
+        <div class="social">
+          <div class="go">
+            Dont have an account ? 
+            <Link to="/register">Sign Up</Link>
+          </div>
+        </div>
+      </form>
     </div>
   )
 }
