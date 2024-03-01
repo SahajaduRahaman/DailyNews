@@ -47,7 +47,7 @@ const Editnews = ({ news, id, setVisible }) => {
                 <div className="edit-news-hide_box">
                     <form name="editnewsform" id="editnewsform" action="" onSubmit={(e) => UpdateNewsSubmit(e)}>
                         <div className="edit-news-cat">
-                            <select name="category" id="category" value={updateNews.category} onChange={(e) => OnChangeNews(e)} >
+                            <select name="category" id="category" value={updateNews ? updateNews.category : "politics"} onChange={(e) => OnChangeNews(e)} >
                                 <option value="politics">Politics</option>
                                 <option value="technology">Technology</option>
                                 <option value="country">Country</option>
@@ -62,21 +62,21 @@ const Editnews = ({ news, id, setVisible }) => {
                         </div>
 
                         <div className="edit-news-title">
-                            <textarea type="text" id="title" name="title" value={updateNews.title} onChange={(e) => OnChangeNews(e)} />
+                            <textarea type="text" id="title" name="title" value={updateNews ? updateNews.title : "This is edit news title."} onChange={(e) => OnChangeNews(e)} />
                         </div>
 
                         <div className='edit-news-cat-date'>
-                            <span className='newsdetails_category'>{updateNews.reporterName}</span>
-                            <DateAndTime dot={updateNews.date} />
+                            <span className='newsdetails_category'>{updateNews ? updateNews.reporterName : "Reporter"}</span>
+                            <DateAndTime dot={updateNews ? updateNews.date : "2020-05-11T20:14:14.796Z"} />
                         </div>
                         <div className='edit-news_picture'>
-                            {updateNews.file ?
+                            {updateNews ?
                                 <img src={updateNews.file.secure_url ? updateNews.file.secure_url : URL.createObjectURL(updateNews.file)} alt="editFile" />
                             :
                                 <img src={DailyNewssample} alt="DailyNewssample" />
                             }
                             <label htmlFor="file" className="trans">
-                                <img src={ProPic} alt="kkjkj"  style={{width:"300px", height:"300px"}}/>
+                                <img src={ProPic} alt="addFileExamplePic"  style={{width:"300px", height:"300px"}}/>
                             </label>
                             <input type="file" name='file' id="file" onChange={(e) => setUpdateNews({...updateNews, [e.target.name] : e.target.files[0]})}/>
                         </div>
@@ -84,17 +84,17 @@ const Editnews = ({ news, id, setVisible }) => {
                         <div className="edit-news-links">
                             <div className="edit-link_i">
                                 <i className="fa-brands fa-facebook"></i>
-                                <input type="text" id="facebookLink" name="facebookLink" value={updateNews.facebookLink} onChange={(e) => OnChangeNews(e)} />
+                                <input type="text" id="facebookLink" name="facebookLink" value={updateNews.facebookLink ? updateNews.facebookLink : "Please give a link"} onChange={(e) => OnChangeNews(e)} />
                             </div>
                             
                             <div className="edit-link_i">
                                 <i className="fa-brands fa-youtube"></i>
-                                <input type="text" id="youtubeLink" name="youtubeLink" value={updateNews.youtubeLink} onChange={(e) => OnChangeNews(e)} />
+                                <input type="text" id="youtubeLink" name="youtubeLink" value={updateNews.youtubeLink ? updateNews.youtubeLink : "Please give a link"} onChange={(e) => OnChangeNews(e)} />
                             </div>
                         </div>
 
                         <div className="desc">
-                            <textarea name="description" id="description" cols="30" rows="10" value={updateNews.description} onChange={(e) => OnChangeNews(e)} />
+                            <textarea name="description" id="description" cols="30" rows="10" value={updateNews.description ? updateNews.description : "This is news description."} onChange={(e) => OnChangeNews(e)} />
                         </div>
 
                         <div className="news-btn">

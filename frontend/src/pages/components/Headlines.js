@@ -12,7 +12,7 @@ const Headlines = (props) => {
     return (
         <>
             <Heading title={props.title ? props.title : 'Letest Headlines'}/>
-            <section className='headlines-container'>
+            <section className='headlines-container' >
                 {sideNews.map((item) => {
                     return (
                         <Link to={`/newsdetails/${item._id}`} key={item._id} >
@@ -24,8 +24,8 @@ const Headlines = (props) => {
                                 </div>
                             </div>
                         </Link>
-                    )
-                })}
+                    )})
+                }
             </section>
         </>
     )

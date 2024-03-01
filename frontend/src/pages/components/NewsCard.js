@@ -1,9 +1,10 @@
 import React, { useContext } from 'react'
-import Sport from "../../assets/sports.jpg"
 import "../../styles/NewsCard.css"
 import { Link } from 'react-router-dom'
 import DateAndTime from './DateAndTime'
 import AuthContext from '../../context/ContextApi'
+import DailyNewssample from "../../assets/DailyNewsSample.jpg"
+
 
 const NewsCard = (props) => {
     const authContext = useContext(AuthContext)
@@ -12,12 +13,12 @@ const NewsCard = (props) => {
 
     return (
         <>
-            {news.map((item) => {
+            { news.map((item) => {
                 return (
                     <div className='newsCard-box' key={item._id}>
                         <div className='newsCard-images'>
                             <div className='img'>
-                                <img src={item.file ? item.file.secure_url : Sport} alt={item.title}/>
+                                <img src={item.file ? item.file.secure_url : DailyNewssample} alt={item.title}/>
                             </div>
                             <div className='newsCard-category'>
                                 <span>{item.category}</span>
@@ -33,8 +34,8 @@ const NewsCard = (props) => {
                             </Link>
                         </div>
                     </div>
-                )
-            })}
+                )})
+            }
         </>
     )
 }

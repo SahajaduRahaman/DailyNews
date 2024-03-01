@@ -2,12 +2,13 @@ import React from "react"
 import "../../styles/Side.css"
 import Slider from "react-slick"
 import Heading from "../components/Heading"
-import Sport from "../../assets/sports.jpg"
 import Advertisement from "../../assets/sports.jpeg"
 import SocialMedia from "../components/SocialMedia"
 import ContactUs from "../components/ContactUs"
 import Headlines from "../components/Headlines"
 import { Link } from "react-router-dom"
+import DailyNewssample from "../../assets/DailyNewsSample.jpg"
+
 
 const Side = (props) => {
   const allNews = props.news
@@ -48,13 +49,18 @@ const Side = (props) => {
       <section className='gallery'>
         <Heading title='News Gallery' />
         <Slider {...settings}>
-          {allNews.map((item) => {
-            return (
-              <div className='img' key={item._id}>
-                {item.file ? <img src={item.file.secure_url} alt={item.title}/> : <img src={Sport} alt={item.title}/>}
-              </div>
-            )
-          })}
+          {allNews ? 
+            allNews.map((item) => {
+              return (
+                <div className='img'>
+                  <img src={item.file ? item.file.secure_url : DailyNewssample} alt={item.title} key={item._id}/>
+                </div>
+              )})
+            :
+            <div className='img'>
+              <img src={DailyNewssample} alt="Gallery"/>
+            </div>
+          }
         </Slider>
       </section>
 

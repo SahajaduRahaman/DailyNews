@@ -12,6 +12,8 @@ import ContactUs from '../components/ContactUs'
 import CategoryCardBtm from './CategoryCardBtm'
 import SettingsObj from "../../rules/SettingsObj"
 import SocialMedia from '../components/SocialMedia'
+import DailyNewssample from "../../assets/DailyNewsSample.jpg"
+
 
 const NewsDetails = () => {
   const { oneSettings } = SettingsObj
@@ -40,61 +42,99 @@ const NewsDetails = () => {
 
   return (
     <>
-      { currentNews ?
-        <div className="news-container">
-          <div className="newsdetails_box">
-            <Heading title={currentNews.category ? `${currentNews.category.toUpperCase()}` : ""} />
-            <div className="newsTitle">
-              <h3>{currentNews.title}</h3>
-            </div>
-            <div className='ca_da_ti'>
-              <div className='news_info'>
-                <span className='newsdetails_category'>By {currentNews.reporterName ? currentNews.reporterName : "Loading..."}</span>
-                <DateAndTime dot={currentNews.date}/>
-              </div>
-              <div className='link_icons'>
-                <a href={currentNews.facebookLink} target='_blank' rel="noreferrer">
-                  <i className="fa-brands fa-facebook"></i>
-                </a>
-                <a href={currentNews.youtubeLink} target='_blank' rel="noreferrer">
-                  <i className="fa-brands fa-youtube"></i>
-                </a>
-              </div>
-            </div>
-            <div className='newsdetails_picture'>
-              {currentNews.file ? 
-                <img src={currentNews.file.secure_url} alt={currentNews.title} />
+      <div className="news-container">
+        <div className="newsdetails_box">
+          <Heading title={currentNews.category ? currentNews.category.toUpperCase() : "Loading..."} />
+          <div className="newsTitle">
+            {currentNews ?
+              <h3>{currentNews.title ? currentNews.title : "Title is loading, please wait..."}</h3>
+            :
+              <h3>"Title is loading, please wait..."</h3>
+            }
+          </div>
+          <div className='ca_da_ti'>
+            <div className='news_info'>
+              {currentNews ?
+                <span className='newsdetails_category'>By {currentNews.reporterName ? currentNews.reporterName : "Unknown"}</span>
               :
-                <div>Loading....</div>
+                <span className='newsdetails_category'>Loading...</span>
+              }
+              {currentNews ?
+                <DateAndTime dot={currentNews.date ? currentNews.date : "2020-05-11T20:14:14.796Z"}/>
+              :
+                <DateAndTime dot="2020-05-11T20:14:14.796Z"/>
               }
             </div>
-            <div className="news-links">
-              <a href={currentNews.facebookLink} target='_blank' rel="noreferrer">
+            <div className='link_icons'>
+              {currentNews ?
+                <a href={currentNews.facebookLink ? currentNews.facebookLink : "https://www.youtube.com/watch?v=ts8i-6AtDfc&ab_channel=CKFreeVideoTemplates"} target='_blank' rel="noreferrer">
+                  <i className="fa-brands fa-facebook"></i>
+                </a>
+              :
+                <a href="https://www.youtube.com/watch?v=ts8i-6AtDfc&ab_channel=CKFreeVideoTemplates" target='_blank' rel="noreferrer">
+                  <i className="fa-brands fa-facebook"></i>
+                </a>
+              }
+              {currentNews ?
+                <a href={currentNews.youtubeLink ? currentNews.youtubeLink : "https://www.youtube.com/watch?v=ts8i-6AtDfc&ab_channel=CKFreeVideoTemplates"} target='_blank' rel="noreferrer">
+                  <i className="fa-brands fa-youtube"></i>
+                </a>
+              :
+                <a href="https://www.youtube.com/watch?v=ts8i-6AtDfc&ab_channel=CKFreeVideoTemplates" target='_blank' rel="noreferrer">
+                  <i className="fa-brands fa-youtube"></i>
+                </a>
+              }
+            </div>
+          </div>
+          <div className='newsdetails_picture'>
+            {currentNews ? 
+              <img src={currentNews.file ? currentNews.file.secure_url : DailyNewssample} alt={currentNews.title} />
+            :
+              <img src={DailyNewssample} alt="DailyNewssample" />
+            }
+          </div>
+          <div className="news-links">
+            {currentNews ?
+              <a href={currentNews.facebookLink ? currentNews.facebookLink : "https://www.youtube.com/watch?v=ts8i-6AtDfc&ab_channel=CKFreeVideoTemplates"} target='_blank' rel="noreferrer">
                 <i className="fa-brands fa-facebook"></i>
                 <span>Watch on Facebook</span>
               </a>
-              <a href={currentNews.youtubeLink} target='_blank' rel="noreferrer">
+            :
+              <a href="https://www.youtube.com/watch?v=ts8i-6AtDfc&ab_channel=CKFreeVideoTemplates" target='_blank' rel="noreferrer">
+                <i className="fa-brands fa-facebook"></i>
+                <span>Watch on Facebook</span>
+              </a>
+            }
+            {currentNews ?
+              <a href={currentNews.youtubeLink ? currentNews.youtubeLink : "https://www.youtube.com/watch?v=ts8i-6AtDfc&ab_channel=CKFreeVideoTemplates"} target='_blank' rel="noreferrer">
                 <i className="fa-brands fa-youtube"></i>
                 <span>Watch on Youtube</span>
               </a>
-            </div>
-            <div className="news-description">
-              <p>{currentNews.description}</p>
-            </div>
-            <div className="extra-news">
-              <CategoryCardBtm title="Similar News" news={categoryNews} settings={oneSettings}/>
-            </div>
+            :
+              <a href="https://www.youtube.com/watch?v=ts8i-6AtDfc&ab_channel=CKFreeVideoTemplates" target='_blank' rel="noreferrer">
+                <i className="fa-brands fa-youtube"></i>
+                <span>Watch on Youtube</span>
+              </a>
+            }
           </div>
-          <div className='newsdetails_side'>
-            <Headlines title="Recent Posts" news={categoryNews} len={5}/>
-            <Heading title='Stay Connected' />
-            <SocialMedia />
-            <ContactUs />
+          <div className="news-description">
+            {currentNews ?
+              <p>{currentNews.description ? currentNews.description : "This is news description."}</p>
+            :
+              <p>Wait ! Description is loading...</p>
+            }
+          </div>
+          <div className="extra-news">
+            <CategoryCardBtm title="Similar News" news={categoryNews} settings={oneSettings}/>
           </div>
         </div>
-        :
-        <div>Loading...</div>
-      }
+        <div className='newsdetails_side'>
+          <Headlines title="Recent Posts" news={categoryNews} len={5}/>
+          <Heading title='Stay Connected' />
+          <SocialMedia />
+          <ContactUs />
+        </div>
+      </div>
     </>
   )
 }
