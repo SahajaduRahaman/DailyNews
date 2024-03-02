@@ -26,7 +26,7 @@ const Hero = ({ politics, country, world, sports }) => {
                             </Link>
                             <div className='author flex'>
                                 <span>by {politics ? politics.reporterName : "Loading..."}</span>
-                                <DateAndTime dot={politics ? politics.date : "2020-05-11T20:14:14.796Z"} />
+                                <DateAndTime dot={politics ? politics.date : `${new Date().toISOString()}`} />
                             </div>
                         </div>
                     </div>
@@ -47,7 +47,7 @@ const Hero = ({ politics, country, world, sports }) => {
                             </Link>
                             <div className='author flex'>
                                 <span>by {country ? country.reporterName : "Loading..."}</span>
-                                <DateAndTime dot={country ? country.date : "2020-05-11T20:14:14.796Z"} />
+                                <DateAndTime dot={country ? country.date : `${new Date().toISOString()}`} />
                             </div>
                         </div>
                     </div>
@@ -68,7 +68,7 @@ const Hero = ({ politics, country, world, sports }) => {
                             </Link>
                             <div className='author flex'>
                                 <span>by {world ? world.reporterName : "Loading..."}</span>
-                                <DateAndTime dot={world ? world.date : "2020-05-11T20:14:14.796Z"} />
+                                <DateAndTime dot={world ? world.date : `${new Date().toISOString()}`} />
                             </div>
                         </div>
                     </div>
@@ -89,7 +89,7 @@ const Hero = ({ politics, country, world, sports }) => {
                             </Link>
                             <div className='author flex'>
                                 <span>by {sports ? sports.reporterName : "Loading..."}</span>
-                                <DateAndTime dot={sports ? sports.date : "2020-05-11T20:14:14.796Z"} />
+                                <DateAndTime dot={sports ? sports.date : `${new Date().toISOString()}`} />
                             </div>
                         </div>
                     </div>

@@ -67,7 +67,7 @@ const Editnews = ({ news, id, setVisible }) => {
 
                         <div className='edit-news-cat-date'>
                             <span className='newsdetails_category'>{updateNews ? updateNews.reporterName : "Reporter"}</span>
-                            <DateAndTime dot={updateNews ? updateNews.date : "2020-05-11T20:14:14.796Z"} />
+                            <DateAndTime dot={updateNews ? updateNews.date : `${new Date().toISOString()}`} />
                         </div>
                         <div className='edit-news_picture'>
                             {updateNews ?

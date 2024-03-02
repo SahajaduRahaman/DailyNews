@@ -60,9 +60,9 @@ const NewsDetails = () => {
                 <span className='newsdetails_category'>Loading...</span>
               }
               {currentNews ?
-                <DateAndTime dot={currentNews.date ? currentNews.date : "2020-05-11T20:14:14.796Z"}/>
+                <DateAndTime dot={currentNews.date ? currentNews.date : `${new Date().toISOString()}`}/>
               :
-                <DateAndTime dot="2020-05-11T20:14:14.796Z"/>
+                <DateAndTime dot={`${new Date().toISOString()}`}/>
               }
             </div>
             <div className='link_icons'>

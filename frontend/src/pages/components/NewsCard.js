@@ -18,18 +18,22 @@ const NewsCard = (props) => {
                     <div className='newsCard-box' key={item._id}>
                         <div className='newsCard-images'>
                             <div className='img'>
-                                <img src={item.file ? item.file.secure_url : DailyNewssample} alt={item.title}/>
+                                {item.file ?
+                                    <img src={item.file.secure_url ? item.file.secure_url : DailyNewssample} alt={item.title}/>
+                                :
+                                    <img src={DailyNewssample} alt="newspic"/>
+                                }
                             </div>
                             <div className='newsCard-category'>
-                                <span>{item.category}</span>
+                                <span>{item.category ? item.category : "Loading..."}</span>
                             </div>
                         </div>
                         <div className='newsCard-text'>
                             <Link to={AuthToken ? `/adminnewsdetails/${item._id}` : `/newsdetails/${item._id}`}>
-                            <h1 className='newsCard-title'>{item.title.slice(0, 80)}</h1>
+                            <h1 className='newsCard-title'>{item.title ? item.title.slice(0, 80) : "Wait for loading..."}</h1>
                             <div className='newsCard-date'>
                                 <i className='fas fa-calendar-days'></i>
-                                <DateAndTime dot={item.date} />
+                                <DateAndTime dot={item.date ? item.date : `${new Date().toISOString()}`} />
                             </div>
                             </Link>
                         </div>

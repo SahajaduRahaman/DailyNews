@@ -52,12 +52,16 @@ const Side = (props) => {
           {allNews ? 
             allNews.map((item) => {
               return (
-                <div className='img'>
-                  <img src={item.file ? item.file.secure_url : DailyNewssample} alt={item.title} key={item._id}/>
+                <div className='img gallery-img'>
+                  {item.file ?
+                    <img src={item.file.secure_url ? item.file.secure_url : DailyNewssample} alt={item.title} key={item._id}/>
+                  :
+                    <img src={DailyNewssample} alt={item.title} key={item._id}/>
+                  }
                 </div>
               )})
             :
-            <div className='img'>
+            <div className='img gallery-img'>
               <img src={DailyNewssample} alt="Gallery"/>
             </div>
           }

@@ -17,10 +17,10 @@ const Headlines = (props) => {
                     return (
                         <Link to={`/newsdetails/${item._id}`} key={item._id} >
                             <div className="headlines">
-                                <p>{item.title.slice(0, 100)}...</p>
+                                <p>{item.title ? item.title.slice(0, 100) : "Headlines are loading"}...</p>
                                 <div className="date">
                                     <i className='fas fa-calendar-days'></i>
-                                    <DateAndTime dot={item.date} />
+                                    <DateAndTime dot={item.date ? item.date : `${new Date().toISOString()}`} />
                                 </div>
                             </div>
                         </Link>

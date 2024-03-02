@@ -41,6 +41,12 @@
     overflow: hidden;
 }
 
+.gallery-img img{
+    min-width: 100%;
+    min-height: 200px;
+    transition: all .3s ease-in-out;
+}
+
 .img img:hover {
     transform: scale(1.08);
 }

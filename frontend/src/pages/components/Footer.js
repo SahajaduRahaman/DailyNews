@@ -1,5 +1,4 @@
 import React, { useContext } from 'react'
-import Sports from "../../assets/sports.jpg"
 import DnNews from "../../assets/DN Logo.png"
 import Email from "../../assets/email.png"
 import Phone from "../../assets/phone.png"
@@ -7,6 +6,7 @@ import "../../styles/Footer.css"
 import AuthContext from "../../context/ContextApi"
 import FilterCat from "../../rules/FilterCat"
 import { Link } from 'react-router-dom'
+import DailyNewssample from "../../assets/DailyNewsSample.jpg"
 
 
 const Footer = () => {
@@ -35,7 +35,7 @@ const Footer = () => {
               <h3>DailyNews</h3>
             </div>
             <div className="footer-info-details">
-              <p>DailyNews is an amazing magazine Blogger theme that is easy to customize for your needs.</p>
+              <p>Daily News: Your concise source for breaking stories, unbiased reporting, and essential updates. Stay informed, stay ahead.</p>
             </div>
             <div className="footer-contact">
               <img src={Email} alt="Email"  style={{width : 25, height : 25}}/>
@@ -49,19 +49,33 @@ const Footer = () => {
 
           <div className="footer-top-boxes">
             <h3>WORLD</h3>
-            {worldOne &&
+            {worldOne ?
               <Link to={`/newsdetails/${worldOne._id}`}>
                 <div className='item'>
-                  <img src={worldOne.file ? worldOne.file.secure_url : Sports} alt={worldOne.title} style={{width : 70, height : 50}}/>
-                  <p>{worldOne.title.slice(0, 60)}...</p>
+                  <img src={worldOne.file ? worldOne.file.secure_url : DailyNewssample} alt={worldOne.title} style={{width : 70, height : 50}}/>
+                  <p>{worldOne.title ? worldOne.title.slice(0, 60) : "Wait for loading"}...</p>
+                </div>
+              </Link>
+              :
+              <Link to={`/wait-for-loading}`}>
+                <div className='item'>
+                  <img src={DailyNewssample} alt="DailyNewssample" style={{width : 70, height : 50}}/>
+                  <p>Wait for loading...</p>
                 </div>
               </Link>
             }
-            {worldTwo &&
+            {worldTwo ?
               <Link to={`/newsdetails/${worldTwo._id}`}>
                 <div className='item'>
-                  <img src={worldTwo.file ? worldTwo.file.secure_url : Sports} alt={worldTwo.title} style={{width : 70, height : 50}}/>
-                  <p>{worldTwo.title.slice(0, 60)}...</p>
+                  <img src={worldTwo.file ? worldTwo.file.secure_url : DailyNewssample} alt={worldTwo.title} style={{width : 70, height : 50}}/>
+                  <p>{worldTwo.title ? worldTwo.title.slice(0, 60) : "Wait for loading"}...</p>
+                </div>
+              </Link>
+              :
+              <Link to={`/wait-for-loading}`}>
+                <div className='item'>
+                  <img src={DailyNewssample} alt="DailyNewssample" style={{width : 70, height : 50}}/>
+                  <p>Wait for loading...</p>
                 </div>
               </Link>
             }
@@ -69,19 +83,33 @@ const Footer = () => {
 
           <div className="footer-top-boxes">
             <h3>SPORTS</h3>
-            {sportsOne &&
+            {sportsOne ?
               <Link to={`/newsdetails/${sportsOne._id}`}>
                 <div className='item'>
-                  <img src={sportsOne.file ? sportsOne.file.secure_url : Sports} alt={sportsOne.title} style={{width : 70, height : 50}}/>
-                  <p>{sportsOne.title.slice(0, 60)}...</p>
+                  <img src={sportsOne.file ? sportsOne.file.secure_url : DailyNewssample} alt={sportsOne.title} style={{width : 70, height : 50}}/>
+                  <p>{sportsOne.title ? sportsOne.title.slice(0, 60) : "Wait for loading"}...</p>
+                </div>
+              </Link>
+              :
+              <Link to={`/wait-for-loading}`}>
+                <div className='item'>
+                  <img src={DailyNewssample} alt="DailyNewssample" style={{width : 70, height : 50}}/>
+                  <p>Wait for loading...</p>
                 </div>
               </Link>
             }
-            {sportsTwo &&
+            {sportsTwo ?
               <Link to={`/newsdetails/${sportsTwo._id}`}>
                 <div className='item'>
-                  <img src={sportsTwo.file ? sportsTwo.file.secure_url : Sports} alt={sportsTwo.title} style={{width : 70, height : 50}}/>
-                  <p>{sportsTwo.title.slice(0, 60)}...</p>
+                  <img src={sportsTwo.file ? sportsTwo.file.secure_url : DailyNewssample} alt={sportsTwo.title} style={{width : 70, height : 50}}/>
+                  <p>{sportsTwo.title ? sportsTwo.title.slice(0, 60) : "Wait for loading"}...</p>
+                </div>
+              </Link>
+              :
+              <Link to={`/wait-for-loading}`}>
+                <div className='item'>
+                  <img src={DailyNewssample} alt="DailyNewssample" style={{width : 70, height : 50}}/>
+                  <p>Wait for loading...</p>
                 </div>
               </Link>
             }
