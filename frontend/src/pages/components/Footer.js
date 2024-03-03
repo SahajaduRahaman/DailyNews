@@ -115,7 +115,7 @@ const Footer = () => {
             }
           </div>
           
-          <div className="footer-top-boxes">
+          <div className="footer-top-boxes news-count-box">
             <h3>NEWS</h3>
             <ul>
               <li>

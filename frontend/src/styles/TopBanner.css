@@ -1,15 +1,69 @@
 .top-banner_container {
     width: 100%;
     display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .banner-container {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
+    width: 100%;
+    display: flex;
+    align-items: center;
     margin: 20px;
+}
+
+.right-banner {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.left-banner {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .top-banner_container .banner-container img {
     width: 100%;
     height: 100px;
+    object-fit: fill;
+}
+
+@media only screen and (max-width: 1250px) {
+    .top-banner_container .banner-container img {
+        height: 120px;
+    }
+    .left-banner {
+        display: none;
+    }
+    .right-banner {
+        display: block;
+    }
+}
+
+@media only screen and (max-width: 1050px) {
+    .top-banner_container .banner-container img {
+        height: 100px;
+    }
+    .right-banner {
+        display: none;
+    }
+    .left-banner {
+        display: block;
+    }
+}
+
+@media only screen and (max-width: 850px) {
+    .top-banner_container .banner-container img {
+        height: 80px;
+    }
+}
+
+@media only screen and (max-width: 650px) {
+    .top-banner_container .banner-container img {
+        height: 70px;
+    }
 }

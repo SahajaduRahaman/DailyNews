@@ -5,9 +5,9 @@ const SettingsObj = {
         centerPadding: "0",
         slidesToShow: 1,
         infinite: true,
-        speed: 2000,
+        speed: 3000,
         autoplay: true,
-        autoplaySpeed: 2000,
+        autoplaySpeed: 3000,
         rows: 1,
         slidesPerRow: 1,
     },
@@ -17,13 +17,40 @@ const SettingsObj = {
         speed: 3000,
         autoplay: true,
         autoplaySpeed: 3000,
-        slidesToShow: 3,
-        slidesToScroll: 1,
+        slidesToShow: 4,
         responsive: [
             {
-                breakpoint: 800,
+                breakpoint: 1350,
+                settings: {
+                slidesToShow: 3,
+                slidesToScroll: 1,
+                },
+            },
+            {
+                breakpoint: 1050,
                 settings: {
                 slidesToShow: 2,
+                slidesToScroll: 1,
+                },
+            },
+            {
+                breakpoint: 850,
+                settings: {
+                slidesToShow: 3,
+                slidesToScroll: 1,
+                },
+            },
+            {
+                breakpoint: 650,
+                settings: {
+                slidesToShow: 2,
+                slidesToScroll: 1,
+                },
+            },
+            {
+                breakpoint: 450,
+                settings: {
+                slidesToShow: 1,
                 slidesToScroll: 1,
                 },
             },
@@ -32,11 +59,47 @@ const SettingsObj = {
     fourSettings : {
         dots: false,
         infinite: true,
-        speed: 2000,
+        speed: 3000,
         autoplay: true,
-        autoplaySpeed: 2000,
+        autoplaySpeed: 3000,
         slidesToShow: 4,
-        slidesToScroll: 1,
+        responsive: [
+            {
+                breakpoint: 1350,
+                settings: {
+                slidesToShow: 3,
+                slidesToScroll: 1,
+                },
+            },
+            {
+                breakpoint: 1050,
+                settings: {
+                slidesToShow: 2,
+                slidesToScroll: 1,
+                },
+            },
+            {
+                breakpoint: 850,
+                settings: {
+                slidesToShow: 3,
+                slidesToScroll: 1,
+                },
+            },
+            {
+                breakpoint: 650,
+                settings: {
+                slidesToShow: 2,
+                slidesToScroll: 1,
+                },
+            },
+            {
+                breakpoint: 450,
+                settings: {
+                slidesToShow: 1,
+                slidesToScroll: 1,
+                },
+            },
+        ],
     }
 }
 

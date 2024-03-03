@@ -1,28 +1,28 @@
 .navbar {
-    background-color: rgb(22, 21, 21);
+    background-color: rgb(8, 41, 46);
     width: 100%;
     height: 70px;
     display: flex;
     align-items: center;
     z-index: 999;
 }
-
 .navbar-container {
     display: flex;
     width: 100%;
     justify-content: space-between;
     align-items: center;
 }
-
 .navColorChange {
     transition: ease;
-    background-color: rgb(22, 21, 21);
+    background-color: rgb(7, 36, 53);
     color: white;
     left: 0;
     top: 0;
     position: sticky;
 }
-
+.menu-icon {
+    display: none;
+}
 .navbar-ul-li {
     display: flex;
     margin: 20px;
@@ -31,7 +31,6 @@
     gap: 5px;
     padding: 0;
 }
-
 .navbar-li {
     list-style: none;
     padding: 8px;
@@ -39,12 +38,10 @@
     transition-timing-function: ease-in-out;
     transition-duration: 0.3s;
 }
-
 .navbar-li:hover {
     transform: scale(1.2);
     z-index: 999;
 }
-
 .active {
     background-color: rgb(212, 50, 29);
     font-size: larger;
@@ -52,7 +49,6 @@
     color: rgb(255, 252, 252);
     box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
 }
-
 .navbar-li a {
     padding: 8px;
     text-decoration: none;
@@ -61,7 +57,6 @@
     font-size: larger;
     color: white;
 }
-
 .navbar-li a:hover {
     background-color: rgb(212, 50, 29);
     box-shadow: rgb(226, 36, 11) 0px 15px 30px -10px;
@@ -69,13 +64,70 @@
     color: rgb(71, 34, 34);
     color: white;
 }
-
 .navbar-li a:active {
     box-shadow: none;
 }
-
 .profile-logo {
     display: flex;
     margin-right: 20px;
     align-items: center;
+}
+.close-icon {
+    background-color: rgba(116, 12, 8, 0.11);
+    color: rgb(231, 87, 21);
+    /* padding: 10px; */
+    border-radius: 50%;
+    font-size: 25px;
+    position: absolute;
+    top: 0px;
+    right: 0px;
+}
+
+.menu-image {
+    display: none;
+}
+
+@media only screen and (max-width: 1300px) {
+    .navbar-container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .navbar-right-section {
+        position: fixed;
+		top: 0;
+		left: -100%;
+		height: 100%;
+        min-width: 20%;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: flex-start;
+		background-color: rgb(7, 26, 32);
+		transition: 1s;
+        z-index: 999;
+    }
+    .navbar-ul-li {
+        margin-top: 70px;
+        width: max-content;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+        justify-content: flex-start;
+    }
+    .menu-icon {
+        display: block;
+        margin: 20px;
+        color: white;
+        font-size: 25px;
+    }
+
+    .close-icon {
+        color: rgb(146, 17, 7);
+    }
+    .responsive_nav {
+		left: 0;
+		transform: translateX(0);
+	}
 }

@@ -26,52 +26,64 @@ const Side = (props) => {
 
   return (
     <>
-      <Headlines news={allNews} len={11}/>
+      <div className="side-box">
+        <Headlines news={allNews} len={11}/>
+      </div>
 
-      <Heading title='Advertisement' />
-      <section className='banner'>
-        <img src={Advertisement} alt='advertisement' />
-      </section>
+      <div className="side-box">
+        <Heading title='Advertisement' />
+        <section className='banner'>
+          <img src={Advertisement} alt='advertisement' />
+        </section>
+      </div>
 
-      <section className='category'>
-        <Heading title='Category' />
-        {catgeory.map((val, idx) => {
-          return (
-            <Link to={`/${val.toLocaleLowerCase()}`} className="sideCat">
-              <div className='category category1' key={idx}>
-                <span>{val}</span>
-              </div>
-            </Link>
-          )
-        })}
-      </section>
-
-      <section className='gallery'>
-        <Heading title='News Gallery' />
-        <Slider {...settings}>
-          {allNews ? 
-            allNews.map((item) => {
-              return (
-                <div className='img gallery-img'>
-                  {item.file ?
-                    <img src={item.file.secure_url ? item.file.secure_url : DailyNewssample} alt={item.title} key={item._id}/>
-                  :
-                    <img src={DailyNewssample} alt={item.title} key={item._id}/>
-                  }
+      <div className="side-box">
+        <section className='category'>
+          <Heading title='Category' />
+          {catgeory.map((val, idx) => {
+            return (
+              <Link to={`/${val.toLocaleLowerCase()}`} className="sideCat">
+                <div className='category category1' key={idx}>
+                  <span>{val}</span>
                 </div>
-              )})
-            :
-            <div className='img gallery-img'>
-              <img src={DailyNewssample} alt="Gallery"/>
-            </div>
-          }
-        </Slider>
-      </section>
+              </Link>
+            )
+          })}
+        </section>
+      </div>
 
-      <Heading title='Stay Connected' />
-      <SocialMedia />
+      <div className="side-box">
+        <section className='gallery'>
+          <Heading title='News Gallery' />
+          <Slider {...settings}>
+            {allNews ? 
+              allNews.map((item) => {
+                return (
+                  <div className='img gallery-img'>
+                    {item.file ?
+                      <img src={item.file.secure_url ? item.file.secure_url : DailyNewssample} alt={item.title} key={item._id}/>
+                    :
+                      <img src={DailyNewssample} alt={item.title} key={item._id}/>
+                    }
+                  </div>
+                )})
+              :
+              <div className='img gallery-img'>
+                <img src={DailyNewssample} alt="Gallery"/>
+              </div>
+            }
+          </Slider>
+        </section>
+      </div>
 
-      <ContactUs />
+      <div className="side-box">
+        <Heading title='Stay Connected' />
+        <SocialMedia />
+      </div>
+
+      <div className="side-box">
+        <ContactUs />
+      </div>
     </>
   )
 }

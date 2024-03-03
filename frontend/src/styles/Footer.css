@@ -1,7 +1,7 @@
 .footer-container {
     display: flex;
     flex-direction: column;
-    padding: 0 20px 0 20px;
+    padding: 0 20px;
     background: rgb(22, 21, 21);
     color: white;
 }
@@ -91,4 +91,20 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+}
+
+@media only screen and (max-width: 1250px) {
+    .footer-top-container {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 8px;
+    }
+}
+
+@media only screen and (max-width: 650px) {
+    .footer-top-container {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 8px;
+    }
 }
