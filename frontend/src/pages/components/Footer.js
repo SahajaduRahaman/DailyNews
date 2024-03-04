@@ -51,14 +51,14 @@ const Footer = () => {
             <h3>WORLD</h3>
             {worldOne ?
               <Link to={`/newsdetails/${worldOne._id}`}>
-                <div className='item'>
+                <div className='footer-item'>
                   <img src={worldOne.file ? worldOne.file.secure_url : DailyNewssample} alt={worldOne.title} style={{width : 70, height : 50}}/>
                   <p>{worldOne.title ? worldOne.title.slice(0, 60) : "Wait for loading"}...</p>
                 </div>
               </Link>
               :
               <Link to={`/wait-for-loading}`}>
-                <div className='item'>
+                <div className='footer-item'>
                   <img src={DailyNewssample} alt="DailyNewssample" style={{width : 70, height : 50}}/>
                   <p>Wait for loading...</p>
                 </div>
@@ -66,14 +66,14 @@ const Footer = () => {
             }
             {worldTwo ?
               <Link to={`/newsdetails/${worldTwo._id}`}>
-                <div className='item'>
+                <div className='footer-item'>
                   <img src={worldTwo.file ? worldTwo.file.secure_url : DailyNewssample} alt={worldTwo.title} style={{width : 70, height : 50}}/>
                   <p>{worldTwo.title ? worldTwo.title.slice(0, 60) : "Wait for loading"}...</p>
                 </div>
               </Link>
               :
               <Link to={`/wait-for-loading}`}>
-                <div className='item'>
+                <div className='footer-item'>
                   <img src={DailyNewssample} alt="DailyNewssample" style={{width : 70, height : 50}}/>
                   <p>Wait for loading...</p>
                 </div>
@@ -85,14 +85,14 @@ const Footer = () => {
             <h3>SPORTS</h3>
             {sportsOne ?
               <Link to={`/newsdetails/${sportsOne._id}`}>
-                <div className='item'>
+                <div className='footer-item'>
                   <img src={sportsOne.file ? sportsOne.file.secure_url : DailyNewssample} alt={sportsOne.title} style={{width : 70, height : 50}}/>
                   <p>{sportsOne.title ? sportsOne.title.slice(0, 60) : "Wait for loading"}...</p>
                 </div>
               </Link>
               :
               <Link to={`/wait-for-loading}`}>
-                <div className='item'>
+                <div className='footer-item'>
                   <img src={DailyNewssample} alt="DailyNewssample" style={{width : 70, height : 50}}/>
                   <p>Wait for loading...</p>
                 </div>
@@ -100,14 +100,14 @@ const Footer = () => {
             }
             {sportsTwo ?
               <Link to={`/newsdetails/${sportsTwo._id}`}>
-                <div className='item'>
+                <div className='footer-item'>
                   <img src={sportsTwo.file ? sportsTwo.file.secure_url : DailyNewssample} alt={sportsTwo.title} style={{width : 70, height : 50}}/>
                   <p>{sportsTwo.title ? sportsTwo.title.slice(0, 60) : "Wait for loading"}...</p>
                 </div>
               </Link>
               :
               <Link to={`/wait-for-loading}`}>
-                <div className='item'>
+                <div className='footer-item'>
                   <img src={DailyNewssample} alt="DailyNewssample" style={{width : 70, height : 50}}/>
                   <p>Wait for loading...</p>
                 </div>

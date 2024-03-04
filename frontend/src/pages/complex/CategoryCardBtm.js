@@ -11,13 +11,12 @@ import DailyNewssample from "../../assets/DailyNewsSample.jpg";
 const CategoryCardBtm = (props) => {
   const others = props.news;
   const settings = props.settings;
-  const sampleArray = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
 
   return (
     <>
       <section className="cardBtm">
         <Heading title={props.title} />
-        {others ?
+        {others &&
           <div className="cardBtm-container">
             <Slider {...settings}>
               {others.map((item) => {
@@ -26,7 +25,7 @@ const CategoryCardBtm = (props) => {
                     <div className="cardBtm-box cardBtm-shadow cardBtm-flexSB">
                       <div className="cardBtm-images">
                         <div className="cardBtm-img">
-                          {item ? (
+                          {item ?
                             <img
                               src={
                                 item.file
@@ -35,9 +34,9 @@ const CategoryCardBtm = (props) => {
                               }
                               alt={item.title}
                             />
-                          ) : (
+                          :
                             <img src={DailyNewssample} alt="newsimage" />
-                          )}
+                          }
                         </div>
                         <div className="cardBtm-catagory cardBtm-catagory1">
                           <span>
@@ -65,45 +64,9 @@ const CategoryCardBtm = (props) => {
                         </div>
                         <p className="cardBtm-desc">
                           {item.description
-                            ? item.description.slice(0, 400)
+                            ? item.description.slice(0, 200)
                             : "Wait for loading..."}
                         </p>
-                      </div>
-                    </div>
-                  </div>
-                )
-              })}
-            </Slider>
-          </div>
-        :
-          <div className="cardBtm-container">
-            <Slider {...settings}>
-              {sampleArray.map((itm) => {
-                return (
-                  <div className="cardBtm-items" key={Date.now()}>
-                    <div className="cardBtm-box cardBtm-shadow cardBtm-flexSB">
-                      <div className="cardBtm-images">
-                        <div className="cardBtm-img">
-                          {itm ? (
-                            <img src={DailyNewssample} alt={Date.now()}/>
-                          ) : (
-                            <img src={DailyNewssample} alt="newsimage" />
-                          )}
-                        </div>
-                        <div className="cardBtm-catagory cardBtm-catagory1">
-                          <span>Loading...</span>
-                        </div>
-                      </div>
-                      <div className="cardBtm-text">
-                        <Link to={`/wait-for-loading`}>
-                          <h1 className="cardBtm-title">Wait for loading...</h1>
-                        </Link>
-                        <div className="cardBtm-date">
-                          <i className="fas fa-calendar-days"></i>
-                          <DateAndTime
-                            dot={`${new Date().toISOString()}`}/>
-                        </div>
-                        <p className="cardBtm-desc">Wait for loading...</p>
                       </div>
                     </div>
                   </div>

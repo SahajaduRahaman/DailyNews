@@ -12,6 +12,12 @@
 .hero .box {
     position: relative;
     padding: 30px;
+    border-radius: 10px;
+    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+}
+
+.hero .box img {
+    border-radius: 10px;
 }
 
 .hero img {
@@ -62,12 +68,12 @@
 .hero .text h1 {
     font-weight: bold;
     margin: 10px 0;
-    font-size: 20px;
+    font-size: 1.4rem;
     color: black;
 }
 
 .hero .author span {
-    font-size: 15px;
+    font-size: 0.9rem;
     font-weight: bold;
     font-style: italic;
     margin-right: 10px;
@@ -81,10 +87,6 @@
     left: 0;
     right: 0;
     bottom: 0;
-}
-
-.hero .box:nth-child(1) h1 {
-    font-size: 28px;
 }
 
 .hero .box:nth-child(1) .category {
@@ -108,43 +110,6 @@
 }
 
 @media only screen and (max-width: 1300px) {
-    .hero .container {
-        display: grid;
-        grid-template-columns: repeat(8, 1fr);
-        grid-template-rows: repeat(12, 6.6vh);
-        grid-gap: 10px;
-    }
-    
-    .hero .box:nth-child(1) {
-        grid-column-start: 1;
-        grid-column-end: 6;
-        grid-row-start: 1;
-        grid-row-end: 9;
-    }
-    
-    .hero .box:nth-child(2) {
-        grid-column-start: 6;
-        grid-column-end: 9;
-        grid-row-start: 1;
-        grid-row-end: 5;
-    }
-    
-    .hero .box:nth-child(3) {
-        grid-column-start: 6;
-        grid-column-end: 9;
-        grid-row-start: 5;
-        grid-row-end: 9;
-    }
-    
-    .hero .box:nth-child(4) {
-        grid-column-start: 1;
-        grid-column-end: 9;
-        grid-row-start: 9;
-        grid-row-end: 13;
-    }
-}
-
-@media only screen and (max-width: 1000px) {
     .hero .container {
         grid-template-columns: repeat(8, 1fr);
         grid-template-rows: repeat(8, 6.6vh);
@@ -180,7 +145,7 @@
     }
 }
 
-@media only screen and (max-width: 650px) {
+@media only screen and (max-width: 600px) {
     .hero .container {
         grid-template-columns: repeat(8, 1fr);
         grid-template-rows: repeat(16, 4.5vh);
@@ -213,5 +178,23 @@
         grid-column-end: 9;
         grid-row-start: 13;
         grid-row-end: 17;
+    }
+
+    .hero .text h1 {
+        font-size: 1.2rem;
+    }
+    
+    .hero .author span {
+        font-size: 0.8rem;
+    }
+}
+
+@media only screen and (max-width: 400px) {
+    .hero .text h1 {
+        font-size: 1rem;
+    }
+    
+    .hero .author span {
+        font-size: 0.7rem;
     }
 }
