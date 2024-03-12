@@ -1,14 +1,14 @@
 {
   "files": {
-    "main.css": "/static/css/main.da73b648.css",
-    "main.js": "/static/js/main.19db0e54.js",
+    "main.css": "/static/css/main.8b332610.css",
+    "main.js": "/static/js/main.f02a9c08.js",
     "static/media/DailyNews Banner.jpg": "/static/media/DailyNews Banner.9ed49c5b4bda2657d077.jpg",
     "static/media/DailyNewsSample.jpg": "/static/media/DailyNewsSample.56d59ed2ededefc1f05b.jpg",
+    "static/media/Advertisement 2.jpg": "/static/media/Advertisement 2.4d14a2e31f5ad8a30fe4.jpg",
     "static/media/email.png": "/static/media/email.7ab83b8b8a051e8046e2.png",
     "static/media/DailyNewsText.png": "/static/media/DailyNewsText.e0c8f1499a2314f41ff3.png",
     "static/media/profile-logo.png": "/static/media/profile-logo.588d5f60b32e12cfdbd7.png",
     "static/media/add.png": "/static/media/add.b6f246205401ad769bea.png",
-    "static/media/sports.jpeg": "/static/media/sports.c222c88e632432647d3e.jpeg",
     "static/media/phone.png": "/static/media/phone.f944fb8424c67aee4bdb.png",
     "static/media/DN Logo.png": "/static/media/DN Logo.ae639a7bd449dd9a6848.png",
     "static/media/slick.svg": "/static/media/slick.2630a3e3eab21c607e21.svg",
@@ -16,11 +16,11 @@
     "static/media/slick.ttf": "/static/media/slick.c94f7671dcc99dce43e2.ttf",
     "static/media/slick.woff": "/static/media/slick.295183786cd8a1389865.woff",
     "index.html": "/index.html",
-    "main.da73b648.css.map": "/static/css/main.da73b648.css.map",
-    "main.19db0e54.js.map": "/static/js/main.19db0e54.js.map"
+    "main.8b332610.css.map": "/static/css/main.8b332610.css.map",
+    "main.f02a9c08.js.map": "/static/js/main.f02a9c08.js.map"
   },
   "entrypoints": [
-    "static/css/main.da73b648.css",
-    "static/js/main.19db0e54.js"
+    "static/css/main.8b332610.css",
+    "static/js/main.f02a9c08.js"
   ]
 }
