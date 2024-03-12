@@ -1,9 +1,10 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import "../../styles/Login.css"
 import { LogInApi } from '../../fetchApi/FetchAPI'
 import AuthContext from '../../context/ContextApi';
 import { useContext } from 'react';
+import WindowScroll from '../../rules/WindowScroll';
 
 const Login = () => {
   const Reducer = useContext(AuthContext)
@@ -15,6 +16,10 @@ const Login = () => {
     email : "",
     password : ""
   })
+
+  useEffect(() => {
+    WindowScroll()
+  },[])
 
   const HandleChange = (e) => {
     setLoginDetails({...loginDetails, [e.target.name]: e.target.value})

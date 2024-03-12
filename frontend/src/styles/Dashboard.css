@@ -85,26 +85,20 @@
     flex-direction: column;
     justify-content: flex-start;
     gap: 20px;
-    border: 1px solid red;
 }
-
-/* .dashboard-profile {
-    height: 80vh;
-    border: 1px solid rgb(4, 121, 136);
-}
-
-.dashboard-addnews {
-    height: 80vh;
-    border: 1px solid rgb(136, 204, 9);
-}
-
-.dashboard-admin-news {
-    height: 80vh;
-    border: 1px solid rgb(247, 0, 255);
-} */
 
 @media screen and (max-width: 1000px) {
     .hide {
         display: none;
+    }
+}
+
+@media only screen and (max-width: 400px) {
+    .dash-left {
+        width: 16%;
+    }
+    .dash-right {
+        width: 80%;
+        border-radius: none;
     }
 }

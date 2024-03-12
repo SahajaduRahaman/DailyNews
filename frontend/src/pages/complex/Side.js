@@ -2,12 +2,12 @@ import React from "react"
 import "../../styles/Side.css"
 import Slider from "react-slick"
 import Heading from "../components/Heading"
-import Advertisement from "../../assets/sports.jpeg"
 import SocialMedia from "../components/SocialMedia"
 import ContactUs from "../components/ContactUs"
 import Headlines from "../components/Headlines"
 import { Link } from "react-router-dom"
 import DailyNewssample from "../../assets/DailyNewsSample.jpg"
+import AdvertisementImg from "../../assets/Advertisement 2.jpg"
 
 
 const Side = (props) => {
@@ -33,7 +33,7 @@ const Side = (props) => {
       <div className="side-box">
         <Heading title='Advertisement' />
         <section className='banner'>
-          <img src={Advertisement} alt='advertisement' />
+          <img src={AdvertisementImg} alt='advertisement' />
         </section>
       </div>
 

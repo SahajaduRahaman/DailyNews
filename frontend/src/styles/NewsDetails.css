@@ -135,3 +135,43 @@
 .news-description {
     margin-top: 50px;
 }
+
+@media only screen and (max-width: 800px) {
+    .news-container {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .newsdetails_box {
+        width: 100%;
+    }
+    
+    .newsdetails_side {
+        width: 100%;
+    }
+}
+
+@media only screen and (max-width: 450px) {
+    .link_icons {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .ca_da_ti {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .news_info{
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+    }
+}
+
+@media only screen and (max-width: 400px) {
+    .news-links span {
+        display: none;
+    }
+}

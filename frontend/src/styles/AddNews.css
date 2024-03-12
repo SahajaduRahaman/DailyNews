@@ -122,3 +122,40 @@ textarea {
 .news-btn input:hover {
     background-color: rgb(5, 46, 134);
 }
+
+@media only screen and (max-width: 650px) {
+    .news-file_title_cat {
+        display: flex;
+        flex-direction: column;
+    }
+    .news-btn input{
+        min-width: max-content;
+    }
+    .file-box img {
+        width: 200px;
+        height: 200px;
+    }
+}
+
+@media only screen and (max-width: 400px) {
+    .addnews-container {
+        width: fit-content;
+    }
+    .news-file_title_cat {
+        display: flex;
+        flex-direction: column;
+    }
+    .news-box input{
+        width: 120px;
+    }
+    .file-box img {
+        width: fit-content;
+        height: 70px;
+    }
+}
+
+@media only screen and (max-width: 300px) {
+    .news-box input{
+        width: 90px;
+    }
+}

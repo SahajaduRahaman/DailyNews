@@ -82,11 +82,12 @@
 
 .hero .text {
     padding: 10px;
-    background-color: #bbccc08a;
+    background-color: #ffffffb7;
     position: absolute;
     left: 0;
     right: 0;
     bottom: 0;
+    border-radius: 0 0 10px 10px;
 }
 
 .hero .box:nth-child(1) .category {
@@ -109,23 +110,23 @@
     padding: 5px;
 }
 
-@media only screen and (max-width: 1300px) {
+@media only screen and (max-width: 1024px) {
     .hero .container {
-        grid-template-columns: repeat(8, 1fr);
+        grid-template-columns: repeat(10, 1fr);
         grid-template-rows: repeat(8, 6.6vh);
         grid-gap: 10px;
     }
     
     .hero .box:nth-child(1) {
         grid-column-start: 1;
-        grid-column-end: 5;
+        grid-column-end: 7;
         grid-row-start: 1;
         grid-row-end: 5;
     }
     
     .hero .box:nth-child(2) {
-        grid-column-start: 5;
-        grid-column-end: 9;
+        grid-column-start: 7;
+        grid-column-end: 11;
         grid-row-start: 1;
         grid-row-end: 5;
     }
@@ -139,13 +140,57 @@
     
     .hero .box:nth-child(4) {
         grid-column-start: 5;
-        grid-column-end: 9;
+        grid-column-end: 11;
         grid-row-start: 5;
         grid-row-end: 9;
     }
 }
 
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 650px) {
+    .hero .container {
+        grid-template-columns: repeat(8, 1fr);
+        grid-template-rows: repeat(6, 6.5vh);
+        grid-gap: 15px;
+    }
+    
+    .hero .box:nth-child(1) {
+        grid-column-start: 1;
+        grid-column-end: 6;
+        grid-row-start: 1;
+        grid-row-end: 4;
+    }
+    
+    .hero .box:nth-child(2) {
+        grid-column-start: 6;
+        grid-column-end: 9;
+        grid-row-start: 1;
+        grid-row-end: 4;
+    }
+    
+    .hero .box:nth-child(3) {
+        grid-column-start: 1;
+        grid-column-end: 4;
+        grid-row-start: 4;
+        grid-row-end: 7;
+    }
+    
+    .hero .box:nth-child(4) {
+        grid-column-start: 4;
+        grid-column-end: 9;
+        grid-row-start: 4;
+        grid-row-end: 7;
+    }
+
+    .hero .text h1 {
+        font-size: 1rem;
+    }
+    
+    .hero .author span {
+        font-size: 0.7rem;
+    }
+}
+
+@media only screen and (max-width: 450px) {
     .hero .container {
         grid-template-columns: repeat(8, 1fr);
         grid-template-rows: repeat(16, 4.5vh);

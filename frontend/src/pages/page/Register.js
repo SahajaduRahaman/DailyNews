@@ -1,8 +1,9 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { RegisterApi } from '../../fetchApi/FetchAPI'
 import { Link, useNavigate } from 'react-router-dom'
 import AuthContext from '../../context/ContextApi';
 import { useContext } from 'react';
+import WindowScroll from '../../rules/WindowScroll';
 
 const Register = () => {
   const Reducer = useContext(AuthContext)
@@ -16,6 +17,10 @@ const Register = () => {
     mobile : "",
     password : "",
   })
+
+  useEffect(() => {
+    WindowScroll()
+  },[])
 
   const HandleInputChange = (e) => {
     setRegisterDetails({...registerDetails, [e.target.name] : e.target.value})
@@ -56,7 +61,7 @@ const Register = () => {
           <label htmlFor="password">Password</label>
           <input value={registerDetails.password} type="password" name='password' id='password' required placeholder='Enter your password' onChange={(e) => HandleInputChange(e)}/>
 
-          <button className='login-btn'>Log In</button>
+          <button className='login-btn'>Sign Up</button>
 
           <div class="social">
             <div class="go">

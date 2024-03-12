@@ -29,21 +29,7 @@
         flex-direction: column;
     }
 
-    /* .news-btn {
-        width: 100%;
-        justify-content: flex-start;
-    } */
-
     .news-btn input{
         min-width: max-content;
-    }
-
-    .file-box img {
-        width: 20px;
-        height: 20px;
-    }
-
-    .addnews-container {
-        width: min-content;
     }
 }

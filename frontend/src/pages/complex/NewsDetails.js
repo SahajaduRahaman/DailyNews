@@ -65,26 +65,6 @@ const NewsDetails = () => {
                 <DateAndTime dot={`${new Date().toISOString()}`}/>
               }
             </div>
-            <div className='link_icons'>
-              {currentNews ?
-                <a href={currentNews.facebookLink ? currentNews.facebookLink : "https://www.youtube.com/watch?v=ts8i-6AtDfc&ab_channel=CKFreeVideoTemplates"} target='_blank' rel="noreferrer">
-                  <i className="fa-brands fa-facebook"></i>
-                </a>
-              :
-                <a href="https://www.youtube.com/watch?v=ts8i-6AtDfc&ab_channel=CKFreeVideoTemplates" target='_blank' rel="noreferrer">
-                  <i className="fa-brands fa-facebook"></i>
-                </a>
-              }
-              {currentNews ?
-                <a href={currentNews.youtubeLink ? currentNews.youtubeLink : "https://www.youtube.com/watch?v=ts8i-6AtDfc&ab_channel=CKFreeVideoTemplates"} target='_blank' rel="noreferrer">
-                  <i className="fa-brands fa-youtube"></i>
-                </a>
-              :
-                <a href="https://www.youtube.com/watch?v=ts8i-6AtDfc&ab_channel=CKFreeVideoTemplates" target='_blank' rel="noreferrer">
-                  <i className="fa-brands fa-youtube"></i>
-                </a>
-              }
-            </div>
           </div>
           <div className='newsdetails_picture'>
             {currentNews ? 

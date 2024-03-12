@@ -73,3 +73,10 @@
   color: #eaf0fb;
   text-align: center;
 }
+
+@media only screen and (max-width: 550px) {
+    .login-form {
+        width: 100%;
+        margin: 20px;
+    }
+}
