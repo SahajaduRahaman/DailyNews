@@ -88,9 +88,9 @@ const Profile = () => {
               <div className="news-file_title_cat">
                 <div className="file-box">
                   {profile.file ?
-                    <img src={profile.file.secure_url ? profile.file.secure_url : URL.createObjectURL(profile.file)} alt="ProfilePic" style={{ width : "200px", height: "200px"}}/>
+                    <img src={profile.file.secure_url ? profile.file.secure_url : URL.createObjectURL(profile.file)} alt="ProfilePic"/>
                     :
-                    <img src={ProfilePic} alt="ProfilePic" style={{ width : "200px", height: "200px"}}/>
+                    <img src={ProfilePic} alt="ProfilePic"/>
                   }
                   <label htmlFor="file">Change Picture</label>
                   <input type="file" id='file' name='file' onChange={(e) => setProfile({...profile, [e.target.name] : e.target.files[0]})}/>

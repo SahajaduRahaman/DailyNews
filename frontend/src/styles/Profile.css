@@ -22,3 +22,28 @@
 .pro-btn {
     margin-right: 35px;
 }
+
+@media only screen and (max-width: 650px) {
+    .news-file_title_cat {
+        display: flex;
+        flex-direction: column;
+    }
+
+    /* .news-btn {
+        width: 100%;
+        justify-content: flex-start;
+    } */
+
+    .news-btn input{
+        min-width: max-content;
+    }
+
+    .file-box img {
+        width: 20px;
+        height: 20px;
+    }
+
+    .addnews-container {
+        width: min-content;
+    }
+}

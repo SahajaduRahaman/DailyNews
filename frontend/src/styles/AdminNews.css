@@ -10,7 +10,7 @@
     position: sticky;
     left: 0;
     top: 85px;
-    z-index: 999;
+    z-index: 777;
     background-color: rgb(26, 93, 95);
     padding: 10px 20px;
     border-radius: 0 0 10px 10px;
@@ -23,3 +23,25 @@
     font-size: 15px;
 }
 
+.card-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+
+@media screen and (max-width: 1050px) {
+    .card-container {
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+}
+
+@media screen and (max-width: 750px) {
+    .card-container {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media screen and (max-width: 450px) {
+    .card-container {
+        grid-template-columns: 1fr;
+    }
+}

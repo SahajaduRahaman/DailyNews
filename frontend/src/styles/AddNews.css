@@ -31,6 +31,11 @@
     gap: 18px;
 }
 
+.file-box img {
+    width: 200px;
+    height: 200px;
+}
+
 .file-box label {
     background-color: rgb(24, 61, 43);
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
