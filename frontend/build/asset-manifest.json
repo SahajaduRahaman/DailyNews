@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/static/css/main.55086c04.css",
-    "main.js": "/static/js/main.f02a9c08.js",
+    "main.css": "/static/css/main.4d735f30.css",
+    "main.js": "/static/js/main.333bc13d.js",
     "static/media/DailyNews Banner.jpg": "/static/media/DailyNews Banner.9ed49c5b4bda2657d077.jpg",
     "static/media/DailyNewsSample.jpg": "/static/media/DailyNewsSample.56d59ed2ededefc1f05b.jpg",
     "static/media/Advertisement 2.jpg": "/static/media/Advertisement 2.4d14a2e31f5ad8a30fe4.jpg",
@@ -16,11 +16,11 @@
     "static/media/slick.ttf": "/static/media/slick.c94f7671dcc99dce43e2.ttf",
     "static/media/slick.woff": "/static/media/slick.295183786cd8a1389865.woff",
     "index.html": "/index.html",
-    "main.55086c04.css.map": "/static/css/main.55086c04.css.map",
-    "main.f02a9c08.js.map": "/static/js/main.f02a9c08.js.map"
+    "main.4d735f30.css.map": "/static/css/main.4d735f30.css.map",
+    "main.333bc13d.js.map": "/static/js/main.333bc13d.js.map"
   },
   "entrypoints": [
-    "static/css/main.55086c04.css",
-    "static/js/main.f02a9c08.js"
+    "static/css/main.4d735f30.css",
+    "static/js/main.333bc13d.js"
   ]
 }

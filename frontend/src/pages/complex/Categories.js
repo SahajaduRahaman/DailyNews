@@ -31,13 +31,7 @@ const Categories = () => {
             <main>
                 <div className='container'>
                     <section className='mainContent'>
-                        {!politics ?
-                            <div className='successfull'>
-                                <Lottie animationData={LoadingJsn} loop={true} />
-                            </div>
-                        :
-                            <CategoryCardTop title="Politics" news={politics} settings={fourSettings}/>
-                        }
+                        <CategoryCardTop title="Politics" news={politics} settings={fourSettings}/>
                         <CategoryCardTop title="Technology" news={technology} settings={threeSettings}/>
                         <CategoryCardTop title="Country" news={country} settings={fourSettings}/>
                         <CategoryCardTop title="World" news={world} settings={threeSettings}/>
