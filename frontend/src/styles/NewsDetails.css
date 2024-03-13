@@ -95,6 +95,16 @@
     font-size: 1.5rem;
 }
 
+.newsTitle h3 {
+    word-wrap: break-word;
+    word-break: break-all;
+}
+
+.news-description p {
+    word-wrap: break-word;
+    word-break: break-all;
+}
+
 .newsdetails_side .contact-us {
     margin-top: 20px;
 }

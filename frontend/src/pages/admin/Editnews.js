@@ -76,7 +76,7 @@ const Editnews = ({ news, id, setVisible }) => {
                                 <img src={DailyNewssample} alt="DailyNewssample" />
                             }
                             <label htmlFor="file" className="trans">
-                                <img src={ProPic} alt="addFileExamplePic"  style={{width:"300px", height:"300px"}}/>
+                                <img src={ProPic} alt="addFileExamplePic" />
                             </label>
                             <input type="file" name='file' id="file" onChange={(e) => setUpdateNews({...updateNews, [e.target.name] : e.target.files[0]})}/>
                         </div>

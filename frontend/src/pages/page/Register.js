@@ -33,7 +33,6 @@ const Register = () => {
       if (data.status === 200) {
         localStorage.setItem("authToken", data.data.authToken)
         dispatch({type : "register"})
-        alert("Register successfull.")
         Navigate("/dashboard")
       }
       else {

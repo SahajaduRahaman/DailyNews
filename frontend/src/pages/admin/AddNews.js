@@ -1,8 +1,10 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { AddNewsApi } from "../../fetchApi/FetchAPI";
 import AuthContext from "../../context/ContextApi";
 import "../../styles/AddNews.css"
 import DailyNewssample from "../../assets/DailyNewsSample.jpg"
+import Lottie from "lottie-react";
+import AddNewsLtt from "../../assets/Added.json"
 
 const AddNews = () => {
   const NewsContext = useContext(AuthContext)
@@ -15,6 +17,15 @@ const AddNews = () => {
     youtubeLink: "",
     facebookLink: "",
   });
+
+  const [ hidden, setHidden] = useState("");
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setHidden("");
+    }, 5000);
+    return () => clearTimeout(timer);
+}, [hidden]);
 
   const handleFormChange = (e) => {
     setNews({...news, [e.target.name]: e.target.value})
@@ -33,7 +44,7 @@ const AddNews = () => {
 
     AddNewsApi(formData).then((data) => {
       if (data.status === 200) {
-        alert("news added successfully.")
+        setHidden(data.data.status);
         setMyNews({type: "addNews", payload: news})
         setNews({
           title: "",
@@ -52,6 +63,11 @@ const AddNews = () => {
   return (
     <div className="addnews-container">
       <div className="addnews-box">
+        {hidden &&
+          <div className='addnews_lottie'>
+              <Lottie animationData={AddNewsLtt} loop={true} />
+          </div>
+        }
         <form action="" onSubmit={(e) => handleSubmit(e)}>
           <div className="news-box">
             <div className="news-file_title_cat">

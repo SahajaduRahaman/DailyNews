@@ -37,6 +37,13 @@
     border-radius: 10px;
 }
 
+.addnews_lottie {
+    position: absolute;
+    left: 40px;
+    top: 50px;
+    z-index: 888;
+}
+
 .file-box label {
     background-color: rgb(24, 61, 43);
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
@@ -135,6 +142,13 @@ textarea {
     .file-box img {
         width: 200px;
         height: 200px;
+    }
+
+    .addnews_lottie {
+        position: absolute;
+        left: calc(26%);
+        top: calc(18%);
+        z-index: 888;
     }
 }
 

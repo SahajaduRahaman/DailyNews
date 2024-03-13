@@ -2,6 +2,9 @@ import React, { useEffect, useState } from 'react'
 import { GetAdminApi, UpdateAdminApi } from '../../fetchApi/FetchAPI'
 import "../../styles/Profile.css"
 import ProfilePic from "../../assets/profile-logo.png"
+import Lottie from 'lottie-react'
+import AddNewsLtt from "../../assets/Added.json"
+
 
 const Profile = () => {
   const [profile, setProfile] = useState({})
@@ -11,6 +14,15 @@ const Profile = () => {
     mobile : false,
     about : false,
   })
+
+  const [ hidden, setHidden] = useState("");
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setHidden("");
+    }, 5000);
+    return () => clearTimeout(timer);
+  }, [hidden]);
 
   useEffect(() => {
     GetAdminApi().then((data) => {
@@ -38,7 +50,7 @@ const Profile = () => {
 
     UpdateAdminApi(formData).then((data) => {
       if (data.status === 200) {
-        alert("admin updated successfully.")
+        setHidden(data.data.status);
         GetAdminApi().then((data) => {
           if (data.status === 200) {
             setProfile(data.data.reporter)
@@ -83,6 +95,11 @@ const Profile = () => {
     <>
       <div className='addnews-container'>
         <div className="addnews-box">
+          {hidden &&
+            <div className='addnews_lottie'>
+                <Lottie animationData={AddNewsLtt} loop={true} />
+            </div>
+          }
           <form action="" onSubmit={(e) => HandleSubmit(e)}>
             <div className="news-box">
               <div className="news-file_title_cat">

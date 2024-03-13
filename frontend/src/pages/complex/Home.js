@@ -7,6 +7,7 @@ import { GetAllNewsApi } from '../../fetchApi/FetchAPI'
 import FilterCat from '../../rules/FilterCat'
 import WindowScroll from '../../rules/WindowScroll'
 
+
 const Home = () => {
   const NewsContext = useContext(AuthContext)
   const setMyNews = NewsContext.setMyNews

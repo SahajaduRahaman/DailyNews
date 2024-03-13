@@ -6,6 +6,8 @@ import "../../styles/Categories.css"
 import SettingsObj from "../../rules/SettingsObj"
 import AuthContext from "../../context/ContextApi"
 import FilterCat from "../../rules/FilterCat"
+import Lottie from "lottie-react"
+import LoadingJsn from "../../assets/Loading.json"
 
 
 const Categories = () => {
@@ -29,7 +31,13 @@ const Categories = () => {
             <main>
                 <div className='container'>
                     <section className='mainContent'>
-                        <CategoryCardTop title="Politics" news={politics} settings={fourSettings}/>
+                        {!politics ?
+                            <div className='successfull'>
+                                <Lottie animationData={LoadingJsn} loop={true} />
+                            </div>
+                        :
+                            <CategoryCardTop title="Politics" news={politics} settings={fourSettings}/>
+                        }
                         <CategoryCardTop title="Technology" news={technology} settings={threeSettings}/>
                         <CategoryCardTop title="Country" news={country} settings={fourSettings}/>
                         <CategoryCardTop title="World" news={world} settings={threeSettings}/>

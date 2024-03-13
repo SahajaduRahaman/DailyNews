@@ -6,6 +6,7 @@ import AuthContext from '../../context/ContextApi';
 import { useContext } from 'react';
 import WindowScroll from '../../rules/WindowScroll';
 
+
 const Login = () => {
   const Reducer = useContext(AuthContext)
   const dispatch = Reducer.dispatch;
@@ -31,7 +32,6 @@ const Login = () => {
       if (data.status === 200) {
         localStorage.setItem("authToken", data.data.authToken)
         dispatch({type : "login"})
-        alert("Login successfull.")
         Navigate("/dashboard")
       }
       else {
