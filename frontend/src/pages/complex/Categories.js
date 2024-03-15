@@ -6,8 +6,6 @@ import "../../styles/Categories.css"
 import SettingsObj from "../../rules/SettingsObj"
 import AuthContext from "../../context/ContextApi"
 import FilterCat from "../../rules/FilterCat"
-import Lottie from "lottie-react"
-import LoadingJsn from "../../assets/Loading.json"
 
 
 const Categories = () => {

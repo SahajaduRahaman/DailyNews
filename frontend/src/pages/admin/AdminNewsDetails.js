@@ -131,6 +131,7 @@ const AdminNewsDetails = () => {
                     </a>
                   } 
                 </div>
+                <div style={{ border : "1px solid black", marginTop : "20px"}}></div>
                 <div className="news-description">
                   {currentNews ?
                     <p>{currentNews.description ? currentNews.description : "This is description."}</p>

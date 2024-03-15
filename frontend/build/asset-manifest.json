@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/static/css/main.4d735f30.css",
-    "main.js": "/static/js/main.333bc13d.js",
+    "main.js": "/static/js/main.337d22b1.js",
     "static/media/DailyNews Banner.jpg": "/static/media/DailyNews Banner.9ed49c5b4bda2657d077.jpg",
     "static/media/DailyNewsSample.jpg": "/static/media/DailyNewsSample.56d59ed2ededefc1f05b.jpg",
     "static/media/Advertisement 2.jpg": "/static/media/Advertisement 2.4d14a2e31f5ad8a30fe4.jpg",
@@ -17,10 +17,10 @@
     "static/media/slick.woff": "/static/media/slick.295183786cd8a1389865.woff",
     "index.html": "/index.html",
     "main.4d735f30.css.map": "/static/css/main.4d735f30.css.map",
-    "main.333bc13d.js.map": "/static/js/main.333bc13d.js.map"
+    "main.337d22b1.js.map": "/static/js/main.337d22b1.js.map"
   },
   "entrypoints": [
     "static/css/main.4d735f30.css",
-    "static/js/main.333bc13d.js"
+    "static/js/main.337d22b1.js"
   ]
 }
